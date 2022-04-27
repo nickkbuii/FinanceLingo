@@ -4,27 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".create">
+    tools:context=".login">
 
     <ImageView
-        android:id="@+id/createLogo"
+        android:id="@+id/loginLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/financelingo_logo"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-98dp" />
+        tools:layout_editor_absoluteY="-86dp" />
 
     <TextView
-        android:id="@+id/createTitle"
-        android:layout_width="245dp"
-        android:layout_height="47dp"
-        android:text="Create Account"
+        android:id="@+id/loginTitle"
+        android:layout_width="98dp"
+        android:layout_height="50dp"
+        android:text="Login"
         android:textSize="35dp"
-        tools:layout_editor_absoluteX="83dp"
-        tools:layout_editor_absoluteY="254dp" />
+        tools:layout_editor_absoluteX="156dp"
+        tools:layout_editor_absoluteY="269dp" />
 
     <EditText
-        android:id="@+id/createUsernameInput"
+        android:id="@+id/loginUsernameInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -34,7 +34,7 @@
         tools:layout_editor_absoluteY="342dp" />
 
     <EditText
-        android:id="@+id/createPasswordInput"
+        android:id="@+id/loginPasswordInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -44,12 +44,12 @@
         tools:layout_editor_absoluteY="414dp" />
 
     <Button
-        android:id="@+id/createButton"
+        android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create Account"
         android:backgroundTint="#39c450"
-        tools:layout_editor_absoluteX="120dp"
-        tools:layout_editor_absoluteY="491dp" />
+        android:text="Login"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="489dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
