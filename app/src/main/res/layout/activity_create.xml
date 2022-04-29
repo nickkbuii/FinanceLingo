@@ -18,38 +18,48 @@
         android:id="@+id/createTitle"
         android:layout_width="245dp"
         android:layout_height="47dp"
+        android:layout_marginTop="244dp"
         android:text="Create Account"
         android:textSize="35dp"
-        tools:layout_editor_absoluteX="83dp"
-        tools:layout_editor_absoluteY="254dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/createUsernameInput"
+        android:id="@+id/user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginBottom="328dp"
         android:ems="10"
-        android:inputType="textPassword"
         android:hint="Username"
-        tools:layout_editor_absoluteX="103dp"
-        tools:layout_editor_absoluteY="342dp" />
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
-        android:id="@+id/createPasswordInput"
+        android:id="@+id/pw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginBottom="252dp"
         android:ems="10"
-        android:inputType="textPassword"
         android:hint="Password"
-        tools:layout_editor_absoluteX="103dp"
-        tools:layout_editor_absoluteY="414dp" />
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/createButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create Account"
+        android:layout_marginBottom="100dp"
         android:backgroundTint="#39c450"
-        tools:layout_editor_absoluteX="120dp"
-        tools:layout_editor_absoluteY="491dp" />
+        android:onClick="makeAcc"
+        android:text="Create"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="160dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

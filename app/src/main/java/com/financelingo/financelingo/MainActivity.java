@@ -1,13 +1,16 @@
 package com.financelingo.financelingo;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.Button;
 import android.view.View;
 import android.content.Intent;
 
 public class MainActivity extends AppCompatActivity {
-
     Button switchToCreate;
 
     @Override
@@ -23,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 
     private void switchActivities(){
         Intent switchActivityIntent = new Intent (this, create.class);
