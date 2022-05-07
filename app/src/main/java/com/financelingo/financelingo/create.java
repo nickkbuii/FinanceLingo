@@ -1,12 +1,13 @@
 package com.financelingo.financelingo;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
-import android.widget.Button;
 import android.view.View;
-import android.content.Intent;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import org.json.JSONException;
@@ -16,7 +17,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class create extends AppCompatActivity {
-    Button create;
+
     Users user;
     JSONObject json;
 
@@ -26,9 +27,22 @@ public class create extends AppCompatActivity {
         setContentView(R.layout.activity_create);
         user = new Users();
         json = new JSONObject();
+
+        if(!checkPermission()){
+            requestPermissions();
+        }
     }
 
-    public void makeAcc(View v) throws JSONException, IOException {
+    boolean checkPermission(){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.R){
+            return Environment.isExternalStorageManager();
+        }
+        else{
+            int readcheck = ContextCompat.checkSelfPermission(getApplicationContext(), READ_EXTERNAL_STORAGE);
+        }
+    }
+
+    public void makeAcc(View v) throws JSONException{
         TextView t = findViewById(R.id.user);
         String username = t.getText().toString();
 
@@ -38,18 +52,6 @@ public class create extends AppCompatActivity {
         Log.d("info", username);
         Log.d("info", password);
 
-        json.put("Username", "Test");
-        json.put("Password", "test");
-        System.out.println("here");
-
-
-        try(FileWriter file = new FileWriter("data/users.json", false)){
-            file.write(json.toString(4));
-            file.flush();
-        }
-        catch(IOException | JSONException e){
-            e.printStackTrace();
-        }
     }
 
 }
