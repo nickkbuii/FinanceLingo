@@ -6,6 +6,7 @@ import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONException;
 
@@ -33,11 +34,12 @@ public class create extends AppCompatActivity {
         User user = new User(username, password);
         DatabaseHelper db = new DatabaseHelper(create.this);
         if(db.addUser(user)){
-            Log.d("info", user.toString());
+            Toast.makeText(create.this, "Account Created", Toast.LENGTH_SHORT).show();
         }
         else{
-            Log.d("info", "No");
+            Toast.makeText(create.this, "Create Failed", Toast.LENGTH_SHORT).show();
         }
+        Log.d("testing", db.getUser("testing", "testing").toString());
     }
 
 }

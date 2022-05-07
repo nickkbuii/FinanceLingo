@@ -5,6 +5,7 @@ import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     private static final int REQUEST_PERMISSION_SETTING = 0;
     Button switchToCreate;
+    Button switchToLogin;
     boolean sentToSettings;
 
     @Override
@@ -30,14 +32,21 @@ public class MainActivity extends AppCompatActivity {
         switchToCreate.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                switchActivities();
+                switchActivities(create.class);
+            }
+        });
+        switchToLogin = findViewById(R.id.loginButton);
+        switchToLogin.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                switchActivities(login.class);
             }
         });
     }
 
 
-    private void switchActivities(){
-        Intent switchActivityIntent = new Intent (this, create.class);
+    private void switchActivities(Class c){
+        Intent switchActivityIntent = new Intent (this, c);
         startActivity(switchActivityIntent);
     }
 

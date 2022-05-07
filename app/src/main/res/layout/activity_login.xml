@@ -10,46 +10,55 @@
         android:id="@+id/loginLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="332dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:srcCompat="@drawable/financelingo_logo"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-86dp" />
+        tools:layout_editor_absoluteX="0dp" />
 
     <TextView
         android:id="@+id/loginTitle"
         android:layout_width="98dp"
         android:layout_height="50dp"
+        android:layout_marginTop="252dp"
         android:text="Login"
         android:textSize="35dp"
-        tools:layout_editor_absoluteX="156dp"
-        tools:layout_editor_absoluteY="269dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/loginUsernameInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:ems="10"
-        android:inputType="textPassword"
         android:hint="Username"
-        tools:layout_editor_absoluteX="103dp"
-        tools:layout_editor_absoluteY="342dp" />
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginTitle" />
 
     <EditText
         android:id="@+id/loginPasswordInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
         android:ems="10"
-        android:inputType="textPassword"
         android:hint="Password"
-        tools:layout_editor_absoluteX="103dp"
-        tools:layout_editor_absoluteY="414dp" />
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginUsernameInput" />
 
     <Button
         android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
         android:backgroundTint="#39c450"
         android:text="Login"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="489dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginPasswordInput" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
