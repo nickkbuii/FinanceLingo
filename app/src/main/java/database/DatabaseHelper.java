@@ -52,9 +52,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //Returns single user from database
     //Used for login
     public User getUser(String user, String pw){
-        String query = "SELECT * FROM USERS WHERE USERNAME = " + user + " AND PASSWORD = " + pw;
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor result = db.rawQuery(query, null);
+        List<User> list = getAll();
+        for(User i : list){
+            if(i.getName().equals(user) && i.getPw().equals(pw)){
+                return i;
+            }
+        }
+        return new User();
     }
 
     //Returns all users in database
@@ -65,13 +69,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor result = db.rawQuery(query, null);
         if(result.moveToFirst()){
-            Log.d("info", "Result");
             do{
                 int id = result.getInt(0);
                 String username = result.getString(1);
                 String password = result.getString(2);
 
                 User tempUser = new User(username, password);
+                Log.d("testing", tempUser.toString());
                 temp.add(tempUser);
             }while(result.moveToNext());
         }

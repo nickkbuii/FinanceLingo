@@ -9,6 +9,8 @@ public class User {
         this.password = password;
     }
 
+    public User() {}
+
     //Getter setter
     public String getName() {
         return username;

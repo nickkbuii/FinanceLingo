@@ -35,12 +35,13 @@ public class create extends AppCompatActivity {
         User user = new User(username, password);
         DatabaseHelper db = new DatabaseHelper(create.this);
         if(db.addUser(user)){
-            Log.d("info", user.toString());
+            Log.d("info", "hello");
         }
         else{
             Log.d("info", "No");
         }
 
+        Log.d("testing", db.getUser("testing", "testing").toString());
 
 
     }
