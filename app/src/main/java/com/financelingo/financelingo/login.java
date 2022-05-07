@@ -25,7 +25,5 @@ public class login extends AppCompatActivity {
         t = findViewById(R.id.pw);
         String password = t.getText().toString();
 
-        db.getUser()
-
     }
 }

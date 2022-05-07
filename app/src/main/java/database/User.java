@@ -3,8 +3,9 @@ package database;
 public class User {
     private String username;
     private String password;
+    private String email;
 
-    public User(String name, String password) {
+    public User(String name, String password, String email) {
         this.username = name;
         this.password = password;
     }

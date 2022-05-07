@@ -31,7 +31,7 @@ public class create extends AppCompatActivity {
         t = findViewById(R.id.pw);
         String password = t.getText().toString();
 
-        User user = new User(username, password);
+        User user = new User(username, password, "");
         DatabaseHelper db = new DatabaseHelper(create.this);
         if(db.addUser(user)){
             Toast.makeText(create.this, "Account Created", Toast.LENGTH_SHORT).show();
