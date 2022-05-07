@@ -55,6 +55,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String query = "SELECT * FROM USERS WHERE USERNAME = " + user + " AND PASSWORD = " + pw;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor result = db.rawQuery(query, null);
+
+        return new User();
     }
 
     //Returns all users in database
