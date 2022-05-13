@@ -21,6 +21,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="252dp"
         android:text="Login"
+        android:textColor="@color/black"
         android:textSize="35dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

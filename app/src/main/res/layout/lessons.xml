@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ProgressBar
+        android:id="@+id/BudgetingProgressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="261dp"
+        android:layout_height="275dp"
+        android:layout_marginTop="216dp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="75dp" />
+
+    <ImageView
+        android:id="@+id/lessonsLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/financelingo_logo__2_"
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="31dp" />
+
+    <ImageButton
+        android:id="@+id/budgetingButton"
+        android:layout_width="273dp"
+        android:layout_height="300dp"
+        android:layout_marginBottom="356dp"
+        android:background="#00FFFFFF"
+        android:scaleX="0.4"
+        android:scaleY="0.4"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:srcCompat="@drawable/financelingo__2_"
+        tools:layout_editor_absoluteX="63dp" />
+
+    <TextView
+        android:id="@+id/budgetingTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Budgeting"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        tools:layout_editor_absoluteX="139dp"
+        tools:layout_editor_absoluteY="479dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
