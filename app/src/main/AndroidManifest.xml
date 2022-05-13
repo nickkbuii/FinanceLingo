@@ -16,10 +16,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FinanceLingo">
         <activity
-            android:name=".login"
+            android:name=".Login"
             android:exported="false" />
         <activity
-            android:name=".create"
+            android:name=".Create"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

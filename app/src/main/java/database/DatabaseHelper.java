@@ -23,7 +23,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String stmnt = "CREATE TABLE USERS (" +
                 "ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "USERNAME TEXT, " +
-                "PASSWORD VARCHAR)";
+                "PASSWORD VARCHAR," +
+                "LESSON INTEGER)";
 
         sqLiteDatabase.execSQL(stmnt);
     }
@@ -50,7 +51,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //Returns single user from database
-    //Used for login
+    //Used for Login
     public User getUser(String user, String pw){
         List<User> list = getAll();
         for(User i : list){
@@ -58,7 +59,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 return i;
             }
         }
-        return new User();
+        return null;
     }
 
     //Returns all users in database
@@ -75,7 +76,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 String password = result.getString(2);
 
                 User tempUser = new User(username, password);
-                Log.d("testing", tempUser.toString());
                 temp.add(tempUser);
             }while(result.moveToNext());
         }
@@ -84,7 +84,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         result.close();
-        db.close();
         return temp;
     }
 
