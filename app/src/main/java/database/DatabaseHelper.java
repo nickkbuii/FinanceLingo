@@ -41,13 +41,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cv.put("PASSWORD", user.getPw());
 
         long insert = db.insert("USERS", null, cv);
+        Log.d("Testing", "Hi");
 
-        if(insert == -1){
-            return false;
-        }
-        else{
-            return true;
-        }
+        return insert != -1;
     }
 
     //Returns single user from database
@@ -76,6 +72,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 String password = result.getString(2);
 
                 User tempUser = new User(username, password);
+                Log.d("Testng", tempUser.toString());
                 temp.add(tempUser);
             }while(result.moveToNext());
         }
