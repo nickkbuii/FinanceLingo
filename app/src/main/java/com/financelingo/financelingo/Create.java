@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,11 +15,13 @@ import database.DatabaseHelper;
 import database.User;
 
 public class Create extends AppCompatActivity {
+    DatabaseHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create);
+        db = new DatabaseHelper(Create.this);
     }
 
     private void switchActivities(Class c){
@@ -34,8 +37,14 @@ public class Create extends AppCompatActivity {
         t = findViewById(R.id.pw);
         String password = t.getText().toString();
 
+//        /*Testing something*/
+//        Button b = findViewById(R.id.createButton);
+//        if(b.getTag().equals("correct")){
+//            Log.d("Testing", "this is correct");
+//        }
+
         User user = new User(username, password);
-        DatabaseHelper db = new DatabaseHelper(Create.this);
+
         if(db.addUser(user)){
             Toast.makeText(Create.this, "Account Created", Toast.LENGTH_SHORT).show();
         }
