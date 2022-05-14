@@ -10,8 +10,9 @@
                 android:topRightRadius="100dp"
                 />
 
-            <color
-                android:
+            <gradient
+                android:startColor="@color/white"
+                android:endColor="@color/white"
                 />
 
         </shape>
