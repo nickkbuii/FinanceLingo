@@ -4,39 +4,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/gradient_background">
 
 
     <ImageView
         android:id="@+id/homeLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="invisible"
         app:srcCompat="@drawable/financelingo_logo"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="10dp" />
+        tools:layout_editor_absoluteY="-1dp" />
 
     <Button
         android:id="@+id/loginButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginLeft="160dp"
-        android:layout_marginBottom="25dp"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="4dp"
         android:backgroundTint="#39c450"
+        android:fontFamily="sans-serif-light"
         android:onClick="makeAcc"
-        android:text="Login"
+        android:text="Sign In"
+        android:textSize="16sp"
+        app:backgroundTint="#9B86C4"
         app:layout_constraintBottom_toTopOf="@+id/createButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/createButton"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="232dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="160dp"
         android:backgroundTint="#39c450"
-        android:text="Create Account"
+        android:fontFamily="sans-serif-light"
+        android:text="Sign Up"
+        android:textColor="#673AB7"
+        app:backgroundTint="#9B86C4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
 
 
