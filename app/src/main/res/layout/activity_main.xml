@@ -5,8 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/gradient_background">
+    android:background="@drawable/gradient_background"
+    >
 
+    <ImageView
+        android:layout_width="410dp"
+        android:layout_height="400dp"
+        android:background="@drawable/liquid_shape"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="328dp" />
+
+    <ImageView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:background="@drawable/pig_coin_book"
+        />
 
     <ImageView
         android:id="@+id/homeLogo"
@@ -20,14 +33,16 @@
     <Button
         android:id="@+id/loginButton"
         style="@style/Widget.AppCompat.Button"
-        android:layout_width="250dp"
-        android:layout_height="40dp"
+        android:layout_width="325dp"
+        android:layout_height="45dp"
         android:layout_marginBottom="4dp"
         android:backgroundTint="#39c450"
+        android:capitalize="none"
+        android:checkable="false"
         android:fontFamily="sans-serif-light"
         android:onClick="makeAcc"
         android:text="Sign In"
-        android:textSize="16sp"
+        android:textSize="18sp"
         app:backgroundTint="#9B86C4"
         app:layout_constraintBottom_toTopOf="@+id/createButton"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,18 +52,42 @@
     <Button
         android:id="@+id/createButton"
         style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:layout_marginBottom="160dp"
+        android:layout_width="116dp"
+        android:layout_height="46dp"
+        android:layout_marginBottom="140dp"
         android:backgroundTint="#39c450"
         android:fontFamily="sans-serif-light"
         android:text="Sign Up"
         android:textColor="#673AB7"
+        android:textSize="18dp"
         app:backgroundTint="#9B86C4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_light"
+        android:text="Welcome To"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="140dp"
+        tools:layout_editor_absoluteY="94dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_bold"
+        android:text="FinanceLingo"
+        android:textColor="#FDFDFD"
+        android:textSize="40sp"
+        tools:layout_editor_absoluteX="84dp"
+        tools:layout_editor_absoluteY="126dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
