@@ -16,15 +16,16 @@
         tools:layout_editor_absoluteY="328dp" />
 
     <ImageView
-        android:layout_height="match_parent"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="@drawable/pig_coin_book"
-        />
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="87dp" />
 
     <ImageView
         android:id="@+id/homeLogo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="102dp"
+        android:layout_height="102dp"
         android:visibility="invisible"
         app:srcCompat="@drawable/financelingo_logo"
         tools:layout_editor_absoluteX="0dp"
