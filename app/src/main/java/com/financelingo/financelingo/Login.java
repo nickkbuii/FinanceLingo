@@ -30,7 +30,7 @@ public class Login extends AppCompatActivity {
 
         Log.d("testing", "Hi");
         if(db.getUser(username, password) != null){
-            Log.d("info", db.getUser(username, password).toString());
+            switchActivities(Login.this, Lesson.class);
         }
     }
 

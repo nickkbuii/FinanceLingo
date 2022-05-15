@@ -42,7 +42,7 @@ public class Create extends AppCompatActivity {
         t = findViewById(R.id.pw);
         String password = t.getText().toString();
 
-        if(checkPass(password) != null){
+        if(checkPass(password) != ""){
             Toast.makeText(Create.this, checkPass(password), Toast.LENGTH_LONG).show();
             return;
         }
@@ -66,17 +66,23 @@ public class Create extends AppCompatActivity {
     }
 
     public String checkPass(String pass){
-        if(!Character.isUpperCase(pass.charAt(0))){
-            return "Password must have atleast 1 uppercase Letter!";
-        }
-        if(pass.length() < 8){
-            return "Password must be atleast 8 letters long!";
-        }
-        if(pass.matches(".*\\d.*")){
-            return "Password must contain a number!";
+        String send = "";
+        boolean hasUpper = false;
+        for(char c : pass.toCharArray()){
+            if(Character.isUpperCase(c)){
+                hasUpper = true;
+            }
         }
 
-        return null;
+        if(!hasUpper){
+            send += "Password must have an uppercase letter\n";
+        }
+        if(pass.length() < 8){
+            send +=  "Password must be atleast 8 letters long!\n";
+        }
+
+
+        return send;
     }
 
     public void switchActivities(Context context, Class c){

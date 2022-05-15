@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         switchToLogin.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                switchActivities(MainActivity.this, Login.class);
+                switchActivities(MainActivity.this, Lesson.class);
             }
         });
     }
