@@ -41,7 +41,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cv.put("PASSWORD", user.getPw());
 
         long insert = db.insert("USERS", null, cv);
-        Log.d("Testing", "Hi");
 
         return insert != -1;
     }
@@ -58,6 +57,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return null;
     }
 
+    public boolean checkUser(String user){
+        for(User i : getAll()){
+            if(i.getName().equals(user)){
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     //Returns all users in database
     public List<User> getAll(){
         List<User> temp = new ArrayList<>();
@@ -72,7 +81,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 String password = result.getString(2);
 
                 User tempUser = new User(username, password);
-                Log.d("Testng", tempUser.toString());
                 temp.add(tempUser);
             }while(result.moveToNext());
         }

@@ -34,14 +34,24 @@ public class Create extends AppCompatActivity {
         TextView t = findViewById(R.id.user);
         String username = t.getText().toString();
 
+        if(!db.checkUser(username)){
+            Toast.makeText(Create.this, "USER TAKEN", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         t = findViewById(R.id.pw);
         String password = t.getText().toString();
 
-//        /*Testing something*/
-//        Button b = findViewById(R.id.createButton);
-//        if(b.getTag().equals("correct")){
-//            Log.d("Testing", "this is correct");
-//        }
+        if(checkPass(password) != null){
+            Toast.makeText(Create.this, checkPass(password), Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        /*Testing something*/
+        Button b = findViewById(R.id.createButton);
+        if(b.getTag().equals("correct")){
+            Log.d("Testing", "this is correct");
+        }
 
         User user = new User(username, password);
 
@@ -51,8 +61,22 @@ public class Create extends AppCompatActivity {
         else{
             Toast.makeText(Create.this, "Create Failed", Toast.LENGTH_SHORT).show();
         }
-        Log.d("testing", db.getUser("testing", "testing").toString());
+        //Log.d("testing", db.getUser("testing", "testing").toString());
         switchActivities(Create.this, MainActivity.class);
+    }
+
+    public String checkPass(String pass){
+        if(!Character.isUpperCase(pass.charAt(0))){
+            return "Password must have atleast 1 uppercase Letter!";
+        }
+        if(pass.length() < 8){
+            return "Password must be atleast 8 letters long!";
+        }
+        if(pass.matches(".*\\d.*")){
+            return "Password must contain a number!";
+        }
+
+        return null;
     }
 
     public void switchActivities(Context context, Class c){
