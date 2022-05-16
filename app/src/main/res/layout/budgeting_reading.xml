@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Lesson">
+
+
+    <TextView
+        android:id="@+id/budgetingReadingTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Budgeting"
+        android:textColor="@color/black"
+        android:textSize="45dp"
+        tools:layout_editor_absoluteX="103dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/budgetingReadingP1"
+        android:layout_width="353dp"
+        android:layout_height="95dp"
+        android:text="It’s recommended that your post-tax income is spent according to the 50/30/20 rule:"
+        android:textColor="@color/black"
+        android:textSize="22dp"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="93dp" />
+
+    <TextView
+        android:id="@+id/budgetingReadingP2"
+        android:layout_width="355dp"
+        android:layout_height="483dp"
+        android:text="50% Expenses: necessary payments and purchases that you can’t avoid such as your mortgage, phone payment, rent, car payments, food, tuition, insurance, utilities. \n\n 30% Savings: money that isn’t spent but rather put aside for an emergency fund, investments (stocks, real estate, 401k, IRA), paying off debt \n\n 20% Fun: the remainder of your income that goes towards non-essential things that you want such as monthly subscriptions (Netflix, Spotify, etc), travel, dining out, shopping."
+        android:textColor="@color/black"
+        android:textSize="22dp"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="346dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

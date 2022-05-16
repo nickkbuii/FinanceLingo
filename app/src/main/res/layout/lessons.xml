@@ -27,14 +27,14 @@
         android:id="@+id/budgetingButton"
         android:layout_width="273dp"
         android:layout_height="300dp"
-        android:layout_marginBottom="356dp"
+        android:layout_marginBottom="364dp"
         android:background="#00FFFFFF"
         android:scaleX="0.4"
         android:scaleY="0.4"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:srcCompat="@drawable/financelingo__2_"
-        tools:layout_editor_absoluteX="63dp" />
+        tools:layout_editor_absoluteX="69dp" />
 
     <TextView
         android:id="@+id/budgetingTitle"
@@ -43,7 +43,7 @@
         android:text="Budgeting"
         android:textColor="@color/black"
         android:textSize="30dp"
-        tools:layout_editor_absoluteX="139dp"
-        tools:layout_editor_absoluteY="479dp" />
+        tools:layout_editor_absoluteX="138dp"
+        tools:layout_editor_absoluteY="477dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
