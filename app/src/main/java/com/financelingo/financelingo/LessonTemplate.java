@@ -22,7 +22,7 @@ import android.widget.Toast;
 
 import database.DatabaseHelper;
 
-public class Lesson extends AppCompatActivity {
+public class LessonTemplate extends AppCompatActivity {
     DatabaseHelper db;
     int barAmount = 0;
 
@@ -30,7 +30,7 @@ public class Lesson extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.budgeting_lesson);
-        db = new DatabaseHelper(Lesson.this);
+        db = new DatabaseHelper(LessonTemplate.this);
     }
 
     public void checkCorrect(View view){
