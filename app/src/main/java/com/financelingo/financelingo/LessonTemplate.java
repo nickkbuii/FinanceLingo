@@ -3,21 +3,14 @@ package com.financelingo.financelingo;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
 
 import database.DatabaseHelper;
@@ -48,7 +41,7 @@ public class LessonTemplate extends AppCompatActivity {
 
     }
 
-    public void animateBar(ProgressBar bar, int amount){
+    private void animateBar(ProgressBar bar, int amount){
         ValueAnimator animator = ValueAnimator.ofInt(barAmount, barAmount+amount);
         barAmount += amount;
         animator.setDuration(1500);
@@ -66,8 +59,9 @@ public class LessonTemplate extends AppCompatActivity {
             }
         });
         animator.start();
-
     }
+
+
 
 
 }

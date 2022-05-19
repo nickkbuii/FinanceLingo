@@ -21,7 +21,10 @@
             android:name=".Create"
             android:exported="false" />
         <activity
-            android:name=".Lesson"
+            android:name=".LessonTemplate"
+            android:exported="false" />
+        <activity
+            android:name=".ReadingTemplate"
             android:exported="false" />
         <activity
             android:name=".Lessons"
