@@ -127,8 +127,10 @@
 
     <TextView
         android:id="@+id/question"
-        android:layout_width="192dp"
-        android:layout_height="83dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.08"
+        app:layout_constraintWidth_percent="0.72"
         android:fontFamily="@font/roboto_black"
         android:text="Is ballz big?"
         android:textAlignment="center"
