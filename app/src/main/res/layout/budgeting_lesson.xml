@@ -47,7 +47,6 @@
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_marginBottom="420dp"
-        android:background="@color/white"
         android:checkable="false"
         android:onClick="checkCorrect"
         android:tag="incorrect"
@@ -55,7 +54,7 @@
         android:textAllCaps="false"
         android:textColor="#000000"
         app:backgroundTint="#00E8E8E8"
-        app:iconTint="#FFFFFF"
+        app:iconTint="#00BCD4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView3"
         app:layout_constraintStart_toStartOf="@+id/imageView3" />

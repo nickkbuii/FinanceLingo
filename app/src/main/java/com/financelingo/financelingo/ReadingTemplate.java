@@ -28,6 +28,5 @@ public class ReadingTemplate extends AppCompatActivity {
 
         Dialog dialog = builder.create();
         dialog.show();
-
     }
 }

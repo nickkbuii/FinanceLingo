@@ -4,8 +4,11 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Layout;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -27,6 +30,8 @@ public class LessonTemplate extends AppCompatActivity {
     }
 
     public void checkCorrect(View view){
+        view.setBackgroundColor(Color.CYAN);
+
         TextView text = findViewById(R.id.notify);
         ProgressBar bar = findViewById(R.id.progressBar);
 
@@ -38,7 +43,6 @@ public class LessonTemplate extends AppCompatActivity {
             text.setText("Wrong!!");
             animateBar(bar, -5);
         }
-
     }
 
     private void animateBar(ProgressBar bar, int amount){
@@ -60,6 +64,8 @@ public class LessonTemplate extends AppCompatActivity {
         });
         animator.start();
     }
+
+
 
 
 
