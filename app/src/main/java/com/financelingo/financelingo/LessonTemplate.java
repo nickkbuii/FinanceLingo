@@ -16,17 +16,16 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 
-import database.DatabaseHelper;
 
 public class LessonTemplate extends AppCompatActivity {
-    DatabaseHelper db;
+    //DatabaseHelper db;
     int barAmount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.budgeting_lesson);
-        db = new DatabaseHelper(LessonTemplate.this);
+        //db = new DatabaseHelper(LessonTemplate.this);
     }
 
     public void checkCorrect(View view){

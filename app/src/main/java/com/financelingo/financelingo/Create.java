@@ -11,17 +11,17 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import database.DatabaseHelper;
+import database.Database;
 import database.User;
 
 public class Create extends AppCompatActivity {
-    DatabaseHelper db;
+    Database db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create);
-        db = new DatabaseHelper(Create.this);
+        db = new Database();
     }
 
     private void switchActivities(Class c){
@@ -34,10 +34,11 @@ public class Create extends AppCompatActivity {
         TextView t = findViewById(R.id.user);
         String username = t.getText().toString();
 
-        if(!db.checkUser(username)){
-            Toast.makeText(Create.this, "USER TAKEN", Toast.LENGTH_SHORT).show();
-            return;
-        }
+        //FIX LATER
+//        if(!db.checkUser(username)){
+//            Toast.makeText(Create.this, "USER TAKEN", Toast.LENGTH_SHORT).show();
+//            return;
+//        }
 
         t = findViewById(R.id.pw);
         String password = t.getText().toString();
@@ -55,12 +56,12 @@ public class Create extends AppCompatActivity {
 
         User user = new User(username, password);
 
-        if(db.addUser(user)){
-            Toast.makeText(Create.this, "Account Created", Toast.LENGTH_SHORT).show();
-        }
-        else{
-            Toast.makeText(Create.this, "Create Failed", Toast.LENGTH_SHORT).show();
-        }
+        db.addUser(user).addOnSuccessListener(suc -> {
+            Toast.makeText(this, "Account Created!", Toast.LENGTH_SHORT).show();
+        }).addOnFailureListener(er -> {
+            Toast.makeText(this, "Create Failed", Toast.LENGTH_SHORT).show();
+        });
+
         //Log.d("testing", db.getUser("testing", "testing").toString());
         switchActivities(Create.this, MainActivity.class);
     }

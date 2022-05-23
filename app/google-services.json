@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "575375921072",
+    "project_id": "financelingo-bd340",
+    "storage_bucket": "financelingo-bd340.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:575375921072:android:27609c8ac8f379e9761075",
+        "android_client_info": {
+          "package_name": "com.financelingo.financelingo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "575375921072-587h450mmn6u8dshgi22537scptmekr0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDeCVmVojPT-dx71ZfTuezV5kToRBMD-ho"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "575375921072-587h450mmn6u8dshgi22537scptmekr0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
