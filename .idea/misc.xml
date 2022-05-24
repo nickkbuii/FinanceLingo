@@ -3,20 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/GandhiKhush1666/AndroidStudioProjects/Finance_Lingo/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.109" />
         <entry key="..\:/Users/GandhiKhush1666/AndroidStudioProjects/Finance_Lingo/app/src/main/res/drawable/gradient_background.xml" value="0.236" />
         <entry key="..\:/Users/GandhiKhush1666/AndroidStudioProjects/Finance_Lingo/app/src/main/res/drawable/gradient_background_light_green_to_green.xml" value="0.236" />
-        <entry key="..\:/Users/GandhiKhush1666/AndroidStudioProjects/Finance_Lingo/app/src/main/res/drawable/green.xml" value="0.2215" />
         <entry key="..\:/Users/GandhiKhush1666/AndroidStudioProjects/Finance_Lingo/app/src/main/res/drawable/ic_launcher_background.xml" value="0.236" />
-        <entry key="..\:/Users/GandhiKhush1666/AndroidStudioProjects/Finance_Lingo/app/src/main/res/drawable/liquid_shape.xml" value="0.109" />
         <entry key="..\:/Users/GandhiKhush1666/AndroidStudioProjects/Finance_Lingo/app/src/main/res/drawable/white_square.xml" value="0.236" />
         <entry key="..\:/Users/GandhiKhush1666/AndroidStudioProjects/Finance_Lingo/app/src/main/res/layout/activity_create.xml" value="0.24547101449275363" />
         <entry key="..\:/Users/GandhiKhush1666/AndroidStudioProjects/Finance_Lingo/app/src/main/res/layout/activity_login.xml" value="0.24547101449275363" />
-        <entry key="..\:/Users/GandhiKhush1666/AndroidStudioProjects/Finance_Lingo/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/GandhiKhush1666/AndroidStudioProjects/Finance_Lingo/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/GandhiKhush1666/AndroidStudioProjects/Finance_Lingo/app/src/main/res/layout/budgeting_lesson.xml" value="0.2" />
         <entry key="..\:/Users/GandhiKhush1666/AndroidStudioProjects/Finance_Lingo/app/src/main/res/layout/budgeting_reading.xml" value="0.24547101449275363" />
-        <entry key="..\:/Users/GandhiKhush1666/AndroidStudioProjects/Finance_Lingo/app/src/main/res/layout/lessons.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/GandhiKhush1666/AndroidStudioProjects/Finance_Lingo/app/src/main/res/layout/loading_screen.xml" value="0.2" />
         <entry key="..\:/Users/chaot/AndroidStudioProjects/Finance_Lingo/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/kenne/AndroidStudioProjects/FinanceLingo3/app/src/main/res/layout/activity_create.xml" value="0.2210144927536232" />
         <entry key="..\:/Users/kenne/AndroidStudioProjects/FinanceLingo3/app/src/main/res/layout/activity_login.xml" value="0.2210144927536232" />
@@ -24,6 +19,7 @@
         <entry key="..\:/Users/kenne/AndroidStudioProjects/FinanceLingo3/app/src/main/res/layout/budgeting_lesson.xml" value="0.536" />
         <entry key="..\:/Users/kenne/AndroidStudioProjects/FinanceLingo3/app/src/main/res/layout/budgeting_reading.xml" value="0.264" />
         <entry key="..\:/Users/kenne/AndroidStudioProjects/FinanceLingo3/app/src/main/res/layout/lessons.xml" value="0.2115036231884058" />
+        <entry key="..\:/Users/kenne/AndroidStudioProjects/FinanceLingo3/app/src/main/res/layout/loading_screen.xml" value="0.1" />
         <entry key="..\:/Users/kylec/AndroidStudio/FinanceLingo/app/src/main/res/layout/activity_create.xml" value="0.1" />
         <entry key="..\:/Users/kylec/AndroidStudio/FinanceLingo/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/kylec/AndroidStudio/FinanceLingo/app/src/main/res/layout/activity_main.xml" value="0.18802083333333333" />

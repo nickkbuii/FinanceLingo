@@ -16,7 +16,7 @@ public class ReadingTemplate extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.budgeting_reading);
-        db = new DatabaseHelper(ReadingTemplate.this);
+        db = new DatabaseHelper();
     }
 
     public void getDefinition(View view){

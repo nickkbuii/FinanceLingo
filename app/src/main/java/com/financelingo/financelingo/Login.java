@@ -20,7 +20,7 @@ public class Login extends AppCompatActivity {
     }
 
     public void login(View v){
-        DatabaseHelper db = new DatabaseHelper(Login.this);
+        DatabaseHelper db = new DatabaseHelper();
 
         TextView t = findViewById(R.id.loginUsernameInput);
         String username = t.getText().toString();
@@ -28,8 +28,7 @@ public class Login extends AppCompatActivity {
         t = findViewById(R.id.loginPasswordInput);
         String password = t.getText().toString();
 
-        Log.d("testing", "Hi");
-        if(db.getUser(username, password) != null){
+        if(db.getUser(username, password) == null){
             switchActivities(Login.this, LessonTemplate.class);
         }
     }

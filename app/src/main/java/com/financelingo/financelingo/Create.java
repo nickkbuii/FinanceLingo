@@ -11,17 +11,17 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import database.Database;
+import database.DatabaseHelper;
 import database.User;
 
 public class Create extends AppCompatActivity {
-    Database db;
+    DatabaseHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create);
-        db = new Database();
+        db = new DatabaseHelper();
     }
 
     private void switchActivities(Class c){
@@ -59,7 +59,7 @@ public class Create extends AppCompatActivity {
         db.addUser(user).addOnSuccessListener(suc -> {
             Toast.makeText(this, "Account Created!", Toast.LENGTH_SHORT).show();
         }).addOnFailureListener(er -> {
-            Toast.makeText(this, "Create Failed", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, ""+er.getMessage(), Toast.LENGTH_SHORT).show();
         });
 
         //Log.d("testing", db.getUser("testing", "testing").toString());

@@ -10,7 +10,10 @@ public class User {
         this.password = password;
     }
 
-    public User() {}
+    public User() {
+        this.username ="";
+        this.password = "";
+    }
 
     //Getter setter
     public String getName() {
