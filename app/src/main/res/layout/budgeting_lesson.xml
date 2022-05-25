@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background_light_green_to_green"
+    android:background="#685196"
     tools:context=".LessonTemplate">
 
     <ImageView
@@ -13,11 +13,11 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.9"
+        app:layout_constraintHeight_percent="0.78"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.8"
-        app:srcCompat="@drawable/white_square" />
+        app:srcCompat="@drawable/purple_square" />
 
     <ImageView
         android:id="@+id/createLogo"
@@ -47,109 +47,176 @@
 
     <Button
         android:id="@+id/createButton"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintHeight_percent="0.08"
-        app:layout_constraintWidth_percent="0.72"
-        android:layout_marginBottom="420dp"
+        android:layout_width="245dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="460dp"
+        android:background="@drawable/rounded_button"
         android:checkable="false"
+        android:fontFamily="@font/roboto"
         android:onClick="checkCorrect"
         android:tag="incorrect"
         android:text="Yes"
+        android:textAlignment="viewStart"
         android:textAllCaps="false"
         android:textColor="#000000"
-        app:backgroundTint="#00E8E8E8"
+        android:textSize="18sp"
+        app:backgroundTint="#FFFFFF"
         app:iconTint="#00BCD4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintStart_toStartOf="@+id/imageView3" />
+        app:layout_constraintHeight_percent="0.08"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintWidth_percent="0.72" />
 
     <Button
         android:id="@+id/createButton"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintHeight_percent="0.08"
-        app:layout_constraintWidth_percent="0.72"
-        android:layout_marginBottom="152dp"
-        android:background="@color/white"
+        android:layout_width="245dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="224dp"
+        android:background="@drawable/rounded_button"
         android:checkable="false"
+        android:fontFamily="@font/roboto"
         android:onClick="checkCorrect"
         android:tag="correct"
         android:text="No"
+        android:textAlignment="viewStart"
         android:textAllCaps="false"
         android:textColor="#000000"
-        app:backgroundTint="#00E8E8E8"
+        android:textSize="18sp"
+        app:backgroundTint="#FFFFFF"
         app:iconTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintStart_toStartOf="@+id/imageView3" />
+        app:layout_constraintHeight_percent="0.08"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintWidth_percent="0.72" />
 
     <Button
         android:id="@+id/createButton"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintHeight_percent="0.08"
-        app:layout_constraintWidth_percent="0.72"
-        android:layout_marginBottom="324dp"
-        android:background="@color/white"
+        android:layout_width="245dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="384dp"
+        android:background="@drawable/rounded_button"
         android:checkable="false"
+        android:fontFamily="@font/roboto"
         android:onClick="checkCorrect"
         android:tag="incorrect"
         android:text="Maybe"
+        android:textAlignment="viewStart"
         android:textAllCaps="false"
         android:textColor="#000000"
-        app:backgroundTint="#00E8E8E8"
+        android:textSize="18sp"
+        app:backgroundTint="#FFFFFF"
         app:iconTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintStart_toStartOf="@+id/imageView3" />
+        app:layout_constraintHeight_percent="0.08"
+        app:layout_constraintHorizontal_bias="0.419"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintWidth_percent="0.72" />
 
     <Button
         android:id="@+id/createButton"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintHeight_percent="0.08"
-        app:layout_constraintWidth_percent="0.72"
-        android:layout_marginBottom="236dp"
-        android:background="@color/white"
+        android:layout_width="245dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="304dp"
+        android:background="@drawable/rounded_button"
         android:checkable="false"
+        android:fontFamily="@font/roboto"
         android:onClick="checkCorrect"
         android:tag="incorrect"
         android:text="Definitely"
+        android:textAlignment="viewStart"
         android:textAllCaps="false"
         android:textColor="#000000"
-        app:backgroundTint="#00E8E8E8"
+        android:textSize="18sp"
+        app:backgroundTint="#FFFFFF"
         app:iconTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintStart_toStartOf="@+id/imageView3" />
+        app:layout_constraintHeight_percent="0.08"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintWidth_percent="0.72" />
 
     <TextView
         android:id="@+id/question"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintHeight_percent="0.08"
-        app:layout_constraintWidth_percent="0.72"
         android:fontFamily="@font/roboto_black"
-        android:text="Is ballz big?"
+        android:text="Which of the following categories does your post-tax income fall into? "
         android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="35dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="120dp"
+        android:textColor="#FFFFFF"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintHeight_percent="0.08"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintWidth_percent="0.72"
+        tools:layout_editor_absoluteY="136dp"
         tools:visibility="visible" />
 
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="423dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="28dp"
+        android:layout_width="329dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
         android:max="100"
         android:scaleY="7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageButton
+        android:id="@+id/imageButton5"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:background="@drawable/white_circle_button"
+        tools:layout_editor_absoluteX="334dp"
+        tools:layout_editor_absoluteY="32dp" />
+
+    <ImageButton
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:background="@drawable/green_circle_button"
+        tools:layout_editor_absoluteX="41dp"
+        tools:layout_editor_absoluteY="32dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:background="@drawable/green_circle_button"
+        tools:layout_editor_absoluteX="261dp"
+        tools:layout_editor_absoluteY="32dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:background="@drawable/green_circle_button"
+        tools:layout_editor_absoluteX="187dp"
+        tools:layout_editor_absoluteY="32dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:background="@drawable/green_circle_button"
+        tools:layout_editor_absoluteX="118dp"
+        tools:layout_editor_absoluteY="32dp" />
+
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="250dp"
+        android:layout_height="329dp"
+        app:srcCompat="@drawable/pig_book"
+        tools:layout_editor_absoluteX="-74dp"
+        tools:layout_editor_absoluteY="481dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
