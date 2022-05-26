@@ -64,18 +64,17 @@
         android:id="@+id/loginButton"
         android:layout_width="311dp"
         android:layout_height="34dp"
-        app:backgroundTint="#7E7DBF"
         android:fontFamily="@font/roboto"
+        android:onClick="login"
         android:paddingTop="-1dp"
         android:paddingBottom="-1dp"
         android:text="Login"
+        android:textSize="14sp"
+        app:backgroundTint="#7E7DBF"
         app:layout_constraintHeight_percent="0.04"
         app:layout_constraintWidth_percent="0.7"
-        tools:layout_editor_absoluteX="67dp"
-        tools:layout_editor_absoluteY="501dp"
-        android:textSize="14sp"
-        android:onClick="login"
-         />
+        tools:layout_editor_absoluteX="50dp"
+        tools:layout_editor_absoluteY="503dp" />
 
     <ImageView
         android:layout_width="253dp"
@@ -83,8 +82,8 @@
         android:background="@drawable/pig_book"
         app:layout_constraintHeight_percent="0.52"
         app:layout_constraintWidth_percent="0.63"
-        tools:layout_editor_absoluteX="-14dp"
-        tools:layout_editor_absoluteY="547dp" />
+        tools:layout_editor_absoluteX="-24dp"
+        tools:layout_editor_absoluteY="537dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

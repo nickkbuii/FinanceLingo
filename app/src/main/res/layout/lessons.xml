@@ -26,17 +26,17 @@
 
     <ImageButton
         android:id="@+id/budgetingButton"
-        android:onClick="toLesson"
-        android:layout_width="273dp"
-        android:layout_height="300dp"
-        android:layout_marginBottom="144dp"
+        android:layout_width="250dp"
+        android:layout_height="283dp"
+        android:layout_marginBottom="228dp"
         android:background="#00FFFFFF"
+        android:onClick="toLesson"
         android:scaleX="0.4"
         android:scaleY="0.4"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:srcCompat="@drawable/financelingo__2_"
-        tools:layout_editor_absoluteX="54dp" />
+        tools:layout_editor_absoluteX="20dp" />
 
     <TextView
         android:id="@+id/budgetingTitle"
@@ -47,18 +47,6 @@
         android:textSize="30dp"
         tools:layout_editor_absoluteX="138dp"
         tools:layout_editor_absoluteY="477dp" />
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="407dp"
-        android:layout_height="455dp"
-        android:background="#00FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintWidth_percent="1"
-        app:srcCompat="@drawable/pig"
-        tools:layout_editor_absoluteY="62dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
