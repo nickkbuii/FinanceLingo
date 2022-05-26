@@ -15,6 +15,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import database.Progress;
 
 
 public class LessonTemplate extends AppCompatActivity {
@@ -30,11 +31,12 @@ public class LessonTemplate extends AppCompatActivity {
 
     public void checkCorrect(View view){
         view.setBackgroundColor(Color.CYAN);
+        Button button = (Button)view;
 
         TextView text = findViewById(R.id.notify);
         ProgressBar bar = findViewById(R.id.progressBar);
 
-        if(view.getTag().toString().equals("correct")){
+        if(button.getText().toString().equals("correct")){
             text.setText("Correct!");
             animateBar(bar, 20);
         }

@@ -56,11 +56,7 @@ public class Create extends AppCompatActivity {
 
         User user = new User(username, password);
 
-        db.addUser(user).addOnSuccessListener(suc -> {
-            Toast.makeText(this, "Account Created!", Toast.LENGTH_SHORT).show();
-        }).addOnFailureListener(er -> {
-            Toast.makeText(this, ""+er.getMessage(), Toast.LENGTH_SHORT).show();
-        });
+        db.addUser(user);
 
         //Log.d("testing", db.getUser("testing", "testing").toString());
         switchActivities(Create.this, MainActivity.class);

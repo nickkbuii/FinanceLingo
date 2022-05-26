@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import database.DatabaseHelper;
+import database.User;
 
 public class Login extends AppCompatActivity {
 
@@ -27,10 +28,9 @@ public class Login extends AppCompatActivity {
 
         t = findViewById(R.id.loginPasswordInput);
         String password = t.getText().toString();
+        User user = new User(username, password);
+        //db.getUser(user);
 
-        if(db.getUser(username, password) == null){
-            switchActivities(Login.this, LessonTemplate.class);
-        }
     }
 
     public void switchActivities(Context context, Class c){
