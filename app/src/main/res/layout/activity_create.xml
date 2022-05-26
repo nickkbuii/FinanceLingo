@@ -5,15 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Create"
+    android:background="@drawable/purple"
     >
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.8"
+        app:srcCompat="@drawable/green_square" />
 
     <TextView
         android:id="@+id/createTitle"
         android:layout_width="245dp"
         android:layout_height="47dp"
+        android:fontFamily="@font/roboto_black"
         android:text="Create Account"
-        android:textColor="@color/black"
-        android:textSize="35dp"
+        android:textColor="@color/white"
+        android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="223dp" />
@@ -21,51 +35,47 @@
     <EditText
         android:id="@+id/user"
         style="@style/Widget.AppCompat.AutoCompleteTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="328dp"
+        android:layout_width="311dp"
+        android:layout_height="0dp"
+        android:background="@drawable/rounded_button"
         android:ems="10"
-        android:fontFamily="sans-serif"
-        android:hint="Username"
+        android:hint="👤"
         android:inputType="text"
-        android:singleLine="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/createTitle"
-        app:layout_constraintVertical_bias="1.0" />
+        android:textAlignment="viewEnd"
+        app:layout_constraintHeight_percent="0.04"
+        app:layout_constraintWidth_percent="0.7"
+        tools:layout_editor_absoluteX="50dp"
+        tools:layout_editor_absoluteY="339dp" />
 
     <EditText
         android:id="@+id/pw"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="31dp"
-        android:layout_marginBottom="252dp"
+        android:layout_width="311dp"
+        android:layout_height="0dp"
+        android:background="@color/white"
         android:ems="10"
-        android:hint="Password"
+        android:hint="🔒"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user" />
+        android:textAlignment="viewEnd"
+        app:layout_constraintHeight_percent="0.04"
+        app:layout_constraintWidth_percent="0.7"
+        tools:layout_editor_absoluteX="50dp"
+        tools:layout_editor_absoluteY="406dp" />
 
     <Button
         android:id="@+id/createButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
-        android:backgroundTint="#39c450"
-        android:checkable="false"
+        android:layout_width="311dp"
+        android:layout_height="34dp"
+        android:fontFamily="@font/roboto"
         android:onClick="makeAcc"
-        android:tag="correct"
-        android:text="Create"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pw"
-        app:layout_constraintVertical_bias="1.0" />
+        android:paddingTop="-1dp"
+        android:paddingBottom="-1dp"
+        android:text="Create Account"
+        android:textSize="14sp"
+        app:backgroundTint="#7E7DBF"
+        app:layout_constraintHeight_percent="0.04"
+        app:layout_constraintWidth_percent="0.7"
+        tools:layout_editor_absoluteX="50dp"
+        tools:layout_editor_absoluteY="503dp" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="409dp"

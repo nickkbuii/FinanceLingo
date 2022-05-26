@@ -4,63 +4,87 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/purple"
     tools:context=".Login">
 
     <ImageView
-        android:id="@+id/loginLogo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="332dp"
+        android:id="@+id/imageView6"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:srcCompat="@drawable/financelingo_logo"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.8"
+        app:srcCompat="@drawable/green_square" />
 
     <TextView
         android:id="@+id/loginTitle"
         android:layout_width="98dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="252dp"
+        android:layout_height="0dp"
+        android:fontFamily="@font/roboto_black"
         android:text="Login"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="35dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHeight_percent="0.06"
+        app:layout_constraintWidth_percent="0.22"
+        tools:layout_editor_absoluteX="156dp"
+        tools:layout_editor_absoluteY="246dp" />
 
     <EditText
         android:id="@+id/loginUsernameInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_width="311dp"
+        android:layout_height="0dp"
+        android:background="@drawable/rounded_button"
         android:ems="10"
-        android:hint="Username"
+        android:hint="👤"
         android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginTitle" />
+        android:textAlignment="viewEnd"
+        app:layout_constraintHeight_percent="0.04"
+        app:layout_constraintWidth_percent="0.7"
+        tools:layout_editor_absoluteX="50dp"
+        tools:layout_editor_absoluteY="338dp" />
 
     <EditText
         android:id="@+id/loginPasswordInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_width="311dp"
+        android:layout_height="0dp"
+        android:background="@color/white"
         android:ems="10"
-        android:hint="Password"
+        android:hint="🔒"
         android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginUsernameInput" />
+        android:textAlignment="viewEnd"
+        app:layout_constraintHeight_percent="0.04"
+        app:layout_constraintWidth_percent="0.7"
+        tools:layout_editor_absoluteX="50dp"
+        tools:layout_editor_absoluteY="406dp" />
 
     <Button
         android:id="@+id/loginButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:backgroundTint="#39c450"
-        android:onClick="login"
+        android:layout_width="311dp"
+        android:layout_height="34dp"
+        app:backgroundTint="#7E7DBF"
+        android:fontFamily="@font/roboto"
+        android:paddingTop="-1dp"
+        android:paddingBottom="-1dp"
         android:text="Login"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginPasswordInput" />
+        app:layout_constraintHeight_percent="0.04"
+        app:layout_constraintWidth_percent="0.7"
+        tools:layout_editor_absoluteX="67dp"
+        tools:layout_editor_absoluteY="501dp"
+        android:textSize="14sp"
+        android:onClick="login"
+         />
+
+    <ImageView
+        android:layout_width="253dp"
+        android:layout_height="388dp"
+        android:background="@drawable/pig_book"
+        app:layout_constraintHeight_percent="0.52"
+        app:layout_constraintWidth_percent="0.63"
+        tools:layout_editor_absoluteX="-14dp"
+        tools:layout_editor_absoluteY="547dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
