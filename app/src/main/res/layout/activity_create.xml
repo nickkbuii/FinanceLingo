@@ -45,7 +45,7 @@
         app:layout_constraintHeight_percent="0.04"
         app:layout_constraintWidth_percent="0.7"
         tools:layout_editor_absoluteX="60dp"
-        tools:layout_editor_absoluteY="338dp" />
+        tools:layout_editor_absoluteY="346dp" />
 
     <EditText
         android:id="@+id/email"
