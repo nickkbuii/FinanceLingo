@@ -91,8 +91,8 @@
 
     <ImageView
         android:id="@+id/imageView8"
-        android:layout_width="312dp"
-        android:layout_height="154dp"
+        android:layout_width="374dp"
+        android:layout_height="193dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:srcCompat="@drawable/lesson_bottom_screen"
         tools:layout_editor_absoluteX="-2dp" />

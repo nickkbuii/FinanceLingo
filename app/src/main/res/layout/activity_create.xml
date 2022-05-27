@@ -44,8 +44,23 @@
         android:textAlignment="viewEnd"
         app:layout_constraintHeight_percent="0.04"
         app:layout_constraintWidth_percent="0.7"
-        tools:layout_editor_absoluteX="50dp"
-        tools:layout_editor_absoluteY="339dp" />
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="338dp" />
+
+    <EditText
+        android:id="@+id/email"
+        style="@style/Widget.AppCompat.AutoCompleteTextView"
+        android:layout_width="311dp"
+        android:layout_height="0dp"
+        android:background="@drawable/rounded_button"
+        android:ems="10"
+        android:hint="📧"
+        android:inputType="text"
+        android:textAlignment="viewEnd"
+        app:layout_constraintHeight_percent="0.04"
+        app:layout_constraintWidth_percent="0.7"
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="291dp" />
 
     <EditText
         android:id="@+id/pw"
@@ -60,6 +75,20 @@
         app:layout_constraintWidth_percent="0.7"
         tools:layout_editor_absoluteX="50dp"
         tools:layout_editor_absoluteY="406dp" />
+
+    <EditText
+        android:id="@+id/confirmpw2"
+        android:layout_width="311dp"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        android:ems="10"
+        android:hint="✔️"
+        android:inputType="textPassword"
+        android:textAlignment="viewEnd"
+        app:layout_constraintHeight_percent="0.04"
+        app:layout_constraintWidth_percent="0.7"
+        tools:layout_editor_absoluteX="50dp"
+        tools:layout_editor_absoluteY="450dp" />
 
     <Button
         android:id="@+id/createButton"
