@@ -36,24 +36,26 @@ import java.util.concurrent.Executor;
 public class DatabaseHelper{
     private DatabaseReference userdb;
     private DatabaseReference progdb;
+
     private FirebaseAuth auth;
+
     private static int id;
     private HashMap<User, Integer> map;
     public DatabaseHelper(){
         FirebaseDatabase db = FirebaseDatabase.getInstance();
-        userdb = db.getReference(User.class.getSimpleName());
-        userdb.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                id = (int)snapshot.getChildrenCount();
-                Log.d("INFO", String.valueOf(id));
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
+//        userdb = db.getReference(User.class.getSimpleName());
+//        userdb.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                id = (int)snapshot.getChildrenCount();
+//                Log.d("INFO", String.valueOf(id));
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
         progdb = db.getReference(Progress.class.getSimpleName());
 
         auth = FirebaseAuth.getInstance();
@@ -62,23 +64,18 @@ public class DatabaseHelper{
     }
 
     public void addUser(User user){
-        map.put(user, id);
-        auth.createUserWithEmailAndPassword(user.getEmail(), user.getPw())
+        auth.createUserWithEmailAndPassword(user.getName()+"@gmail.com", user.getPw())
                 .addOnCompleteListener((Executor) this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            userdb.child(auth.getCurrentUser().getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    Log.d("ACC INFO", "ACCOUNT CREATED");
-                                }
-                            });
+                            Log.d("INFO","CREATE SUCCESS");
                         } else {
-
+                            Log.e("INFO","CREATE FAILED");
                         }
                     }
                 });
+
     }
 
     public int getId(){

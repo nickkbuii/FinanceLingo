@@ -48,15 +48,16 @@ public class Create extends AppCompatActivity {
             return;
         }
 
-        /*Testing something*/
-        Button b = findViewById(R.id.createButton);
-        if(b.getTag().equals("correct")){
-            Log.d("Testing", "this is correct");
-        }
-
         User user = new User(username, password);
-
+        Log.d("INFO", user.toString());
         db.addUser(user);
+//        .addOnSuccessListener(suc -> {
+//            Log.d("INFO", "HErE");
+//            Toast.makeText(this, "Account Created!", Toast.LENGTH_SHORT).show();
+//        }).addOnFailureListener(er -> {
+//            Log.d("FAIL", "HELLO");
+//            Toast.makeText(this, ""+er.getMessage(), Toast.LENGTH_SHORT).show();
+//        });
 
         //Log.d("testing", db.getUser("testing", "testing").toString());
         switchActivities(Create.this, MainActivity.class);
