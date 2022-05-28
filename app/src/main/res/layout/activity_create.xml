@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Create"
     android:background="@drawable/purple"
-    >
+    tools:context=".Create">
 
     <ImageView
         android:id="@+id/imageView5"
@@ -15,85 +14,106 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.8"
+        app:layout_constraintHorizontal_bias="0.594"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.496"
         app:layout_constraintWidth_percent="0.8"
         app:srcCompat="@drawable/green_square" />
 
     <TextView
         android:id="@+id/createTitle"
-        android:layout_width="245dp"
-        android:layout_height="47dp"
+        android:layout_width="253dp"
+        android:layout_height="43dp"
         android:fontFamily="@font/roboto_black"
         android:text="Create Account"
         android:textColor="@color/white"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.06"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="223dp" />
+        app:layout_constraintWidth_percent="0.7"
+        tools:layout_editor_absoluteY="150dp" />
 
     <EditText
         android:id="@+id/user"
         style="@style/Widget.AppCompat.AutoCompleteTextView"
-        android:layout_width="311dp"
+        android:layout_width="275dp"
         android:layout_height="0dp"
         android:background="@drawable/rounded_button"
         android:ems="10"
         android:hint="👤"
         android:inputType="text"
         android:textAlignment="viewEnd"
+        app:layout_constraintBottom_toBottomOf="@+id/pw"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.04"
-        app:layout_constraintWidth_percent="0.7"
-        tools:layout_editor_absoluteX="60dp"
-        tools:layout_editor_absoluteY="346dp" />
+        app:layout_constraintHorizontal_bias="0.593"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createTitle"
+        app:layout_constraintVertical_bias="0.633"
+        app:layout_constraintWidth_percent="0.7" />
 
     <EditText
         android:id="@+id/email"
         style="@style/Widget.AppCompat.AutoCompleteTextView"
-        android:layout_width="311dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/rounded_button"
         android:ems="10"
         android:hint="📧"
         android:inputType="text"
         android:textAlignment="viewEnd"
+        app:layout_constraintBottom_toTopOf="@+id/user"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.04"
-        app:layout_constraintWidth_percent="0.7"
-        tools:layout_editor_absoluteX="60dp"
-        tools:layout_editor_absoluteY="291dp" />
+        app:layout_constraintHorizontal_bias="0.593"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createTitle"
+        app:layout_constraintVertical_bias="0.625"
+        app:layout_constraintWidth_percent="0.7" />
 
     <EditText
         android:id="@+id/pw"
-        android:layout_width="311dp"
+        android:layout_width="275dp"
         android:layout_height="0dp"
-        android:background="@color/white"
+        android:background="@drawable/rounded_button"
         android:ems="10"
         android:hint="🔒"
         android:inputType="textPassword"
         android:textAlignment="viewEnd"
+        app:layout_constraintBottom_toTopOf="@+id/createButton"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.04"
-        app:layout_constraintWidth_percent="0.7"
-        tools:layout_editor_absoluteX="50dp"
-        tools:layout_editor_absoluteY="406dp" />
+        app:layout_constraintHorizontal_bias="0.593"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/createTitle"
+        app:layout_constraintVertical_bias="0.707"
+        app:layout_constraintWidth_percent="0.7" />
 
     <EditText
         android:id="@+id/confirmpw2"
-        android:layout_width="311dp"
+        android:layout_width="275dp"
         android:layout_height="0dp"
-        android:background="@color/white"
+        android:background="@drawable/rounded_button"
         android:ems="10"
         android:hint="✔️"
         android:inputType="textPassword"
         android:textAlignment="viewEnd"
+        app:layout_constraintBottom_toTopOf="@+id/createButton"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.04"
-        app:layout_constraintWidth_percent="0.7"
-        tools:layout_editor_absoluteX="50dp"
-        tools:layout_editor_absoluteY="450dp" />
+        app:layout_constraintHorizontal_bias="0.593"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pw"
+        app:layout_constraintVertical_bias="0.48"
+        app:layout_constraintWidth_percent="0.7" />
 
     <Button
         android:id="@+id/createButton"
-        android:layout_width="311dp"
-        android:layout_height="34dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:fontFamily="@font/roboto"
         android:onClick="makeAcc"
         android:paddingTop="-1dp"
@@ -101,16 +121,28 @@
         android:text="Create Account"
         android:textSize="14sp"
         app:backgroundTint="#7E7DBF"
-        app:layout_constraintHeight_percent="0.04"
-        app:layout_constraintWidth_percent="0.7"
-        tools:layout_editor_absoluteX="50dp"
-        tools:layout_editor_absoluteY="503dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.05"
+        app:layout_constraintHorizontal_bias="0.535"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.6"
+        tools:layout_editor_absoluteY="475dp" />
+
+    <ImageView
+        android:layout_width="194dp"
+        android:layout_height="265dp"
+        android:background="@drawable/pig_book"
+        app:layout_constraintHeight_percent="0.40"
+        app:layout_constraintWidth_percent="0.50"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="544dp" />
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout2"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="129dp"/>
+        tools:layout_editor_absoluteY="129dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
