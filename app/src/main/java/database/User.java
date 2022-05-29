@@ -7,8 +7,7 @@ public class User {
     private String username;
     private String password;
     private String email;
-    private static int userId;
-    private int id;
+    private String id;
     private Stack<Progress> progress;
 
     public User(String name, String password) {
@@ -20,20 +19,23 @@ public class User {
     public User() {
         this.username ="";
         this.password = "";
-        id = userId++;
     }
 
-    //Getter setter
+    //Getter
     public String getName() {
         return username;
     }
+    public String getPw(){return password;};
+    public String getId(){return id;};
+    public String getEmail(){return email;}
+
+    //Setter
     public void setName(String name) {
         this.username = name;
     }
-    public String getPw(){return password;};
-    public int getId(){return id;};
-    public String getEmail(){return email;}
+    public void setId(String id){this.id = id;}
 
+    //Temporary
     //Add Progress
     public void addProg(Progress prog){
         progress.push(prog);
@@ -42,7 +44,7 @@ public class User {
     public boolean checkComplete(){
         return progress.peek().isComplete();
     }
-
+    //Temporary
 
 
 
