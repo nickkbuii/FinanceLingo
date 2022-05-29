@@ -25,29 +25,29 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+       setContentView(R.layout.budgeting_reading);
         fAuth = FirebaseAuth.getInstance();
     }
 
-    public void login(View v){
-
-        TextView t = findViewById(R.id.loginUsernameInput);
-        String username = t.getText().toString();
-
-        t = findViewById(R.id.loginPasswordInput);
-        String password = t.getText().toString();
-        User user = new User(username, password);
-
-        fAuth.signInWithEmailAndPassword(user.getName()+"@gmail.com", user.getPw()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
-                    Toast.makeText(Login.this, "SUCCESS", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-    }
+//    public void login(View v){
+//
+//        TextView t = findViewById(R.id.loginUsernameInput);
+//        String username = t.getText().toString();
+//
+//        t = findViewById(R.id.loginPasswordInput);
+//        String password = t.getText().toString();
+//        User user = new User(username, password);
+//
+//        fAuth.signInWithEmailAndPassword(user.getName()+"@gmail.com", user.getPw()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+//            @Override
+//            public void onComplete(@NonNull Task<AuthResult> task) {
+//                if(task.isSuccessful()){
+//                    Toast.makeText(Login.this, "SUCCESS", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
+//
+//    }
 
     public void loadData(FirebaseUser user){
 

@@ -205,14 +205,14 @@
         tools:layout_editor_absoluteX="187dp"
         tools:layout_editor_absoluteY="32dp" />
 
+
     <ImageButton
         android:id="@+id/imageButton2"
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:background="@drawable/green_circle_button"
-        tools:layout_editor_absoluteX="118dp"
+        tools:layout_editor_absoluteX="113dp"
         tools:layout_editor_absoluteY="32dp" />
-
 
     <ImageView
         android:id="@+id/imageView4"
