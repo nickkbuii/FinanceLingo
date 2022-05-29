@@ -98,8 +98,8 @@
         android:background="@drawable/pig_book"
         app:layout_constraintHeight_percent="0.52"
         app:layout_constraintWidth_percent="0.63"
-        tools:layout_editor_absoluteX="-14dp"
-        tools:layout_editor_absoluteY="547dp" />
+        tools:layout_editor_absoluteX="-8dp"
+        tools:layout_editor_absoluteY="355dp" />
 
     <Space
         android:id="@+id/space"
