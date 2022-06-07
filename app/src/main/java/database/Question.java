@@ -3,23 +3,46 @@ package database;
 import java.util.HashMap;
 
 public class Question {
-    private String prompt;
-    private HashMap<String, Boolean> answers;
+    String[] prompts;
+    String[][] choices;
+    String[] answers;
 
-    public Question(String prompt, HashMap<String, Boolean> map){
-        this.prompt = prompt;
-        this.answers = map;
+    public Question(String[] prompts, String[][] choices, String[] answers) {
+        this.prompts = prompts;
+        this.choices = choices;
+        this.answers = answers;
     }
 
-    public boolean check(String answer){
-        if(answers.containsKey(answer)){
-            return answers.get(answer);
-        }
-        return false;
+    public String[] getPrompts() {
+        return prompts;
+    }
+    public void setPrompts(String[] prompts) {
+        this.prompts = prompts;
+    }
+    public String[][] getChoices() {
+        return choices;
+    }
+    public void setChoices(String[][] choices) {
+        this.choices = choices;
+    }
+    public String[] getAnswers() {
+        return answers;
+    }
+    public void setAnswers(String[] answers) {
+        this.answers = answers;
     }
 
-    public String getPrompt(){
-        return prompt;
+    public String getChoice1(int choiceNum, int question){
+        return choices[choiceNum][question];
+    }
+    
+    public String getQuestion(int a) {
+        String question = prompts[a];
+        return question;
     }
 
+    public String getCorrectAnswer(int a){
+        String answer = answers[a];
+        return answer;
+    }
 }

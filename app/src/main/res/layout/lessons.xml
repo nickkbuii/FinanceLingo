@@ -4,170 +4,216 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Lessons"
     android:background="@drawable/purple"
-    >
+    tools:context=".Lessons">
 
     <ProgressBar
         android:id="@+id/budgetingProgressBar11"
         style="?android:attr/progressBarStyle"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="248dp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="173dp" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginRight="64dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.136"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintLeft_toRightOf="@id/lessonspacer"
+        app:layout_constraintWidth_percent="0.25" />
 
     <ProgressBar
         android:id="@+id/budgetingProgressBar4"
         style="?android:attr/progressBarStyle"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="248dp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="31dp" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent="0.25"
+        app:layout_constraintHeight_percent="0.136"
+        android:layout_marginStart="64dp"
+        android:layout_marginLeft="64dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView8"
+        app:layout_constraintRight_toLeftOf="@id/lessonspacer"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <ProgressBar
         android:id="@+id/budgetingProgressBar2"
         style="?android:attr/progressBarStyle"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="72dp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="31dp" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent="0.25"
+        app:layout_constraintHeight_percent="0.136"
+        android:layout_marginStart="64dp"
+        android:layout_marginLeft="64dp"
+        app:layout_constraintBottom_toTopOf="@id/budgetingProgressBar4"
+        app:layout_constraintRight_toLeftOf="@id/lessonspacer"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/budgetingButton"
-        android:layout_width="66dp"
-        android:layout_height="66dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent="0.17"
+        app:layout_constraintHeight_percent="0.09"
         android:background="#00FFFFFF"
-        app:srcCompat="@drawable/green_circle_button"
-        tools:layout_editor_absoluteX="48dp"
-        tools:layout_editor_absoluteY="89dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/budgetingProgressBar2"
+        app:layout_constraintEnd_toEndOf="@+id/budgetingProgressBar2"
+        app:layout_constraintStart_toStartOf="@+id/budgetingProgressBar2"
+        app:layout_constraintTop_toTopOf="@+id/budgetingProgressBar2"
+        app:srcCompat="@drawable/green_circle_button" />
 
     <ProgressBar
         android:id="@+id/budgetingProgressBar"
         style="?android:attr/progressBarStyle"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="72dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent="0.25"
+        app:layout_constraintHeight_percent="0.136"
+        android:layout_marginEnd="64dp"
+        android:layout_marginRight="64dp"
+        app:layout_constraintBottom_toTopOf="@id/budgetingProgressBar11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/lessonspacer"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="173dp" />
+
+        />
 
     <ImageButton
         android:id="@+id/debtButton"
-        android:layout_width="66dp"
-        android:layout_height="66dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent="0.17"
+        app:layout_constraintHeight_percent="0.09"
         android:background="#00FFFFFF"
-        app:srcCompat="@drawable/green_circle_button"
-        tools:layout_editor_absoluteX="190dp"
-        tools:layout_editor_absoluteY="89dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/budgetingProgressBar"
+        app:layout_constraintEnd_toEndOf="@+id/budgetingProgressBar"
+        app:layout_constraintStart_toStartOf="@+id/budgetingProgressBar"
+        app:layout_constraintTop_toTopOf="@+id/budgetingProgressBar"
+        app:srcCompat="@drawable/green_circle_button" />
 
     <ImageButton
         android:id="@+id/investmentsButton"
-        android:layout_width="66dp"
-        android:layout_height="66dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent="0.17"
+        app:layout_constraintHeight_percent="0.09"
         android:background="#00FFFFFF"
-        app:srcCompat="@drawable/green_circle_button"
-        tools:layout_editor_absoluteX="190dp"
-        tools:layout_editor_absoluteY="265dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/budgetingProgressBar11"
+        app:layout_constraintEnd_toEndOf="@+id/budgetingProgressBar11"
+        app:layout_constraintStart_toStartOf="@+id/budgetingProgressBar11"
+        app:layout_constraintTop_toTopOf="@+id/budgetingProgressBar11"
+        app:srcCompat="@drawable/green_circle_button" />
 
     <ImageButton
         android:id="@+id/taxesButton"
-        android:layout_width="66dp"
-        android:layout_height="66dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent="0.17"
+        app:layout_constraintHeight_percent="0.09"
         android:background="#00FFFFFF"
-        app:srcCompat="@drawable/green_circle_button"
-        tools:layout_editor_absoluteX="48dp"
-        tools:layout_editor_absoluteY="265dp" />
-
-    <ImageView
-        android:id="@+id/lessonsLogo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/financelingo_logo__2_"
-        tools:layout_editor_absoluteX="60dp"
-        tools:layout_editor_absoluteY="31dp"
-        tools:visibility="gone" />
+        app:layout_constraintBottom_toBottomOf="@+id/budgetingProgressBar4"
+        app:layout_constraintEnd_toEndOf="@+id/budgetingProgressBar4"
+        app:layout_constraintStart_toStartOf="@+id/budgetingProgressBar4"
+        app:layout_constraintTop_toTopOf="@+id/budgetingProgressBar4"
+        app:srcCompat="@drawable/green_circle_button" />
 
     <ImageView
         android:id="@+id/imageView8"
-        android:layout_width="374dp"
-        android:layout_height="193dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="-17dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:srcCompat="@drawable/lesson_bottom_screen"
-        tools:layout_editor_absoluteX="-2dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.28"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="1"
+        app:srcCompat="@drawable/lesson_bottom_screen" />
 
     <ImageView
         android:id="@+id/imageView9"
-        android:layout_width="39dp"
-        android:layout_height="43dp"
-        app:srcCompat="@drawable/budgeting"
-        tools:layout_editor_absoluteX="61dp"
-        tools:layout_editor_absoluteY="99dp" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent="0.09"
+        app:layout_constraintHeight_percent="0.06"
+        app:layout_constraintBottom_toBottomOf="@+id/budgetingButton"
+        app:layout_constraintEnd_toEndOf="@+id/budgetingButton"
+        app:layout_constraintStart_toStartOf="@+id/budgetingButton"
+        app:layout_constraintTop_toTopOf="@+id/budgetingButton"
+        app:srcCompat="@drawable/budgeting" />
 
     <ImageView
         android:id="@+id/imageView10"
-        android:layout_width="36dp"
-        android:layout_height="42dp"
-        app:srcCompat="@drawable/debt"
-        tools:layout_editor_absoluteX="205dp"
-        tools:layout_editor_absoluteY="100dp" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent="0.09"
+        app:layout_constraintHeight_percent="0.06"
+        app:layout_constraintBottom_toBottomOf="@+id/debtButton"
+        app:layout_constraintEnd_toEndOf="@+id/debtButton"
+        app:layout_constraintStart_toStartOf="@+id/debtButton"
+        app:layout_constraintTop_toTopOf="@+id/debtButton"
+        app:srcCompat="@drawable/debt" />
 
     <ImageView
         android:id="@+id/imageView11"
-        android:layout_width="39dp"
-        android:layout_height="43dp"
-        app:srcCompat="@drawable/taxes"
-        tools:layout_editor_absoluteX="61dp"
-        tools:layout_editor_absoluteY="275dp" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent="0.09"
+        app:layout_constraintHeight_percent="0.06"
+        app:layout_constraintBottom_toBottomOf="@+id/taxesButton"
+        app:layout_constraintEnd_toEndOf="@+id/taxesButton"
+        app:layout_constraintStart_toStartOf="@+id/taxesButton"
+        app:layout_constraintTop_toTopOf="@+id/taxesButton"
+        app:srcCompat="@drawable/taxes" />
 
     <ImageView
         android:id="@+id/imageView12"
-        android:layout_width="39dp"
-        android:layout_height="43dp"
-        app:srcCompat="@drawable/investments"
-        tools:layout_editor_absoluteX="202dp"
-        tools:layout_editor_absoluteY="275dp" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent="0.09"
+        app:layout_constraintHeight_percent="0.06"
+        app:layout_constraintBottom_toBottomOf="@+id/investmentsButton"
+        app:layout_constraintEnd_toEndOf="@+id/investmentsButton"
+        app:layout_constraintStart_toStartOf="@+id/investmentsButton"
+        app:layout_constraintTop_toTopOf="@+id/investmentsButton"
+        app:srcCompat="@drawable/investments" />
 
     <ImageButton
-        android:id="@+id/imageButton13"
+        android:id="@+id/budgetingReadingButton"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:background="@drawable/information_button"
+        app:layout_constraintBottom_toBottomOf="@+id/budgetingProgressBar2"
+        app:layout_constraintEnd_toEndOf="@+id/budgetingProgressBar2"
         app:layout_constraintHeight_percent="0.5"
-        app:layout_constraintWidth_percent="0.5"
-        tools:layout_editor_absoluteX="93dp"
-        tools:layout_editor_absoluteY="134dp" />
+        app:layout_constraintWidth_percent="0.5" />
 
     <ImageButton
         android:id="@+id/imageButton16"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:background="@drawable/information_button"
+        app:layout_constraintBottom_toBottomOf="@+id/budgetingProgressBar4"
+        app:layout_constraintEnd_toEndOf="@+id/budgetingProgressBar4"
         app:layout_constraintHeight_percent="0.5"
-        app:layout_constraintWidth_percent="0.5"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="311dp" />
+        app:layout_constraintWidth_percent="0.5" />
 
     <ImageButton
         android:id="@+id/imageButton14"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:background="@drawable/information_button"
+        app:layout_constraintBottom_toBottomOf="@+id/budgetingProgressBar"
+        app:layout_constraintEnd_toEndOf="@+id/budgetingProgressBar"
         app:layout_constraintHeight_percent="0.5"
-        app:layout_constraintWidth_percent="0.5"
-        tools:layout_editor_absoluteX="234dp"
-        tools:layout_editor_absoluteY="134dp" />
+        app:layout_constraintWidth_percent="0.5" />
 
     <ImageButton
         android:id="@+id/imageButton17"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:background="@drawable/information_button"
+        app:layout_constraintBottom_toBottomOf="@+id/budgetingProgressBar11"
+        app:layout_constraintEnd_toEndOf="@+id/budgetingProgressBar11"
         app:layout_constraintHeight_percent="0.5"
-        app:layout_constraintWidth_percent="0.5"
-        tools:layout_editor_absoluteX="241dp"
-        tools:layout_editor_absoluteY="311dp" />
+        app:layout_constraintWidth_percent="0.5" />
 
     <TextView
         android:id="@+id/textView3"
@@ -177,8 +223,9 @@
         android:text="BUDGETING"
         android:textColor="#000000"
         android:textSize="18sp"
-        tools:layout_editor_absoluteX="41dp"
-        tools:layout_editor_absoluteY="172dp" />
+        app:layout_constraintEnd_toEndOf="@+id/budgetingProgressBar2"
+        app:layout_constraintStart_toStartOf="@+id/budgetingProgressBar2"
+        app:layout_constraintTop_toBottomOf="@+id/budgetingProgressBar2" />
 
     <TextView
         android:id="@+id/textView5"
@@ -188,8 +235,9 @@
         android:text="TAXES"
         android:textColor="#000000"
         android:textSize="18sp"
-        tools:layout_editor_absoluteX="61dp"
-        tools:layout_editor_absoluteY="348dp" />
+        app:layout_constraintEnd_toEndOf="@+id/budgetingProgressBar4"
+        app:layout_constraintStart_toStartOf="@+id/budgetingProgressBar4"
+        app:layout_constraintTop_toBottomOf="@+id/budgetingProgressBar4" />
 
     <TextView
         android:id="@+id/textView6"
@@ -199,8 +247,9 @@
         android:text="INVESTMENTS"
         android:textColor="#000000"
         android:textSize="18sp"
-        tools:layout_editor_absoluteX="173dp"
-        tools:layout_editor_absoluteY="348dp" />
+        app:layout_constraintEnd_toEndOf="@+id/budgetingProgressBar11"
+        app:layout_constraintStart_toStartOf="@+id/budgetingProgressBar11"
+        app:layout_constraintTop_toBottomOf="@+id/budgetingProgressBar11" />
 
     <TextView
         android:id="@+id/textView4"
@@ -210,8 +259,20 @@
         android:text="DEBT"
         android:textColor="#000000"
         android:textSize="18sp"
-        tools:layout_editor_absoluteX="205dp"
-        tools:layout_editor_absoluteY="172dp" />
+        app:layout_constraintEnd_toEndOf="@+id/budgetingProgressBar"
+        app:layout_constraintStart_toStartOf="@+id/budgetingProgressBar"
+        app:layout_constraintTop_toBottomOf="@+id/budgetingProgressBar" />
+
+    <Space
+        android:id="@+id/lessonspacer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.74"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.18" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,21 +8,20 @@ public class User {
     private String password;
     private String email;
     private String id;
-    private Stack<Progress> progress;
 
-    public User(String name, String password) {
-        this.username = name;
+    public User(String username, String password, String email) {
+        this.username = username;
         this.password = password;
-        progress = new Stack<Progress>();
+        this.email = email;
     }
 
     public User() {
-        this.username ="";
+        this.username = "";
         this.password = "";
     }
 
     //Getter
-    public String getName() {
+    public String getUsername() {
         return username;
     }
     public String getPw(){return password;};
@@ -30,21 +29,11 @@ public class User {
     public String getEmail(){return email;}
 
     //Setter
-    public void setName(String name) {
+    public void setUsername(String name) {
         this.username = name;
     }
     public void setId(String id){this.id = id;}
 
-    //Temporary
-    //Add Progress
-    public void addProg(Progress prog){
-        progress.push(prog);
-    }
-
-    public boolean checkComplete(){
-        return progress.peek().isComplete();
-    }
-    //Temporary
 
 
 

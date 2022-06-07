@@ -3,29 +3,30 @@ package com.financelingo.financelingo;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import Global.Global;
 import database.User;
 
 public class Create extends AppCompatActivity {
     FirebaseAuth fAuth;
     DatabaseReference db;
     FirebaseFirestore fStore;
+
+    Global global = new Global();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,60 +36,57 @@ public class Create extends AppCompatActivity {
         fStore = FirebaseFirestore.getInstance();
     }
 
-    private void switchActivities(Class c){
-        Intent switchActivityIntent = new Intent (this, c);
-        startActivity(switchActivityIntent);
-    }
 
 
     public void makeAcc(View v){
         TextView t = findViewById(R.id.user);
         String username = t.getText().toString();
 
-        //FIX LATER
-//        if(!db.checkUser(username)){
-//            Toast.makeText(Create.this, "USER TAKEN", Toast.LENGTH_SHORT).show();
-//            return;
-//        }
-
         t = findViewById(R.id.pw);
         String password = t.getText().toString();
+
+        t = findViewById(R.id.email);
+        String email = t.getText().toString();
 
         if(checkPass(password) != ""){
             Toast.makeText(Create.this, checkPass(password), Toast.LENGTH_LONG).show();
             return;
         }
 
-        User user = new User(username, password);
-        Log.d("INFO", user.toString());
+        User user = new User(username, password, email);
 
         if(fAuth.getCurrentUser() != null){
             fAuth.signOut();
         }
 
-        fAuth.createUserWithEmailAndPassword(user.getName()+"@gmail.com", user.getPw()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        //Creates new User onto firebase authentication
+        //user.getEmail() method change when UI is ready
+        fAuth.createUserWithEmailAndPassword(user.getEmail(), user.getPw())
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
+                    //Set new UID
+                    user.setId(fAuth.getCurrentUser().getUid());
+                    //Log.d("INFO", fAuth.getCurrentUser().getDisplayName());
                     Toast.makeText(Create.this, "SUCCESS", Toast.LENGTH_SHORT).show();
+
+                    //Adds to profile firebase firestore
                     fStore.collection("User")
-                            .document(fAuth.getCurrentUser().getUid())
+                            .document(fAuth.getCurrentUser().getUid() + " + " + user.getEmail())
                             .set(user);
-                    fAuth.signOut();
+                    global.switchActivities(Create.this, MainActivity.class);
+
+                    //Make Update user profile
                 }
                 else{
                     Toast.makeText(Create.this, "FAIL", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
-
-
-
-
-
     }
 
+    //Checks if password passes test values
     public String checkPass(String pass){
         String send = "";
         boolean hasUpper = false;
@@ -107,10 +105,5 @@ public class Create extends AppCompatActivity {
 
 
         return send;
-    }
-
-    public void switchActivities(Context context, Class c){
-        Intent switchActivityIntent = new Intent (context, c);
-        startActivity(switchActivityIntent);
     }
 }

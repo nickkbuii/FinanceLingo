@@ -15,6 +15,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.8"
+        app:layout_constraintHorizontal_bias="0.609"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.8"
@@ -45,6 +46,7 @@
         android:textAlignment="viewEnd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.04"
+        app:layout_constraintHorizontal_bias="0.59"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/createTitle"
         app:layout_constraintWidth_percent="0.7" />
@@ -53,7 +55,7 @@
         android:id="@+id/pw"
         android:layout_width="311dp"
         android:layout_height="0dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="24dp"
         android:background="@color/white"
         android:ems="10"
         android:hint="🔒"
@@ -61,6 +63,24 @@
         android:textAlignment="viewEnd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.04"
+        app:layout_constraintHorizontal_bias="0.59"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email"
+        app:layout_constraintWidth_percent="0.7" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="311dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
+        android:background="@color/white"
+        android:ems="10"
+        android:hint="👤"
+        android:inputType="text"
+        android:textAlignment="viewEnd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.04"
+        app:layout_constraintHorizontal_bias="0.59"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user"
         app:layout_constraintWidth_percent="0.7" />
@@ -69,6 +89,9 @@
         android:id="@+id/createButton"
         android:layout_width="311dp"
         android:layout_height="34dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginBottom="40dp"
         android:fontFamily="@font/roboto"
         android:onClick="makeAcc"
         android:paddingTop="-1dp"
@@ -76,10 +99,11 @@
         android:text="Create Account"
         android:textSize="14sp"
         app:backgroundTint="#7E7DBF"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="@+id/imageView5"
         app:layout_constraintHeight_percent="0.04"
-        app:layout_constraintWidth_percent="0.7"
-        tools:layout_editor_absoluteX="50dp"
-        tools:layout_editor_absoluteY="503dp" />
+        app:layout_constraintStart_toStartOf="@+id/imageView5"
+        app:layout_constraintWidth_percent="0.7" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
