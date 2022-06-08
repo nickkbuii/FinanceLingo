@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="329dp"
+        android:layout_height="571dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.78"
@@ -146,8 +146,9 @@
 
     <TextView
         android:id="@+id/question"
-        android:layout_width="0dp"
+        android:layout_width="296dp"
         android:layout_height="0dp"
+        android:layout_marginTop="48dp"
         android:fontFamily="@font/roboto_black"
         android:text="Which of the following categories does your post-tax income fall into? "
         android:textAlignment="center"
@@ -155,10 +156,9 @@
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="@+id/imageView3"
         app:layout_constraintHeight_percent="0.08"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="@+id/imageView3"
         app:layout_constraintWidth_percent="0.72"
-        tools:layout_editor_absoluteY="136dp"
         tools:visibility="visible" />
 
     <ProgressBar
@@ -166,60 +166,77 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="329dp"
         android:layout_height="32dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
         android:max="100"
         android:scaleY="7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="@+id/imageView3" />
 
     <ImageButton
         android:id="@+id/imageButton5"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/white_circle_button"
-        tools:layout_editor_absoluteX="334dp"
-        tools:layout_editor_absoluteY="32dp" />
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.1" />
 
     <ImageButton
-        android:layout_width="36dp"
-        android:layout_height="36dp"
+        android:id="@+id/imageButton6"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/green_circle_button"
-        tools:layout_editor_absoluteX="41dp"
-        tools:layout_editor_absoluteY="32dp" />
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.1" />
 
     <ImageButton
         android:id="@+id/imageButton4"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/green_circle_button"
-        tools:layout_editor_absoluteX="261dp"
-        tools:layout_editor_absoluteY="32dp" />
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton5"
+        app:layout_constraintStart_toEndOf="@+id/imageButton3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.1" />
+
 
     <ImageButton
         android:id="@+id/imageButton3"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
+        android:layout_width="41dp"
+        android:layout_height="41dp"
         android:background="@drawable/green_circle_button"
-        tools:layout_editor_absoluteX="187dp"
-        tools:layout_editor_absoluteY="32dp" />
-
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.1" />
 
     <ImageButton
         android:id="@+id/imageButton2"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
+        android:layout_width="0dp"
+        android:layout_height="41dp"
         android:background="@drawable/green_circle_button"
-        tools:layout_editor_absoluteX="113dp"
-        tools:layout_editor_absoluteY="32dp" />
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton3"
+        app:layout_constraintStart_toEndOf="@+id/imageButton6"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.1" />
 
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="250dp"
         android:layout_height="329dp"
-        app:srcCompat="@drawable/pig_book"
-        tools:layout_editor_absoluteX="-74dp"
-        tools:layout_editor_absoluteY="481dp" />
+        android:layout_marginStart="-60dp"
+        android:layout_marginBottom="-100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/pig_book" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
