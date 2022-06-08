@@ -1,13 +1,18 @@
 package com.financelingo.financelingo;
 
+import static android.text.InputType.TYPE_CLASS_TEXT;
+import static android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -118,6 +123,20 @@ public class Create extends AppCompatActivity {
 
 
         return send;
+    }
+
+    public void showPw(View v){
+        Button b = findViewById(R.id.showPw);
+        TextView pwBox = findViewById(R.id.pw);
+
+        if(b.getTag().equals("hide")){
+            b.setTag("show");
+            pwBox.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+        }
+        else{
+            b.setTag("hide");
+            pwBox.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        }
     }
 
     public void switchActivities(Context context, Class c){

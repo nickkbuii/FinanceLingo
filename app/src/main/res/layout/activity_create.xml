@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Create"
     android:background="@drawable/purple"
-    >
+    android:tag="hide"
+    tools:context=".Create">
 
     <ImageView
         android:id="@+id/imageView5"
@@ -15,7 +15,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.8"
-        app:layout_constraintHorizontal_bias="0.609"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.8"
@@ -105,12 +104,19 @@
         app:layout_constraintStart_toStartOf="@+id/imageView5"
         app:layout_constraintWidth_percent="0.7" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="129dp" />
+    <Button
+        android:id="@+id/showPw"
+        android:layout_width="25dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="278dp"
+        android:layout_marginEnd="8dp"
+        android:tag="hide"
+        android:text="Button"
+        android:onClick="showPw"
+        app:layout_constraintBottom_toBottomOf="@+id/pw"
+        app:layout_constraintEnd_toEndOf="@+id/pw"
+        app:layout_constraintStart_toStartOf="@+id/pw"
+        app:layout_constraintTop_toTopOf="@+id/pw" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
