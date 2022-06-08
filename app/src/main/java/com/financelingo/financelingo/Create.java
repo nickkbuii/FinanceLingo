@@ -3,6 +3,8 @@ package com.financelingo.financelingo;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,6 +18,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import Global.Global;
 import database.User;
@@ -60,23 +65,31 @@ public class Create extends AppCompatActivity {
         }
 
         //Creates new User onto firebase authentication
-        //user.getEmail() method change when UI is ready
         fAuth.createUserWithEmailAndPassword(user.getEmail(), user.getPw())
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
+                    Toast.makeText(Create.this, "ACCOUNT CREATED", Toast.LENGTH_SHORT).show();
+
                     //Set new UID
                     user.setId(fAuth.getCurrentUser().getUid());
-                    //Log.d("INFO", fAuth.getCurrentUser().getDisplayName());
-                    Toast.makeText(Create.this, "SUCCESS", Toast.LENGTH_SHORT).show();
 
                     //Adds to profile firebase firestore
                     fStore.collection("User")
                             .document(fAuth.getCurrentUser().getUid() + " + " + user.getEmail())
                             .set(user);
-                    global.switchActivities(Create.this, MainActivity.class);
 
+                    //Adds to email-username connection
+                    HashMap<String, String> map = new HashMap<>();
+                    map.put("Email", user.getEmail());
+
+                    //Adds to allow login with username
+                    fStore.collection("Emails")
+                            .document(user.getUsername())
+                            .set(map);
+
+                    switchActivities(Create.this, MainActivity.class);
                     //Make Update user profile
                 }
                 else{
@@ -105,5 +118,10 @@ public class Create extends AppCompatActivity {
 
 
         return send;
+    }
+
+    public void switchActivities(Context context, Class c){
+        Intent switchActivityIntent = new Intent (context, c);
+        startActivity(switchActivityIntent);
     }
 }
