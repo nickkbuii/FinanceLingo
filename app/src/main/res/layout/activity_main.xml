@@ -94,5 +94,13 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.90" />
 
+    <ImageButton
+        android:id="@+id/imageButton7"
+        android:layout_width="47dp"
+        android:layout_height="45dp"
+        app:srcCompat="@drawable/common_google_signin_btn_icon_light"
+        tools:layout_editor_absoluteX="173dp"
+        tools:layout_editor_absoluteY="671dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
