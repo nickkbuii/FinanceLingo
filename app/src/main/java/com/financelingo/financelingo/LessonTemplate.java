@@ -15,7 +15,7 @@ import database.Question;
 
 public class LessonTemplate extends AppCompatActivity {
     //DatabaseHelper db;
-    private Question Question = new Question();
+    //private Question question = new Question();
     private TextView questionView;
     private Button button1;
     private Button button2;
@@ -83,13 +83,13 @@ public class LessonTemplate extends AppCompatActivity {
     }
 
     private void updateQuestion(){
-        questionView.setText(Question.getQuestion(questionNumber));
-        button1.setText(Question.getChoice(questionNumber,1));
-        button2.setText(Question.getChoice(questionNumber,2));
-        button3.setText(Question.getChoice(questionNumber,3));
-        button4.setText(Question.getChoice(questionNumber,4));
-        answer = Question.getCorrectAnswer(1);
-        questionNumber++;
+//        questionView.setText(Question.getQuestion(questionNumber));
+//        button1.setText(Question.getChoice(questionNumber,1));
+//        button2.setText(Question.getChoice(questionNumber,2));
+//        button3.setText(Question.getChoice(questionNumber,3));
+//        button4.setText(Question.getChoice(questionNumber,4));
+//        answer = Question.getCorrectAnswer(1);
+//        questionNumber++;
     }
 
 //    public void checkCorrect(View view){

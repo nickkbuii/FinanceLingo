@@ -43,8 +43,6 @@ public class Create extends AppCompatActivity {
 
     Global global = new Global();
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,23 +50,20 @@ public class Create extends AppCompatActivity {
 
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
-
     }
 
-
-
     public void makeAcc(View v){
-        TextView t = findViewById(R.id.user);
-        String username = t.getText().toString();
+        TextView userText = findViewById(R.id.user);
+        String username = userText.getText().toString();
 
-        t = findViewById(R.id.pw);
-        String password = t.getText().toString();
+        TextView pwText = findViewById(R.id.pw);
+        String password = pwText.getText().toString();
 
-        t = findViewById(R.id.email);
-        String email = t.getText().toString();
+        TextView emailText = findViewById(R.id.email);
+        String email = emailText.getText().toString();
 
-        if(checkPass(password) != ""){
-            Toast.makeText(Create.this, checkPass(password), Toast.LENGTH_LONG).show();
+        if(!checkPass(password).equals("")){
+            pwText.setError(checkPass(password));
             return;
         }
 
