@@ -1,16 +1,14 @@
 package database;
 
-import java.util.HashMap;
-
 public class Question {
     String[] prompts;
     String[][] choices;
-    String[] answers;
+    String[] correctAnswers;
 
-    public Question(String[] prompts, String[][] choices, String[] answers) {
+    public Question(String[] prompts, String[][] choices, String[] correctAnswers) {
         this.prompts = prompts;
         this.choices = choices;
-        this.answers = answers;
+        this.correctAnswers = correctAnswers;
     }
 
     public String[] getPrompts() {
@@ -26,14 +24,14 @@ public class Question {
         this.choices = choices;
     }
     public String[] getAnswers() {
-        return answers;
+        return correctAnswers;
     }
-    public void setAnswers(String[] answers) {
-        this.answers = answers;
+    public void setAnswers(String[] correctAnswers) {
+        this.correctAnswers = correctAnswers;
     }
 
-    public String getChoice1(int choiceNum, int question){
-        return choices[choiceNum][question];
+    public String getChoice(int question, int choiceNum){
+        return choices[question][choiceNum];
     }
     
     public String getQuestion(int a) {
@@ -42,7 +40,7 @@ public class Question {
     }
 
     public String getCorrectAnswer(int a){
-        String answer = answers[a];
+        String answer = correctAnswers[a];
         return answer;
     }
 }
