@@ -14,18 +14,23 @@ public class Question {
     public String[] getPrompts() {
         return prompts;
     }
+
     public void setPrompts(String[] prompts) {
         this.prompts = prompts;
     }
+
     public String[][] getChoices() {
         return choices;
     }
+
     public void setChoices(String[][] choices) {
         this.choices = choices;
     }
+
     public String[] getAnswers() {
         return correctAnswers;
     }
+
     public void setAnswers(String[] correctAnswers) {
         this.correctAnswers = correctAnswers;
     }

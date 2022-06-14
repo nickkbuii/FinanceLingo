@@ -24,8 +24,8 @@ public class LessonTemplate extends AppCompatActivity {
 
     int barAmount = 0;
     private String answer;
-    private int score = 0;
-    private int questionNumber = 0;
+    private int score = 0; //this is temporary, score should be retrieved from database
+    private int questionNumber = 0; //this is temporary, question num should be retrieved from database
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,7 +88,7 @@ public class LessonTemplate extends AppCompatActivity {
 //        button2.setText(Question.getChoice(questionNumber,2));
 //        button3.setText(Question.getChoice(questionNumber,3));
 //        button4.setText(Question.getChoice(questionNumber,4));
-//        answer = Question.getCorrectAnswer(1);
+//        answer = Question.getCorrectAnswer(questionNumber);
 //        questionNumber++;
     }
 
