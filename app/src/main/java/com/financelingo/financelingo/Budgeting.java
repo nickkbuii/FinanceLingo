@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import database.Question;
 
-public class Budgeting extends AppCompatActivity {
+public class Budgeting {
 
     private String[] prompts = {
             "Which of the following categories does your post-tax income fall into?",

@@ -15,7 +15,7 @@ import database.Question;
 
 public class LessonTemplate extends AppCompatActivity {
     //DatabaseHelper db;
-    //private Question question = new Question();
+    private Budgeting budgeting = new Budgeting();
     private TextView questionView;
     private Button button1;
     private Button button2;
@@ -25,7 +25,7 @@ public class LessonTemplate extends AppCompatActivity {
     int barAmount = 0;
     private String answer;
     private int score = 0; //this is temporary, score should be retrieved from database
-    private int questionNumber = 0; //this is temporary, question num should be retrieved from database
+    private int questionNumber = 1; //this is temporary, question num should be retrieved from database
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +47,7 @@ public class LessonTemplate extends AppCompatActivity {
                     score++;
                 }
                 updateQuestion();
+                questionNumber++;
             }
         });
 
@@ -57,6 +58,7 @@ public class LessonTemplate extends AppCompatActivity {
                     score++;
                 }
                 updateQuestion();
+                questionNumber++;
             }
         });
 
@@ -67,6 +69,7 @@ public class LessonTemplate extends AppCompatActivity {
                     score++;
                 }
                 updateQuestion();
+                questionNumber++;
             }
         });
 
@@ -77,19 +80,19 @@ public class LessonTemplate extends AppCompatActivity {
                     score++;
                 }
                 updateQuestion();
+                questionNumber++;
             }
         });
 
     }
 
     private void updateQuestion(){
-//        questionView.setText(Question.getQuestion(questionNumber));
-//        button1.setText(Question.getChoice(questionNumber,1));
-//        button2.setText(Question.getChoice(questionNumber,2));
-//        button3.setText(Question.getChoice(questionNumber,3));
-//        button4.setText(Question.getChoice(questionNumber,4));
-//        answer = Question.getCorrectAnswer(questionNumber);
-//        questionNumber++;
+        questionView.setText(budgeting.question.getQuestion(questionNumber));
+        button1.setText(budgeting.question.getChoice(questionNumber,1));
+        button2.setText(budgeting.question.getChoice(questionNumber,2));
+        button3.setText(budgeting.question.getChoice(questionNumber,3));
+        button4.setText(budgeting.question.getChoice(questionNumber,4));
+        answer = budgeting.question.getCorrectAnswer(questionNumber);
     }
 
 //    public void checkCorrect(View view){
