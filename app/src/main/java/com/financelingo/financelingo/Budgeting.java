@@ -25,5 +25,4 @@ public class Budgeting {
 
     public Question question = new Question(prompts, choices, correctAnswers);
 
-
 }
