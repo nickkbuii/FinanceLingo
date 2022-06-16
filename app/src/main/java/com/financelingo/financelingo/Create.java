@@ -23,11 +23,13 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -64,6 +66,11 @@ public class Create extends AppCompatActivity {
 
         if(!checkPass(password).equals("")){
             pwText.setError(checkPass(password));
+            return;
+        }
+
+        if(!checkUser(username).equals("")){
+            pwText.setError(checkUser(username));
             return;
         }
 
@@ -106,6 +113,20 @@ public class Create extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public String checkUser(String user){
+        final String[] val = {""};
+        fStore.collection("Emails").document(user).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                if(documentSnapshot.exists()){
+                    val[0] = "Username is taken!";
+                }
+            }
+        });
+
+        return val[0];
     }
 
     //Checks if password passes test values

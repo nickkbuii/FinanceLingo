@@ -48,4 +48,8 @@ public class Question {
         String answer = correctAnswers[a];
         return answer;
     }
+
+    public static void sayHi(){
+        //HI
+    }
 }

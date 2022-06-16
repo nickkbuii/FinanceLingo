@@ -15,7 +15,8 @@ import database.Question;
 
 public class LessonTemplate extends AppCompatActivity {
     //DatabaseHelper db;
-    //private Question question = new Question();
+    //private Question question = new Question();]
+    private Budgeting budgeting = new Budgeting();
     private TextView questionView;
     private Button button1;
     private Button button2;
@@ -25,7 +26,8 @@ public class LessonTemplate extends AppCompatActivity {
     int barAmount = 0;
     private String answer;
     private int score = 0; //this is temporary, score should be retrieved from database
-    private int questionNumber = 0; //this is temporary, question num should be retrieved from database
+    private int questionNumber = 0; //question num should be retrieved from database
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,31 +85,25 @@ public class LessonTemplate extends AppCompatActivity {
     }
 
     private void updateQuestion(){
-//        questionView.setText(Question.getQuestion(questionNumber));
-//        button1.setText(Question.getChoice(questionNumber,1));
-//        button2.setText(Question.getChoice(questionNumber,2));
-//        button3.setText(Question.getChoice(questionNumber,3));
-//        button4.setText(Question.getChoice(questionNumber,4));
-//        answer = Question.getCorrectAnswer(questionNumber);
-//        questionNumber++;
+        //Assign QuestionText to first prompt
+        //Assign each ButtonOption to multiple choice answer
     }
 
-//    public void checkCorrect(View view){
-//        view.setBackgroundColor(Color.CYAN);
-//        Button button = (Button)view;
-//
-//        TextView text = findViewById(R.id.notify);
-//        ProgressBar bar = findViewById(R.id.progressBar);
-//
-//        if(button.getText().toString().equals("correct")){
-//            text.setText("Correct!");
-//            animateBar(bar, 20);
-//        }
-//        else{
-//            text.setText("Wrong!!");
-//            animateBar(bar, -5);
-//        }
-//    }
+    public void checkCorrect(View view){
+        view.setBackgroundColor(Color.CYAN);
+        Button button = (Button)view;
+
+        TextView text = findViewById(R.id.notify);
+
+        if(button.getText().toString().equals("")){
+            text.setText("Correct!");
+            questionNumber++;
+            updateQuestion();
+        }
+        else{
+            text.setText("Wrong!!");
+        }
+    }
 
 //    private void animateBar(ProgressBar bar, int amount){
 //        ValueAnimator animator = ValueAnimator.ofInt(barAmount, barAmount+amount);
