@@ -2,7 +2,7 @@ package com.financelingo.financelingo;
 
 public class BudgetingReadings {
 
-    private String[] readings = {
+    public String[] readings = {
             "It’s recommended that your post-tax income is spent according to the 50/30/20 rule",
             "50% Expenses: necessary payments and purchases that you can’t avoid such as your mortgage, phone payment, rent, car payments, food, tuition, insurance, utilities",
             "30% Savings: money that isn’t spent but rather put aside for an emergency fund, investments (stocks, real estate, 401k, IRA), paying off debt ",
