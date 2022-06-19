@@ -10,12 +10,17 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import database.Question;
 
 
 public class LessonTemplate extends AppCompatActivity {
+
     //DatabaseHelper db;
-    //private Question question = new Question();]
     private Budgeting budgeting = new Budgeting();
     private TextView questionView;
     private Button button1;
@@ -28,11 +33,16 @@ public class LessonTemplate extends AppCompatActivity {
     private int score = 0; //this is temporary, score should be retrieved from database
     private int questionNumber = 0; //question num should be retrieved from database
 
+    private FirebaseUser fUser;
+    private FirebaseFirestore fStore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.budgeting_lesson);
+
+        fUser = FirebaseAuth.getInstance().getCurrentUser();
+        fStore = FirebaseFirestore.getInstance();
 
         questionView = findViewById(R.id.question);
         button1 = findViewById(R.id.opt1);
@@ -49,6 +59,7 @@ public class LessonTemplate extends AppCompatActivity {
                     score++;
                 }
                 updateQuestion();
+                questionNumber++;
             }
         });
 
@@ -59,6 +70,7 @@ public class LessonTemplate extends AppCompatActivity {
                     score++;
                 }
                 updateQuestion();
+                questionNumber++;
             }
         });
 
@@ -69,6 +81,7 @@ public class LessonTemplate extends AppCompatActivity {
                     score++;
                 }
                 updateQuestion();
+                questionNumber++;
             }
         });
 
@@ -79,6 +92,7 @@ public class LessonTemplate extends AppCompatActivity {
                     score++;
                 }
                 updateQuestion();
+                questionNumber++;
             }
         });
 
@@ -87,6 +101,14 @@ public class LessonTemplate extends AppCompatActivity {
     private void updateQuestion(){
         //Assign QuestionText to first prompt
         //Assign each ButtonOption to multiple choice answer
+
+        questionView.setText(budgeting.question.getQuestion(questionNumber));
+        button1.setText(budgeting.question.getChoice(questionNumber,1));
+        button2.setText(budgeting.question.getChoice(questionNumber,2));
+        button3.setText(budgeting.question.getChoice(questionNumber,3));
+        button4.setText(budgeting.question.getChoice(questionNumber,4));
+        answer = budgeting.question.getCorrectAnswer(questionNumber);
+
     }
 
     public void checkCorrect(View view){
@@ -95,7 +117,7 @@ public class LessonTemplate extends AppCompatActivity {
 
         TextView text = findViewById(R.id.notify);
 
-        if(button.getText().toString().equals("")){
+        if(button.getText().toString().equals(answer)){
             text.setText("Correct!");
             questionNumber++;
             updateQuestion();
@@ -103,6 +125,10 @@ public class LessonTemplate extends AppCompatActivity {
         else{
             text.setText("Wrong!!");
         }
+    }
+
+    public void checkProgress(){
+
     }
 
 //    private void animateBar(ProgressBar bar, int amount){

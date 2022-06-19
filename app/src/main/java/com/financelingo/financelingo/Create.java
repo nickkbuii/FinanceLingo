@@ -97,13 +97,22 @@ public class Create extends AppCompatActivity {
                             .set(user);
 
                     //Adds to email-username connection
-                    HashMap<String, String> map = new HashMap<>();
-                    map.put("Email", user.getEmail());
+                    HashMap<String, String> emailMap = new HashMap<>();
+                    emailMap.put("Email", user.getEmail());
 
                     //Adds to allow login with username
                     fStore.collection("Emails")
                             .document(user.getUsername())
-                            .set(map);
+                            .set(emailMap);
+
+                    //Adds to email-username connection
+                    HashMap<String, String> lessonsMap = new HashMap<>();
+                    emailMap.put("Budgeting", user.getEmail());
+
+                    //Adds to allow login with username
+                    fStore.collection("Lessons")
+                            .document(user.getUsername())
+                            .set(lessonsMap);
 
                     switchActivities(Create.this, MainActivity.class);
                     //Make Update user profile
