@@ -95,40 +95,23 @@ public class LessonTemplate extends AppCompatActivity {
         answer = budgeting.question.getCorrectAnswer(questionNumber);
     }
 
-//    public void checkCorrect(View view){
-//        view.setBackgroundColor(Color.CYAN);
-//        Button button = (Button)view;
-//
-//        TextView text = findViewById(R.id.notify);
-//        ProgressBar bar = findViewById(R.id.progressBar);
-//
-//        if(button.getText().toString().equals("correct")){
-//            text.setText("Correct!");
-//            animateBar(bar, 20);
-//        }
-//        else{
-//            text.setText("Wrong!!");
-//            animateBar(bar, -5);
-//        }
-//    }
-
-//    private void animateBar(ProgressBar bar, int amount){
-//        ValueAnimator animator = ValueAnimator.ofInt(barAmount, barAmount+amount);
-//        barAmount += amount;
-//        animator.setDuration(1500);
-//        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-//            @Override
-//            public void onAnimationUpdate(ValueAnimator animation){
-//                bar.setProgress((Integer)animation.getAnimatedValue());
-//            }
-//        });
-//        animator.addListener(new AnimatorListenerAdapter() {
-//            @Override
-//            public void onAnimationEnd(Animator animation) {
-//                super.onAnimationEnd(animation);
-//                // start your activity here
-//            }
-//        });
-//        animator.start();
-//    }
+    private void animateBar(ProgressBar bar, int amount){
+        ValueAnimator animator = ValueAnimator.ofInt(barAmount, barAmount+amount);
+        barAmount += amount;
+        animator.setDuration(1500);
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation){
+                bar.setProgress((Integer)animation.getAnimatedValue());
+            }
+        });
+        animator.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                super.onAnimationEnd(animation);
+                // start your activity here
+            }
+        });
+        animator.start();
+    }
 }
