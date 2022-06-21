@@ -36,6 +36,12 @@ public class ReadingTemplate extends AppCompatActivity {
             }
         });
 
+        backPage.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                flipToPreviousPage();
+            }
+        });
     }
 
     public void getDefinition(View view){

@@ -91,13 +91,24 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 
     <Button
-        android:id="@+id/nextPage"
-        android:layout_width="match_parent"
+        android:id="@+id/backPage"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
         android:text="Button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/defRecommended"
         app:layout_constraintWidth_percent="0.5"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-4dp"
         tools:visibility="invisible" />
+
+    <Button
+        android:id="@+id/nextPage"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.5"
+        tools:visibility="invisible" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
