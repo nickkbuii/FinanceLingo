@@ -3,6 +3,8 @@ package com.financelingo.financelingo;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -91,15 +93,24 @@ public class LessonTemplate extends AppCompatActivity {
             }
         });
 
+        //if user did not answer all 4 questions correctly, reset score/question number
+        if (questionNumber==3 && score!=3){
+            score=0;
+            questionNumber=0;
+            //take user back to lessons (home) screen
+            //temporary, need to add a lesson results page for user
+            switchActivities(LessonTemplate.this, Lessons.class);
+        }
+
     }
 
     //set question and answer options to respective fields and buttons according to question number
     private void updateQuestion(){
         questionView.setText(budgeting.question.getQuestion(questionNumber));
-        button1.setText(budgeting.question.getChoice(questionNumber,1));
-        button2.setText(budgeting.question.getChoice(questionNumber,2));
-        button3.setText(budgeting.question.getChoice(questionNumber,3));
-        button4.setText(budgeting.question.getChoice(questionNumber,4));
+        button1.setText(budgeting.question.getChoice(questionNumber,0));
+        button2.setText(budgeting.question.getChoice(questionNumber,1));
+        button3.setText(budgeting.question.getChoice(questionNumber,2));
+        button4.setText(budgeting.question.getChoice(questionNumber,3));
         answer = budgeting.question.getCorrectAnswer(questionNumber);
     }
 
@@ -123,4 +134,10 @@ public class LessonTemplate extends AppCompatActivity {
         });
         animator.start();
     }
+
+    public void switchActivities(Context context, Class c){
+        Intent switchActivityIntent = new Intent (context, c);
+        startActivity(switchActivityIntent);
+    }
+
 }
