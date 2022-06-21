@@ -13,7 +13,7 @@ public class BudgetingReadings {
     };
 
     //Definitions of budgeting terms to be outputted upon hover of a key string
-    public static void definitions() {
+    public void definitions() {
         HashMap<String, String> defDictionary = new HashMap<String, String>();
         defDictionary.put("Post-tax income", "the amount of money you have after paying federal and state income taxes");
         defDictionary.put("Mortgage", "monthly payments for a home that has not been completely paid off yet that you will own once paid off");
