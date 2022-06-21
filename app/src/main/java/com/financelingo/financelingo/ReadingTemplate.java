@@ -24,8 +24,18 @@ public class ReadingTemplate extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.budgeting_reading);
 
+        nextPage = findViewById(R.id.nextPage);
+
         readingView = findViewById(R.id.readingBody);
-        updateReading();
+        readingView.setText(budgetingReadings.readings[pageNumber]);
+
+        nextPage.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                flipToNextPage();
+            }
+        });
+
     }
 
     public void getDefinition(View view){
@@ -39,7 +49,22 @@ public class ReadingTemplate extends AppCompatActivity {
         dialog.show();
     }
 
-    public void updateReading(){
+    public void flipToNextPage(){
+        if (pageNumber==3) {
+            pageNumber = 0;
+        }else {
+            pageNumber++;
+        }
         readingView.setText(budgetingReadings.readings[pageNumber]);
     }
+
+    public void flipToPreviousPage(){
+        if (pageNumber==0){
+            pageNumber=3;
+        }else{
+            pageNumber--;
+        }
+        readingView.setText(budgetingReadings.readings[pageNumber]);
+    }
+
 }
