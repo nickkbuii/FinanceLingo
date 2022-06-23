@@ -14,7 +14,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import database.User;
 
 public class Global extends AppCompatActivity {
-    public static User user;
+    public static User user = new User();
     private FirebaseAuth fAuth = FirebaseAuth.getInstance();
     private FirebaseFirestore fStore = FirebaseFirestore.getInstance();
 

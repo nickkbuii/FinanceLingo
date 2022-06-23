@@ -38,13 +38,13 @@ public class MainActivity extends AppCompatActivity {
                 switchActivities(MainActivity.this, Create.class);
             }
         });
-//        switchToLogin = findViewById(R.id.loginButton);
-//        switchToLogin.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View view){
-//                switchActivities(MainActivity.this, Login.class);
-//            }
-//        });
+        switchToLogin = findViewById(R.id.loginButton);
+        switchToLogin.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                switchActivities(MainActivity.this, Login.class);
+            }
+        });
 
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()

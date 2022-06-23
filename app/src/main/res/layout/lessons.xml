@@ -130,6 +130,7 @@
         android:id="@+id/imageView9"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:onClick="toLesson"
         app:layout_constraintWidth_percent="0.09"
         app:layout_constraintHeight_percent="0.06"
         app:layout_constraintBottom_toBottomOf="@+id/budgetingButton"
@@ -273,6 +274,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.18" />
+
+    <TextView
+        android:id="@+id/testingName"
+        android:layout_width="105dp"
+        android:layout_height="53dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="277dp"
+        tools:layout_editor_absoluteY="7dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

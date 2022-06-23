@@ -131,23 +131,23 @@ public class LessonTemplate extends AppCompatActivity {
 
     }
 
-//    private void animateBar(ProgressBar bar, int amount){
-//        ValueAnimator animator = ValueAnimator.ofInt(barAmount, barAmount+amount);
-//        barAmount += amount;
-//        animator.setDuration(1500);
-//        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-//            @Override
-//            public void onAnimationUpdate(ValueAnimator animation){
-//                bar.setProgress((Integer)animation.getAnimatedValue());
-//            }
-//        });
-//        animator.addListener(new AnimatorListenerAdapter() {
-//            @Override
-//            public void onAnimationEnd(Animator animation) {
-//                super.onAnimationEnd(animation);
-//                // start your activity here
-//            }
-//        });
-//        animator.start();
-//    }
+    private void animateBar(ProgressBar bar, int amount){
+        ValueAnimator animator = ValueAnimator.ofInt(barAmount, barAmount+amount);
+        barAmount += amount;
+        animator.setDuration(1500);
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation){
+                bar.setProgress((Integer)animation.getAnimatedValue());
+            }
+        });
+        animator.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                super.onAnimationEnd(animation);
+                // start your activity here
+            }
+        });
+        animator.start();
+    }
 }

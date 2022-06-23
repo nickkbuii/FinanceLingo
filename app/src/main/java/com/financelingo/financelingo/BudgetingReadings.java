@@ -9,6 +9,8 @@ public class BudgetingReadings {
             "20% Fun: the remainder of your income that goes towards non-essential things that you want such as monthly subscriptions (Netflix, Spotify, etc), travel, dining out, shopping\n"
     };
 
+    //MAKE INTO MAP
+    //USE .put() IN A FUNCTION?
     private String[] definitions = {
             "Post-tax income: the amount of money you have after paying federal and state income taxes",
             "Mortgage: monthly payments for a home that has not been completely paid off yet that you will own once paid off",

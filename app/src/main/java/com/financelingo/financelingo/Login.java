@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,15 +33,24 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.budgeting_reading);
+        setContentView(R.layout.activity_login); //Create Login Page
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
         global = new Global();
     }
 
     public void login(View v){
-        String username = "";//username text field input
-        String password = "";//Password text field input
+        TextView text = findViewById(R.id.loginUsernameInput);
+        String username = text.getText().toString();//username text field input
+        text = findViewById(R.id.loginPasswordInput);
+        String password = text.getText().toString();//Password text field input
+
+        //Checks if User is logged in
+        //TEMPORARY : AUTO LOGOUT -> ASK USER IF THEY WISH TO LOG OUT
+        if(fAuth.getCurrentUser() != null){
+            fAuth.signOut();
+        }
+
 
         //LOGINS IN TO THE FIREBASE AUTHENTICATION
         if(username.contains("@")){
@@ -49,6 +59,7 @@ public class Login extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
                         Toast.makeText(Login.this, "LOGGED IN", Toast.LENGTH_SHORT).show();
+                        //loadData();
                     }
                     else{
                         Toast.makeText(Login.this, "ERROR", Toast.LENGTH_SHORT).show();
@@ -61,13 +72,14 @@ public class Login extends AppCompatActivity {
                 @Override
                 public void onSuccess(DocumentSnapshot doc) {
                     if(doc.exists()){
-                        String email = doc.getString("Emails");
+                        String email = doc.getString("Email");
                         fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if(task.isSuccessful()){
                                     global.getUser();
-                                    Toast.makeText(Login.this, "LOGGED IN", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(Login.this, fAuth.getCurrentUser().getEmail(), Toast.LENGTH_SHORT).show();
+                                    loadData();
                                 }
                                 else{
                                     Toast.makeText(Login.this, "LOGIN FAIL", Toast.LENGTH_SHORT).show();
@@ -82,27 +94,32 @@ public class Login extends AppCompatActivity {
             });
         }
 
+        switchActivities(Login.this, Lessons.class);
+    }
+
+    public void loadData(){
         //GRABS DATA FROM FIRESTORE DATABASE
         String getData = fAuth.getCurrentUser().getUid().toString() + " + " + fAuth.getCurrentUser().getEmail();
-        fStore.collection("User").document(getData).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+        fStore.collection("User").document(getData).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
-            public void onSuccess(DocumentSnapshot doc) {
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                DocumentSnapshot doc = task.getResult();
                 if(doc.exists()){
-                    String user = doc.getString("name");//Change to "Username"
+                    String user = doc.getString("username");//Change to "Username"
                     String pw = doc.getString("pw");
                     String email = doc.getString("email");
                     String id = doc.getString("id");
 
-                    loadData(user, pw, email, id);
+                    Global.user = new User(user, pw, email, id);
+
+                    Lessons.setUser(Global.user.getUsername().toUpperCase());
+                }
+                else{
+                    Log.d("BIG BALLZ", "Failed");
                 }
             }
         });
 
-
-    }
-
-    public void loadData(String user, String pw, String email, String id){
-        tempUser = new User(user, pw, email, id);
     }
 
     public void switchActivities(Context context, Class c){

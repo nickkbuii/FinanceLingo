@@ -8,11 +8,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.view.View;
+import android.widget.TextView;
+
+import java.text.BreakIterator;
+
+import Global.Global;
 
 public class Lessons extends AppCompatActivity{
 
-    Button switchToLesson;
-    Button switchToReading;
+    private Button switchToLesson;
+    private Button switchToReading;
+    private static TextView accName = null;
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -20,21 +26,24 @@ public class Lessons extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lessons);
 
-        switchToLesson = findViewById(R.id.budgetingButton);
-        switchToLesson.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                switchActivities(Lessons.this, LessonTemplate.class);
-            }
-        });
+//        switchToLesson = findViewById(R.id.budgetingButton);
+//        switchToLesson.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View view){
+//                switchActivities(Lessons.this, LessonTemplate.class);
+//            }
+//        });
+//
+//        switchToReading = findViewById(R.id.budgetingReadingButton);
+//        switchToReading.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View view){
+//                switchActivities(Lessons.this, ReadingTemplate.class);
+//            }
+//        });
+        accName = findViewById(R.id.testingName);
 
-        switchToReading = findViewById(R.id.budgetingReadingButton);
-        switchToReading.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                switchActivities(Lessons.this, ReadingTemplate.class);
-            }
-        });
+
     }
 
     public void toLesson(View v){
@@ -44,6 +53,11 @@ public class Lessons extends AppCompatActivity{
     public void toReading(View v){
         switchActivities(Lessons.this, ReadingTemplate.class);
     }
+
+    public static void setUser(String username){
+        accName.setText(username);
+    }
+
 
     public void switchActivities(Context context, Class c){
         Intent switchActivityIntent = new Intent (context, c);
