@@ -276,12 +276,26 @@
         app:layout_constraintWidth_percent="0.18" />
 
     <TextView
-        android:id="@+id/testingName"
+        android:id="@+id/accName"
         android:layout_width="105dp"
-        android:layout_height="53dp"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="277dp"
-        tools:layout_editor_absoluteY="7dp" />
+        android:layout_height="26dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/sf_arch_rival_bold"
+        android:textAllCaps="true"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView14"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/prof_pic_icon" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

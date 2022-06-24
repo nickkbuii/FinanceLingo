@@ -59,7 +59,7 @@ public class Login extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
                         Toast.makeText(Login.this, "LOGGED IN", Toast.LENGTH_SHORT).show();
-                        //loadData();
+                        loadData();
                     }
                     else{
                         Toast.makeText(Login.this, "ERROR", Toast.LENGTH_SHORT).show();
@@ -77,7 +77,6 @@ public class Login extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if(task.isSuccessful()){
-                                    global.getUser();
                                     Toast.makeText(Login.this, fAuth.getCurrentUser().getEmail(), Toast.LENGTH_SHORT).show();
                                     loadData();
                                 }

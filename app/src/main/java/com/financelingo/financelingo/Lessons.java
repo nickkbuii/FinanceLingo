@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.text.BreakIterator;
@@ -16,8 +17,8 @@ import Global.Global;
 
 public class Lessons extends AppCompatActivity{
 
-    private Button switchToLesson;
-    private Button switchToReading;
+    private ImageButton switchToLesson;
+    private ImageButton switchToReading;
     private static TextView accName = null;
 
 
@@ -43,7 +44,7 @@ public class Lessons extends AppCompatActivity{
 //                switchActivities(Lessons.this, ReadingTemplate.class);
 //            }
 //        });
-        accName = findViewById(R.id.testingName);
+        accName = findViewById(R.id.accName);
 
 
         //define "to lesson" button
