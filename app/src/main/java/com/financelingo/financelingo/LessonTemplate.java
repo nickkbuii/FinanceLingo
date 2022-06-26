@@ -123,31 +123,29 @@ public class LessonTemplate extends AppCompatActivity {
     private void updateQuestion(){
         //Assign QuestionText to first prompt
         //Assign each ButtonOption to multiple choice answer
-
         questionView.setText(budgeting.question.getQuestion(questionNumber));
         button1.setText(budgeting.question.getChoice(questionNumber,0));
         button2.setText(budgeting.question.getChoice(questionNumber,1));
         button3.setText(budgeting.question.getChoice(questionNumber,2));
         button4.setText(budgeting.question.getChoice(questionNumber,3));
         answer = budgeting.question.getCorrectAnswer(questionNumber);
-
     }
 
-    public void checkCorrect(View view){
-        view.setBackgroundColor(Color.CYAN);
-        Button button = (Button)view;
-
-        TextView text = findViewById(R.id.notify);
-
-        if(button.getText().toString().equals(answer)){
-            text.setText("Correct!");
-            questionNumber++;
-            updateQuestion();
-        }
-        else{
-            text.setText("Wrong!!");
-        }
-    }
+//    public void checkCorrect(View view){
+//        view.setBackgroundColor(Color.CYAN);
+//        Button button = (Button)view;
+//
+//        TextView text = findViewById(R.id.notify);
+//
+//        if(button.getText().toString().equals(answer)){
+//            text.setText("Correct!");
+//            questionNumber++;
+//            updateQuestion();
+//        }
+//        else{
+//            text.setText("Wrong!!");
+//        }
+//    }
 
     //method to increment progress bar
     private void animateBar(ProgressBar bar, int amount){
