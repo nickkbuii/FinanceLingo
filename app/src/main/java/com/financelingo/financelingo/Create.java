@@ -70,7 +70,7 @@ public class Create extends AppCompatActivity {
         }
 
         if(!checkUser(username).equals("")){
-            pwText.setError(checkUser(username));
+            pwText.setError("Username is taken!");
             return;
         }
 
@@ -81,7 +81,7 @@ public class Create extends AppCompatActivity {
         }
 
         //Creates new User onto firebase authentication
-        fAuth.createUserWithEmailAndPassword(user.getEmail(), user.getPw())
+        fAuth.createUserWithEmailAndPassword(user.getEmail(), user.pw())
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -106,8 +106,16 @@ public class Create extends AppCompatActivity {
                             .set(emailMap);
 
                     //Adds to email-username connection
-                    HashMap<String, String> lessonsMap = new HashMap<>();
-                    emailMap.put("Budgeting", user.getEmail());
+                    HashMap<String, HashMap> lessonsMap = new HashMap<>();
+                    HashMap<String, Integer> qNumScore = new HashMap<>();
+
+                    //Question and score
+                    qNumScore.put("Question", Integer.valueOf(0));
+                    qNumScore.put("Score", Integer.valueOf(0));
+
+                    //Default Budgeting lesson
+                    lessonsMap.put("Budgeting", qNumScore);
+
 
                     //Adds to allow login with username
                     fStore.collection("Lessons")

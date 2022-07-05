@@ -11,12 +11,22 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import Global.Global;
 import database.Question;
 
 
@@ -146,6 +156,40 @@ public class LessonTemplate extends AppCompatActivity {
 //            text.setText("Wrong!!");
 //        }
 //    }
+
+    public boolean checkFinished(){
+        final boolean[] passed = {true};
+        fStore.collection("Lessons").document(Global.user.getUsername()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                DocumentSnapshot doc = task.getResult();
+                if(doc.exists()){
+                    Map<String, Object> map = doc.getData();
+                    for(Map.Entry<String, Object> entry : map.entrySet()){
+                        if(entry.getKey().equals("Budgeting")){
+                            Map<String, Object> questionScore = (Map<String, Object>)entry.getValue();
+                            for(Map.Entry<String, Object> e : questionScore.entrySet()){
+                                if(e.getKey().equals("Question")){
+                                    int qNum = Integer.valueOf((int)e.getValue());
+                                    if(qNum != 5){
+                                        passed[0] = false;
+                                    }
+                                }
+                                if(e.getKey().equals("Score")){
+                                    int scoreNum = Integer.valueOf((int)e.getValue());
+                                    if(scoreNum != 5){
+                                        passed[0] = false;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        return passed[0];
+    }
 
     //method to increment progress bar
     private void animateBar(ProgressBar bar, int amount){

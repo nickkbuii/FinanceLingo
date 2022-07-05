@@ -31,7 +31,7 @@ public class User {
     public String getUsername() {
         return username;
     }
-    public String getPw(){return password;};
+    //public String getPw(){return password;};
     public String getId(){return id;};
     public String getEmail(){return email;}
 
@@ -41,6 +41,9 @@ public class User {
     }
     public void setId(String id){this.id = id;}
 
+    public String pw(){
+        return password;
+    }
 
 
 
