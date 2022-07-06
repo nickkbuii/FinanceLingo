@@ -2,6 +2,9 @@
 package com.financelingo.financelingo;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +12,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.text.BreakIterator;
@@ -20,6 +24,7 @@ public class Lessons extends AppCompatActivity{
     private ImageButton switchToLesson;
     private ImageButton switchToReading;
     private static TextView accName = null;
+    int barAmount = 0;
 
 
     @SuppressLint("WrongViewCast")
@@ -28,25 +33,8 @@ public class Lessons extends AppCompatActivity{
         //set screen to lessons.xml
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lessons);
-
-//        switchToLesson = findViewById(R.id.budgetingButton);
-//        switchToLesson.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View view){
-//                switchActivities(Lessons.this, LessonTemplate.class);
-//            }
-//        });
-//
-//        switchToReading = findViewById(R.id.budgetingReadingButton);
-//        switchToReading.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View view){
-//                switchActivities(Lessons.this, ReadingTemplate.class);
-//            }
-//        });
+        //define account name
         accName = findViewById(R.id.accName);
-
-
         //define "to lesson" button
         switchToLesson = findViewById(R.id.budgetingButton);
         switchToLesson.setOnClickListener(new View.OnClickListener(){
@@ -82,6 +70,26 @@ public class Lessons extends AppCompatActivity{
         accName.setText(username);
     }
 
+    //method to increment progress bar
+    private void animateBar(ProgressBar bar, int amount){
+        ValueAnimator animator = ValueAnimator.ofInt(barAmount, barAmount+amount);
+        barAmount += amount;
+        animator.setDuration(1500);
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation){
+                bar.setProgress((Integer)animation.getAnimatedValue());
+            }
+        });
+        animator.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                super.onAnimationEnd(animation);
+                // start your activity here
+            }
+        });
+        animator.start();
+    }
 
     //method that allows us to switch methods and UI aka activities
     public void switchActivities(Context context, Class c){

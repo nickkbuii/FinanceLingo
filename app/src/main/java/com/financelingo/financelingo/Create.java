@@ -116,7 +116,6 @@ public class Create extends AppCompatActivity {
                     //Default Budgeting lesson
                     lessonsMap.put("Budgeting", qNumScore);
 
-
                     //Adds to allow login with username
                     fStore.collection("Lessons")
                             .document(user.getUsername())

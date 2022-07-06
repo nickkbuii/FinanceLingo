@@ -41,15 +41,14 @@ public class LessonTemplate extends AppCompatActivity {
     private Button button2;
     private Button button3;
     private Button button4;
-    //define bar amount, score, question number while initializing answer string
-    int barAmount = 0;
+    //initialize answer string
     private String answer;
-
-    private int score = 0; //this is temporary, score should be retrieved from database
-    private int questionNumber = 0; //question num should be retrieved from database
-
+    //firebase database dependencies
     private FirebaseUser fUser;
     private FirebaseFirestore fStore;
+    //retrieve user's score and questionNumber
+    private int score = 0;
+    private int questionNumber = 0;
 
 
     @Override
@@ -73,7 +72,6 @@ public class LessonTemplate extends AppCompatActivity {
         //when a answer option button is clicked, check if correct
         //if correct, increment score, question number
         //set new question/answer options onto screen
-
         button1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -118,8 +116,8 @@ public class LessonTemplate extends AppCompatActivity {
             }
         });
 
-        //if user did not answer all 4 questions correctly, reset score/question number
-        if (questionNumber==3 && score!=3){
+        //if user did not answer all 5 questions correctly, reset score/question number
+        if (questionNumber==4 && score!=4){
             score=0;
             questionNumber=0;
             //take user back to lessons (home) screen
@@ -140,22 +138,6 @@ public class LessonTemplate extends AppCompatActivity {
         button4.setText(budgeting.question.getChoice(questionNumber,3));
         answer = budgeting.question.getCorrectAnswer(questionNumber);
     }
-
-//    public void checkCorrect(View view){
-//        view.setBackgroundColor(Color.CYAN);
-//        Button button = (Button)view;
-//
-//        TextView text = findViewById(R.id.notify);
-//
-//        if(button.getText().toString().equals(answer)){
-//            text.setText("Correct!");
-//            questionNumber++;
-//            updateQuestion();
-//        }
-//        else{
-//            text.setText("Wrong!!");
-//        }
-//    }
 
     public boolean checkFinished(){
         final boolean[] passed = {true};
@@ -187,32 +169,10 @@ public class LessonTemplate extends AppCompatActivity {
                 }
             }
         });
-
         return passed[0];
     }
 
-    //method to increment progress bar
-    private void animateBar(ProgressBar bar, int amount){
-        ValueAnimator animator = ValueAnimator.ofInt(barAmount, barAmount+amount);
-        barAmount += amount;
-        animator.setDuration(1500);
-        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation){
-                bar.setProgress((Integer)animation.getAnimatedValue());
-            }
-        });
-        animator.addListener(new AnimatorListenerAdapter() {
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                super.onAnimationEnd(animation);
-                // start your activity here
-            }
-        });
-        animator.start();
-    }
-
-
+    //method to switch classes
     public void switchActivities(Context context, Class c){
         Intent switchActivityIntent = new Intent (context, c);
         startActivity(switchActivityIntent);
