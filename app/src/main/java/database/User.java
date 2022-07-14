@@ -9,6 +9,10 @@ public class User {
     private String email;
     private String id;
 
+    //Budgeting scores
+    private int qNum;
+    private int qScore;
+
     public User(String username, String password, String email) {
         this.username = username;
         this.password = password;
@@ -40,10 +44,15 @@ public class User {
         this.username = name;
     }
     public void setId(String id){this.id = id;}
+    public void setQNum(int num){this.qNum = num;}
+    public void setQScore(int num){this.qScore = num;}
 
     public String pw(){
         return password;
     }
+    public int qNum(){return this.qNum;}
+    public int qScore(){return this.qScore;}
+
 
 
 

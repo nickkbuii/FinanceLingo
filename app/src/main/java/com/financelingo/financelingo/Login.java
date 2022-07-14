@@ -21,6 +21,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.Map;
+
 import Global.Global;
 import database.User;
 
@@ -58,8 +60,9 @@ public class Login extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
-                        Toast.makeText(Login.this, "LOGGED IN", Toast.LENGTH_SHORT).show();
-                        loadData();
+                        if(loadData()){
+                            switchActivities(Login.this, Lessons.class);
+                        }
                     }
                     else{
                         Toast.makeText(Login.this, "ERROR", Toast.LENGTH_SHORT).show();
@@ -77,8 +80,9 @@ public class Login extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if(task.isSuccessful()){
-                                    Toast.makeText(Login.this, fAuth.getCurrentUser().getEmail(), Toast.LENGTH_SHORT).show();
-                                    loadData();
+                                    if(loadData()){
+                                        switchActivities(Login.this, Lessons.class);
+                                    }
                                 }
                                 else{
                                     Toast.makeText(Login.this, "LOGIN FAIL", Toast.LENGTH_SHORT).show();
@@ -93,32 +97,44 @@ public class Login extends AppCompatActivity {
             });
         }
 
-        switchActivities(Login.this, Lessons.class);
+
+
     }
 
-    public void loadData(){
+    public boolean loadData(){
         //GRABS DATA FROM FIRESTORE DATABASE
         String getData = fAuth.getCurrentUser().getUid().toString() + " + " + fAuth.getCurrentUser().getEmail();
+        Log.d("INFO", getData);
         fStore.collection("User").document(getData).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 DocumentSnapshot doc = task.getResult();
                 if(doc.exists()){
                     String user = doc.getString("username");//Change to "Username"
-                    String pw = doc.getString("pw");
                     String email = doc.getString("email");
                     String id = doc.getString("id");
 
-                    Global.user = new User(user, pw, email, id);
+                    Global.user = new User(user, email, id);
 
                     Lessons.setUser(Global.user.getUsername().toUpperCase());
                 }
                 else{
-                    Log.d("BIG BALLZ", "Failed");
+                    Toast.makeText(Login.this, "DID NOT WORK", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
+        fStore.collection("Budgeting").document("kru").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                DocumentSnapshot doc = task.getResult();
+                if (doc.exists()) {
+                    Global.user.setQScore(Integer.valueOf(doc.getLong("Score").toString()));
+                    Global.user.setQNum(Integer.valueOf(doc.getLong("Question").toString()));
+                }
+            }
+        });
+        return true;
     }
 
     public void switchActivities(Context context, Class c){

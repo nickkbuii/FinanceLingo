@@ -106,21 +106,17 @@ public class Create extends AppCompatActivity {
                             .set(emailMap);
 
                     //Adds to email-username connection
-                    HashMap<String, HashMap> lessonsMap = new HashMap<>();
                     HashMap<String, Integer> qNumScore = new HashMap<>();
 
                     //Question and score
                     qNumScore.put("Question", Integer.valueOf(0));
                     qNumScore.put("Score", Integer.valueOf(0));
 
-                    //Default Budgeting lesson
-                    lessonsMap.put("Budgeting", qNumScore);
-
 
                     //Adds to allow login with username
-                    fStore.collection("Lessons")
+                    fStore.collection("Budgeting")
                             .document(user.getUsername())
-                            .set(lessonsMap);
+                            .set(qNumScore);
 
                     switchActivities(Create.this, MainActivity.class);
                     //Make Update user profile
