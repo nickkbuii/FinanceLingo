@@ -112,6 +112,11 @@ public class Create extends AppCompatActivity {
                     qNumScore.put("Question", Integer.valueOf(0));
                     qNumScore.put("Score", Integer.valueOf(0));
 
+<<<<<<< HEAD
+=======
+                    //Default Budgeting lesson
+                    lessonsMap.put("Budgeting", qNumScore);
+>>>>>>> 86b2a3dcbecd9d7a00e279c3cba54e9969059edb
 
                     //Adds to allow login with username
                     fStore.collection("Budgeting")
