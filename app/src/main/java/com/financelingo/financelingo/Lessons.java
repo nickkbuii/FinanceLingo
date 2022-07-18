@@ -38,7 +38,7 @@ public class Lessons extends AppCompatActivity{
         setContentView(R.layout.lessons);
         //define account name
         accName = findViewById(R.id.accName);
-        animateBar(budgetingProgressBar2, score);
+//        animateBar(budgetingProgressBar2, score);
     }
 
     //method that changes from lessons (home) class to the lesson class
