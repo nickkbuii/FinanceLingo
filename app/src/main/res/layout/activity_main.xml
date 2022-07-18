@@ -22,33 +22,31 @@
         android:id="@+id/imageView"
         android:layout_width="285dp"
         android:layout_height="0dp"
-        app:layout_constraintDimensionRatio="1.5:1"
         android:background="@drawable/pig_coin_book"
         app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintDimensionRatio="1.5:1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.454" />
+        app:layout_constraintVertical_bias="0.498" />
 
     <Button
         android:id="@+id/loginButton"
         style="@style/Widget.AppCompat.Button"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
+        android:layout_width="336dp"
+        android:layout_height="49dp"
         android:layout_marginBottom="500dp"
         android:checkable="false"
-        android:fontFamily="sans-serif-light"
+        android:fontFamily="sans-serif-medium"
         android:onClick="makeAcc"
-        android:text="Sign In With Email"
+        android:text="Sign In"
         android:textSize="18sp"
         app:backgroundTint="#9B86C4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.415" />
+        app:layout_constraintVertical_bias="0.41" />
 
     <TextView
         android:id="@+id/textView"
@@ -78,12 +76,15 @@
 
     <Button
         android:id="@+id/createButton"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        android:layout_width="334dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Create Account"
+        app:backgroundTint="#9B86C4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginButton" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -100,15 +101,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.90" />
-
-
-    <ImageButton
-        android:id="@+id/imageButton7"
-        android:layout_width="47dp"
-        android:layout_height="45dp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/createButton" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

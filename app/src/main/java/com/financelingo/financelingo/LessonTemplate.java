@@ -139,25 +139,6 @@ public class LessonTemplate extends AppCompatActivity {
         answer = budgeting.question.getCorrectAnswer(questionNumber);
     }
 
-<<<<<<< HEAD
-//    public void checkCorrect(View view){
-//        view.setBackgroundColor(Color.CYAN);
-//        Button button = (Button)view;
-//
-//        TextView text = findViewById(R.id.notify);
-//
-//        if(button.getText().toString().equals(answer)){
-//            text.setText("Correct!");
-//            questionNumber++;
-//            updateQuestion();
-//        }
-//        else{
-//            text.setText("Wrong!!");
-//        }
-//    }
-
-
-=======
     public boolean checkFinished(){
         final boolean[] passed = {true};
         fStore.collection("Lessons").document(Global.user.getUsername()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -190,7 +171,6 @@ public class LessonTemplate extends AppCompatActivity {
         });
         return passed[0];
     }
->>>>>>> 86b2a3dcbecd9d7a00e279c3cba54e9969059edb
 
     //method to switch classes
     public void switchActivities(Context context, Class c){

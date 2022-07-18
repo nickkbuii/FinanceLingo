@@ -20,7 +20,7 @@
         app:layout_constraintWidth_percent="0.8" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/quotationMark"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
@@ -55,7 +55,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/pageNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/sf_arch_rival_bold"
@@ -76,43 +76,40 @@
         android:textAlignment="viewEnd"
         android:textColor="#000000"
         android:textSize="22sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView8"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintEnd_toEndOf="@+id/ruleTitle"
+        app:layout_constraintTop_toBottomOf="@+id/ruleTitle" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/ruleTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/sf_arch_rival_bold"
         android:text="50% RULE"
         android:textColor="#000000"
         android:textSize="40sp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView6"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+        app:layout_constraintEnd_toEndOf="@+id/quotationMark"
+        app:layout_constraintTop_toBottomOf="@+id/quotationMark" />
 
     <Button
         android:id="@+id/backPage"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:onClick="flipToPreviousPage"
-        android:text="Button"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="#00FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/defRecommended"
-        app:layout_constraintWidth_percent="0.5"
-        tools:visibility="invisible" />
+        app:layout_constraintWidth_percent="0.5" />
 
     <Button
         android:id="@+id/nextPage"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:onClick="flipToNextPage"
-        android:text="Button"
-        android:visibility="invisible"
+        android:visibility="visible"
+        app:backgroundTint="#00FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.5"
-        tools:visibility="invisible" />
-
+        app:layout_constraintWidth_percent="0.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

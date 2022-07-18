@@ -53,9 +53,6 @@ public class User {
     public int qNum(){return this.qNum;}
     public int qScore(){return this.qScore;}
 
-
-
-
     @Override
     public String toString() {
         return "User{" +
