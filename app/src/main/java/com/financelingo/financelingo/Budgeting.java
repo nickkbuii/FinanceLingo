@@ -24,6 +24,7 @@ public class Budgeting {
     };
     //Correct answers to budgeting questions
     private String[] correctAnswers = {"All of the Above", "30%", "50%", "20%", "Rent"};
+
     //extend Budgeting.java to Question.java
     public Question question = new Question(prompts, choices, correctAnswers);
 }

@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    >
 
     <ImageView
         android:id="@+id/imageView2"
@@ -13,9 +14,9 @@
         android:layout_height="0dp"
         android:background="@drawable/liquid_shape"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHeight_percent="0.5"
         app:layout_constraintWidth_percent="1.0"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintHeight_percent="0.5"
+        />
 
     <ImageView
         android:id="@+id/imageView"
@@ -25,25 +26,27 @@
         app:layout_constraintBottom_toBottomOf="@+id/imageView2"
         app:layout_constraintDimensionRatio="1.5:1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.454" />
+        app:layout_constraintVertical_bias="0.498" />
 
     <Button
         android:id="@+id/loginButton"
         style="@style/Widget.AppCompat.Button"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="72dp"
-        android:fontFamily="sans-serif-light"
+        android:layout_width="336dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="500dp"
+        android:checkable="false"
+        android:fontFamily="sans-serif-medium"
         android:onClick="makeAcc"
-        android:text="Sign In With Email"
+        android:text="Sign In"
         android:textSize="18sp"
         app:backgroundTint="#9B86C4"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.41" />
 
     <TextView
         android:id="@+id/textView"
@@ -73,16 +76,15 @@
 
     <Button
         android:id="@+id/createButton"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="sans-serif-light"
-        android:text="Sign Up With Email"
-        android:textSize="16.5sp"
+        android:layout_width="334dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Create Account"
         app:backgroundTint="#9B86C4"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginButton" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -90,7 +92,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.10" />
+        app:layout_constraintGuide_percent="0.10"
+        />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
@@ -98,19 +101,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.90" />
-
-    <ImageButton
-        android:id="@+id/imageButton7"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="24dp"
-        android:background="@drawable/common_google_signin_btn_icon_dark_normal"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/createButton"
-        app:layout_constraintWidth_percent="0.15" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
