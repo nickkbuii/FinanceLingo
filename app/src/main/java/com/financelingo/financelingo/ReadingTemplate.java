@@ -1,11 +1,9 @@
 package com.financelingo.financelingo;
 
-import android.app.Dialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 
@@ -40,7 +38,7 @@ public class ReadingTemplate extends AppCompatActivity {
                     pageNumber++;
                 }
                 readingView.setText(budgetingReadings.readings[pageNumber]);
-                pageNum.setText(pageNumber+1);
+                pageNum.setText(String.valueOf(pageNumber+1));
                 rule.setText(budgetingReadings.rules[pageNumber]);
             }
         });
@@ -56,7 +54,7 @@ public class ReadingTemplate extends AppCompatActivity {
                     pageNumber--;
                 }
                 readingView.setText(budgetingReadings.getReading(pageNumber));
-                pageNum.setText(pageNumber+1);
+                pageNum.setText(String.valueOf(pageNumber+1));
                 rule.setText(budgetingReadings.getRule(pageNumber));
             }
         });
