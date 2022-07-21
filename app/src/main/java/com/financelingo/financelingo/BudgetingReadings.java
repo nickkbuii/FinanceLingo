@@ -12,6 +12,8 @@ public class BudgetingReadings {
             "20% Fun: the remainder of your income that goes towards non-essential things that you want such as monthly subscriptions (Netflix, Spotify, etc), travel, dining out, shopping\n"
     };
 
+    public String[] rules = {"General Budgeting Rule", "50% Rule", "30% Rule", "20% Rule"};
+
     //Definitions of budgeting terms to be outputted upon hover of a key string
     public void definitions() {
         HashMap<String, String> defDictionary = new HashMap<String, String>();

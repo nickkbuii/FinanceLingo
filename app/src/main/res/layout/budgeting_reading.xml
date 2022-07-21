@@ -70,19 +70,18 @@
         android:id="@+id/nextPage"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:onClick="flipToNextPage"
         android:visibility="visible"
         app:backgroundTint="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.5"
-        app:layout_constrantBottom_toBottomOf="parent" />
+        />
 
     <Button
         android:id="@+id/backPage"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:onClick="flipToPreviousPage"
         android:visibility="visible"
         app:backgroundTint="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"

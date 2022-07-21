@@ -188,7 +188,7 @@
         app:srcCompat="@drawable/investments" />
 
     <ImageButton
-        android:id="@+id/budgetingReadingButton"
+        android:id="@+id/budgetingReadingInfo"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:onClick = "toReading"
