@@ -28,4 +28,14 @@ public class BudgetingReadings {
         defDictionary.put("Debt", "money owed to a lender for the repayment of loans (more on debt and loans can be found in our debts module)");
     }
 
+    public String getReading(int num){
+        String reading = readings[num];
+        return reading;
+    }
+
+    public String getRule(int num){
+        String rule = rules[num];
+        return rule;
+    }
+
 }

@@ -55,9 +55,9 @@ public class ReadingTemplate extends AppCompatActivity {
                 }else{
                     pageNumber--;
                 }
-                readingView.setText(budgetingReadings.readings[pageNumber]);
+                readingView.setText(budgetingReadings.getReading(pageNumber));
                 pageNum.setText(pageNumber+1);
-                rule.setText(budgetingReadings.rules[pageNumber]);
+                rule.setText(budgetingReadings.getRule(pageNumber));
             }
         });
 
