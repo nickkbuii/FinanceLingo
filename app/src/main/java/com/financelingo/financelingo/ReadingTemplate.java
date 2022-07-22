@@ -3,6 +3,7 @@ package com.financelingo.financelingo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -26,6 +27,7 @@ public class ReadingTemplate extends AppCompatActivity {
         TextView readingView = (TextView)findViewById(R.id.readingBody);
         TextView pageNum = (TextView)findViewById(R.id.pageNum);
         TextView rule = (TextView)findViewById(R.id.ruleTitle);
+        ImageView pic = (ImageView)findViewById(R.id.readingPic);
 
         //set and define button listener for flipping next
         next = (Button)findViewById(R.id.nextPage);

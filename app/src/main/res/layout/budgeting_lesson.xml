@@ -8,7 +8,7 @@
     tools:context=".LessonTemplate">
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/MC_secondary_background"
         android:layout_width="329dp"
         android:layout_height="571dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,7 +20,7 @@
         app:srcCompat="@drawable/purple_square" />
 
     <ImageView
-        android:id="@+id/createLogo"
+        android:id="@+id/pig"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -63,10 +63,10 @@
         app:backgroundTint="#FFFFFF"
         app:iconTint="#00BCD4"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="@+id/MC_secondary_background"
         app:layout_constraintHeight_percent="0.08"
         app:layout_constraintHorizontal_bias="0.428"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintStart_toStartOf="@+id/MC_secondary_background"
         app:layout_constraintWidth_percent="0.72" />
 
     <Button
@@ -87,10 +87,10 @@
         app:backgroundTint="#FFFFFF"
         app:iconTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="@+id/MC_secondary_background"
         app:layout_constraintHeight_percent="0.08"
         app:layout_constraintHorizontal_bias="0.428"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintStart_toStartOf="@+id/MC_secondary_background"
         app:layout_constraintWidth_percent="0.72" />
 
     <Button
@@ -112,10 +112,10 @@
         app:backgroundTint="#FFFFFF"
         app:iconTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="@+id/MC_secondary_background"
         app:layout_constraintHeight_percent="0.08"
         app:layout_constraintHorizontal_bias="0.419"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintStart_toStartOf="@+id/MC_secondary_background"
         app:layout_constraintWidth_percent="0.72" />
 
     <Button
@@ -138,99 +138,88 @@
         app:backgroundTint="#FFFFFF"
         app:iconTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="@+id/MC_secondary_background"
         app:layout_constraintHeight_percent="0.08"
         app:layout_constraintHorizontal_bias="0.428"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintStart_toStartOf="@+id/MC_secondary_background"
         app:layout_constraintWidth_percent="0.72" />
 
     <TextView
         android:id="@+id/question"
-        android:layout_width="296dp"
-        android:layout_height="0dp"
+        android:layout_width="292dp"
+        android:layout_height="146dp"
         android:layout_marginTop="48dp"
         android:fontFamily="@font/roboto_black"
         android:text="Which of the following categories does your post-tax income fall into? "
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="18dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="@+id/MC_secondary_background"
         app:layout_constraintHeight_percent="0.08"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="@+id/imageView3"
+        app:layout_constraintStart_toStartOf="@+id/MC_secondary_background"
+        app:layout_constraintTop_toTopOf="@+id/MC_secondary_background"
         app:layout_constraintWidth_percent="0.72"
         tools:visibility="visible" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="329dp"
-        android:layout_height="32dp"
-        android:max="100"
-        android:scaleY="7"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="@+id/imageView3" />
-
     <ImageButton
-        android:id="@+id/imageButton5"
+        android:id="@+id/prog_5"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/white_circle_button"
-        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintBottom_toTopOf="@+id/MC_secondary_background"
         app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="@+id/MC_secondary_background"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.1" />
 
     <ImageButton
-        android:id="@+id/imageButton6"
+        android:id="@+id/prog_6"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/green_circle_button"
-        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintBottom_toTopOf="@+id/MC_secondary_background"
         app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintStart_toStartOf="@+id/MC_secondary_background"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.1" />
 
     <ImageButton
-        android:id="@+id/imageButton4"
+        android:id="@+id/prog_4"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/green_circle_button"
-        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintBottom_toTopOf="@+id/MC_secondary_background"
         app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton5"
-        app:layout_constraintStart_toEndOf="@+id/imageButton3"
+        app:layout_constraintEnd_toStartOf="@+id/prog_5"
+        app:layout_constraintStart_toEndOf="@+id/prog_3"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.1" />
 
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/prog_3"
         android:layout_width="41dp"
         android:layout_height="41dp"
         android:background="@drawable/green_circle_button"
-        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintBottom_toTopOf="@+id/MC_secondary_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.1" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/prog_2"
         android:layout_width="0dp"
         android:layout_height="41dp"
         android:background="@drawable/green_circle_button"
-        app:layout_constraintBottom_toTopOf="@+id/imageView3"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton3"
-        app:layout_constraintStart_toEndOf="@+id/imageButton6"
+        app:layout_constraintBottom_toTopOf="@+id/MC_secondary_background"
+        app:layout_constraintEnd_toStartOf="@+id/prog_3"
+        app:layout_constraintStart_toEndOf="@+id/prog_6"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.1" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/prog_4"
         android:layout_width="250dp"
         android:layout_height="329dp"
         android:layout_marginStart="-60dp"

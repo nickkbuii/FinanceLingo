@@ -19,6 +19,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.8" />
 
+    <ImageView
+        android:id="@+id/readingPic"
+        android:layout_width="233dp"
+        android:layout_height="215dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.76"
+        app:srcCompat="@drawable/pig" />
+
     <TextView
         android:id="@+id/pageNum"
         android:layout_width="wrap_content"
@@ -75,8 +86,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.5"
-        />
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintWidth_percent="0.5" />
 
     <Button
         android:id="@+id/backPage"
