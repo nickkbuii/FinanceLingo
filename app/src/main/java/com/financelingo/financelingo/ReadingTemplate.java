@@ -42,6 +42,7 @@ public class ReadingTemplate extends AppCompatActivity {
                 readingView.setText(budgetingReadings.readings[pageNumber]);
                 pageNum.setText(String.valueOf(pageNumber+1));
                 rule.setText(budgetingReadings.rules[pageNumber]);
+                pic.setImageDrawable(getDrawable(budgetingReadings.imageList[pageNumber]));
             }
         });
 
@@ -58,6 +59,7 @@ public class ReadingTemplate extends AppCompatActivity {
                 readingView.setText(budgetingReadings.getReading(pageNumber));
                 pageNum.setText(String.valueOf(pageNumber+1));
                 rule.setText(budgetingReadings.getRule(pageNumber));
+                pic.setImageDrawable(getDrawable(budgetingReadings.imageList[pageNumber]));
             }
         });
 

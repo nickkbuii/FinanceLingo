@@ -1,5 +1,7 @@
 package com.financelingo.financelingo;
 
+import android.graphics.drawable.Drawable;
+
 import java.util.HashMap;
 
 public class BudgetingReadings {
@@ -13,6 +15,8 @@ public class BudgetingReadings {
     };
 
     public String[] rules = {"General Budgeting Rule", "50% Rule", "30% Rule", "20% Rule"};
+
+    public int [] imageList = {R.drawable.budget, R.drawable.expenses, R.drawable.pig, R.drawable.fun};
 
     //Definitions of budgeting terms to be outputted upon hover of a key string
     public void definitions() {
