@@ -14,6 +14,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.8"
+        app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.8"
@@ -28,23 +29,22 @@
         android:textColor="@color/white"
         android:textSize="40dp"
         app:layout_constraintBottom_toTopOf="@+id/loginPasswordInput"
-        app:layout_constraintEnd_toEndOf="@+id/space"
+        app:layout_constraintEnd_toEndOf="@+id/imageView6"
         app:layout_constraintHeight_percent="0.06"
         app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="@+id/space"
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
         app:layout_constraintTop_toTopOf="@+id/imageView6"
         app:layout_constraintVertical_bias="0.546"
         app:layout_constraintWidth_percent="0.25" />
 
     <EditText
         android:id="@+id/loginUsernameInput"
-        android:layout_width="311dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/rounded_button"
         android:ems="10"
         android:hint="👤"
         android:inputType="text"
-        android:textAlignment="viewEnd"
         app:layout_constraintBottom_toBottomOf="@+id/loginPasswordInput"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.04"
@@ -52,22 +52,20 @@
         app:layout_constraintTop_toBottomOf="@+id/loginTitle"
         app:layout_constraintWidth_percent="0.7" />
 
-    s
-
     <EditText
         android:id="@+id/loginPasswordInput"
-        android:layout_width="311dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/white"
+        android:background="@drawable/rounded_button"
         android:ems="10"
         android:hint="🔒"
         android:inputType="textPassword"
-        android:textAlignment="viewEnd"
         app:layout_constraintBottom_toTopOf="@+id/loginButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.04"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/space"
+        app:layout_constraintVertical_bias="0.648"
         app:layout_constraintWidth_percent="0.7" />
 
     <Button
