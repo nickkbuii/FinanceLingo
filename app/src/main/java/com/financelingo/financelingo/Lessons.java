@@ -22,13 +22,11 @@ import database.User;
 
 public class Lessons extends AppCompatActivity{
 
-    private ProgressBar budgetingProgressBar2;
     private User user = new User();
     private int score = user.qScore();
-
     private static TextView accName = null;
     int barAmount = 0;
-
+    ProgressBar budgetingProgressBar;
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -36,9 +34,12 @@ public class Lessons extends AppCompatActivity{
         //set screen to lessons.xml
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lessons);
+
         //define account name
         accName = findViewById(R.id.accName);
-//        animateBar(budgetingProgressBar2, score);
+
+        budgetingProgressBar = findViewById(R.id.budgetingProgressBar);
+        animateBar(budgetingProgressBar, score);
     }
 
     //method that changes from lessons (home) class to the lesson class
@@ -56,7 +57,7 @@ public class Lessons extends AppCompatActivity{
     }
 
     //method to increment progress bar
-    private void animateBar(ProgressBar bar, int amount){
+    public void animateBar(ProgressBar bar, int amount){
         ValueAnimator animator = ValueAnimator.ofInt(barAmount, barAmount+amount);
         barAmount += amount;
         animator.setDuration(1500);
