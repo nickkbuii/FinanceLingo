@@ -1,4 +1,4 @@
-package com.financelingo.financelingo;
+package Lessons;
 
 import androidx.appcompat.app.AppCompatActivity;
 
