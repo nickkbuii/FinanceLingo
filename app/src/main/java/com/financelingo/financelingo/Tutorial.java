@@ -3,25 +3,36 @@ package com.financelingo.financelingo;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
-
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Tutorial extends AppCompatActivity {
 
-    Button tutorial;
     private int textNum = 0;
+    TextView tutorialText = findViewById(R.id.tutorialText);
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tutorial);
-        tutorial = findViewById(R.id.tutorialButton);
     }
 
-    public void flipTutorialText(){
-        textNum++;
-        //pass textNum into array
+    public void flipNextTutorialText(){
+        if (textNum==4) {
+            textNum = 0;
+        }else {
+            textNum++;
+        }
+        tutorialText.setText(tutorialTexts[textNum]);
+    }
+
+    public void flipBackTutorialText(){
+        if (textNum==0) {
+            textNum = 4;
+        }else {
+            textNum--;
+        }
+        tutorialText.setText(tutorialTexts[textNum]);
     }
 
     private String[] tutorialTexts = {
@@ -31,10 +42,4 @@ public class Tutorial extends AppCompatActivity {
             "Click any of these information icons to access readings that will introduce different financial topics that will help you complete your lesson.",
             "Congrats on taking your first steps to financial literacy. Have fun and get started!"
     };
-
-    public void switchActivities(Context context, Class c){
-        Intent switchActivityIntent = new Intent (context, c);
-        startActivity(switchActivityIntent);
-    }
-
 }

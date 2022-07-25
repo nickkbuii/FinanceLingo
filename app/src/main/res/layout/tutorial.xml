@@ -40,9 +40,10 @@
         android:id="@+id/tutorialPigFieldImage"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintDimensionRatio="1:0.5"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:0.5"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/lesson_bottom_screen" />
 
@@ -113,5 +114,48 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/prof_pic_icon" />
+
+    <TextView
+        android:id="@+id/tutorialText"
+        android:layout_width="249dp"
+        android:layout_height="136dp"
+        android:fontFamily="@font/sf_arch_rival_bold"
+        android:text="temp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.389" />
+
+    <Button
+        android:id="@+id/nextText"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:background="#00FFFFFF"
+        android:visibility="visible"
+        android:onClick="flipNextTutorialText"
+        app:backgroundTint="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <Button
+        android:id="@+id/backText"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:background="#00FFFFFF"
+        android:visibility="visible"
+        android:onClick="flipBackTutorialText"
+        app:backgroundTint="#00FFFFFF"
+        app:iconTint="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintWidth_percent="0.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
