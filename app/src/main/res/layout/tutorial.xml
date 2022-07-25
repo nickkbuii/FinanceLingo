@@ -1,6 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/purple"
+    tools:context=".Tutorial">
+
+    <ProgressBar
+        android:id="@+id/tutorialBudgetingProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginRight="36dp"
+        android:indeterminate="false"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/custom_progress"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintRight_toLeftOf="@id/tutorialLessonSpacer"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.25" />
+
+    <ImageButton
+        android:id="@+id/tutorialBudgetingButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent="0.17"
+        app:layout_constraintDimensionRatio="1:1"
+        android:background="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/tutorialBudgetingProgressBar"
+        app:layout_constraintEnd_toEndOf="@+id/tutorialBudgetingProgressBar"
+        app:layout_constraintStart_toStartOf="@+id/tutorialBudgetingProgressBar"
+        app:layout_constraintTop_toTopOf="@+id/tutorialBudgetingProgressBar"
+        app:srcCompat="@drawable/green_circle_button" />
+
+    <ImageView
+        android:id="@+id/tutorialPigFieldImage"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="1:0.5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/lesson_bottom_screen" />
+
+    <ImageView
+        android:id="@+id/tutorialBudgetingImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tutorialBudgetingButton"
+        app:layout_constraintEnd_toEndOf="@+id/tutorialBudgetingButton"
+        app:layout_constraintHeight_percent="0.06"
+        app:layout_constraintStart_toStartOf="@+id/tutorialBudgetingButton"
+        app:layout_constraintTop_toTopOf="@+id/tutorialBudgetingButton"
+        app:layout_constraintWidth_percent="0.09"
+        app:srcCompat="@drawable/budgeting" />
+
+    <ImageButton
+        android:id="@+id/tutorialBudgetingReadingInfo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/information_button"
+        app:layout_constraintBottom_toBottomOf="@+id/tutorialBudgetingProgressBar"
+        app:layout_constraintEnd_toEndOf="@+id/tutorialBudgetingProgressBar"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintWidth_percent="0.07" />
+
+    <TextView
+        android:id="@+id/tutorialBudgetingLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sf_arch_rival_bold"
+        android:text="BUDGETING"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/tutorialBudgetingProgressBar"
+        app:layout_constraintStart_toStartOf="@+id/tutorialBudgetingProgressBar"
+        app:layout_constraintTop_toBottomOf="@+id/tutorialBudgetingProgressBar" />
+
+    <Space
+        android:id="@+id/tutorialLessonSpacer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/pigFieldImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.74"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.18" />
+
+    <TextView
+        android:id="@+id/tutorialAccName"
+        android:layout_width="105dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/sf_arch_rival_bold"
+        android:textAllCaps="true"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/tutorialAccPic"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/tutorialAccPic"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/prof_pic_icon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

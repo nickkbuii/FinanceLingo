@@ -29,6 +29,8 @@ public class ReadingTemplate extends AppCompatActivity {
         TextView rule = (TextView)findViewById(R.id.ruleTitle);
         ImageView pic = (ImageView)findViewById(R.id.readingPic);
 
+        rule.setText(budgetingReadings.rules[pageNumber]);
+
         //set and define button listener for flipping next
         next = (Button)findViewById(R.id.nextPage);
         next.setOnClickListener(new View.OnClickListener(){
