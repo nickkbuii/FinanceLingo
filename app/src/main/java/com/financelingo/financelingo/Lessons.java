@@ -51,6 +51,10 @@ public class Lessons extends AppCompatActivity{
         switchActivities(Lessons.this, ReadingTemplate.class);
     }
 
+    public void toAccSettings(View v){
+        switchActivities(Lessons.this, AccSettings.class);
+    }
+
     public static void setUser(String username){
         accName.setText(username);
     }

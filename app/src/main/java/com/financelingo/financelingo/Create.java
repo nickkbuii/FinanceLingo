@@ -81,15 +81,13 @@ public class Create extends AppCompatActivity {
         }
 
         //Creates new User onto firebase authentication
-        fAuth.createUserWithEmailAndPassword(user.getEmail(), user.pw())
+        fAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
+                    User user = new User(username, password, email, fAuth.getCurrentUser().getUid());
                     Toast.makeText(Create.this, "ACCOUNT CREATED", Toast.LENGTH_SHORT).show();
-
-                    //Set new UID
-                    user.setId(fAuth.getCurrentUser().getUid());
 
                     //Adds to profile firebase firestore
                     fStore.collection("User")

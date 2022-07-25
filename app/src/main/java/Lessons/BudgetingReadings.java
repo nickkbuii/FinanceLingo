@@ -1,6 +1,8 @@
-package com.financelingo.financelingo;
+package Lessons;
 
 import android.graphics.drawable.Drawable;
+
+import com.financelingo.financelingo.R;
 
 import java.util.HashMap;
 

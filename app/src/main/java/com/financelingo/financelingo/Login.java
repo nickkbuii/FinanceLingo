@@ -21,6 +21,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import org.w3c.dom.Text;
+
 import java.util.Map;
 
 import Global.Global;
@@ -61,6 +63,7 @@ public class Login extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
                         if(loadData()){
+                            Global.user.setPw(password);
                             switchActivities(Login.this, Lessons.class);
                         }
                     }
@@ -81,6 +84,7 @@ public class Login extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if(task.isSuccessful()){
                                     if(loadData()){
+                                        Global.user.setPw(password);
                                         switchActivities(Login.this, Lessons.class);
                                     }
                                 }
