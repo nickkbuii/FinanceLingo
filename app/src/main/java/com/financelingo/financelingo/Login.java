@@ -26,6 +26,7 @@ import org.w3c.dom.Text;
 import java.util.Map;
 
 import Global.Global;
+import database.Database;
 import database.User;
 
 public class Login extends AppCompatActivity {
@@ -33,6 +34,7 @@ public class Login extends AppCompatActivity {
     FirebaseFirestore fStore;
     User tempUser;
     Global global;
+    Database db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,8 @@ public class Login extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
         global = new Global();
+
+        db = new Database();
     }
 
     public void login(View v){
@@ -49,97 +53,13 @@ public class Login extends AppCompatActivity {
         text = findViewById(R.id.loginPasswordInput);
         String password = text.getText().toString();//Password text field input
 
-        //Checks if User is logged in
-        //TEMPORARY : AUTO LOGOUT -> ASK USER IF THEY WISH TO LOG OUT
-        if(fAuth.getCurrentUser() != null){
-            fAuth.signOut();
-        }
-
-
         //LOGINS IN TO THE FIREBASE AUTHENTICATION
-        if(username.contains("@")){
-            fAuth.signInWithEmailAndPassword(username, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if(task.isSuccessful()){
-                        if(loadData()){
-                            Global.user.setPw(password);
-                            switchActivities(Login.this, Lessons.class);
-                        }
-                    }
-                    else{
-                        Toast.makeText(Login.this, "ERROR", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
+        if(db.login(Login.this, username, password)){
+            switchActivities(Login.this, Lessons.class);
         }
-        else{
-            fStore.collection("Emails").document(username).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                @Override
-                public void onSuccess(DocumentSnapshot doc) {
-                    if(doc.exists()){
-                        String email = doc.getString("Email");
-                        fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if(task.isSuccessful()){
-                                    if(loadData()){
-                                        Global.user.setPw(password);
-                                        switchActivities(Login.this, Lessons.class);
-                                    }
-                                }
-                                else{
-                                    Toast.makeText(Login.this, "LOGIN FAIL", Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        });
-                    }
-                    else{
-                        Toast.makeText(Login.this, "NO USERNAME IN DATABASE", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
-        }
-
-
-
     }
 
-    public boolean loadData(){
-        //GRABS DATA FROM FIRESTORE DATABASE
-        String getData = fAuth.getCurrentUser().getUid().toString() + " + " + fAuth.getCurrentUser().getEmail();
-        Log.d("INFO", getData);
-        fStore.collection("User").document(getData).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                DocumentSnapshot doc = task.getResult();
-                if(doc.exists()){
-                    String user = doc.getString("username");//Change to "Username"
-                    String email = doc.getString("email");
-                    String id = doc.getString("id");
 
-                    Global.user = new User(user, email, id);
-
-                    Lessons.setUser(Global.user.getUsername().toUpperCase());
-                }
-                else{
-                    Toast.makeText(Login.this, "DID NOT WORK", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-        fStore.collection("Budgeting").document("kru").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                DocumentSnapshot doc = task.getResult();
-                if (doc.exists()) {
-                    Global.user.setQScore(Integer.valueOf(doc.getLong("Score").toString()));
-                    Global.user.setQNum(Integer.valueOf(doc.getLong("Question").toString()));
-                }
-            }
-        });
-        return true;
-    }
 
     public void switchActivities(Context context, Class c){
         Intent switchActivityIntent = new Intent (context, c);
