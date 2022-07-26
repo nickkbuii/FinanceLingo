@@ -311,5 +311,23 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/prof_pic_icon" />
 
+    <Button
+        android:id="@+id/tutorialButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:fontFamily="@font/sf_arch_rival_bold"
+        android:text="Tutorial"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:onClick="toTutorial"
+        app:backgroundTint="#00FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/budgetingProgressBar"
+        app:layout_constraintEnd_toStartOf="@+id/accName"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.033" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
