@@ -52,14 +52,17 @@ public class Lessons extends AppCompatActivity{
         switchActivities(Lessons.this, ReadingTemplate.class);
     }
 
+    //method that changes from lessons (home) class to the account settings class
     public void toAccSettings(View v){
         switchActivities(Lessons.this, AccSettings.class);
     }
 
+    //method that changes from lessons (home) class to the tutorial class
     public void toTutorial(View v){
         switchActivities(Lessons.this, Tutorial.class);
     }
 
+    //method that declares username
     public static void setUser(String username){
         accName.setText(username);
     }

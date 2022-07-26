@@ -3,39 +3,60 @@ package com.financelingo.financelingo;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+import android.widget.Button;
 
 public class Tutorial extends AppCompatActivity {
 
+    //declare initial text number
     private int textNum = 0;
-    TextView tutorialText = findViewById(R.id.tutorialText);
+
+    //initializing buttons
+    Button next;
+    Button back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
+        //set screen to tutorial.xml
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tutorial);
-    }
-
-    public void flipNextTutorialText(){
-        if (textNum==4) {
-            textNum = 0;
-        }else {
-            textNum++;
-        }
+        //define text fields for tutorial text
+        TextView tutorialText = findViewById(R.id.tutorialText);
+        //set initial tutoral text
         tutorialText.setText(tutorialTexts[textNum]);
+        //define buttons for flipping tutorial texts
+        next = findViewById(R.id.nextText);
+        back = findViewById(R.id.backText);
+        //set button listener for flipping next
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (textNum == 4) {
+                    textNum = 0;
+                } else {
+                    textNum++;
+                }
+                tutorialText.setText(tutorialTexts[textNum]);
+            }
+        });
+        //set button listener for flipping back
+        back.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                if (textNum==0) {
+                    textNum = 4;
+                }else {
+                    textNum--;
+                }
+                tutorialText.setText(tutorialTexts[textNum]);
+            }
+        });
     }
 
-    public void flipBackTutorialText(){
-        if (textNum==0) {
-            textNum = 4;
-        }else {
-            textNum--;
-        }
-        tutorialText.setText(tutorialTexts[textNum]);
-    }
-
-    private String[] tutorialTexts = {
+    //array of tutorial texts
+    public String[] tutorialTexts = {
             "Click here to view or update your account settings, profile, or join a class.",
             "Click any of these image icons to start a lesson.",
             "These progress bars will fill in as you achieve more progress in your lessons.",

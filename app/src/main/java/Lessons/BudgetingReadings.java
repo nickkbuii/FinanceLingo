@@ -10,13 +10,13 @@ public class BudgetingReadings {
 
     //Budgeting readings to be outputted to budgetingReading.xml
     public String[] readings = {
-            "It’s recommended that your post-tax income is spent according to the 50/30/20 rule",
+            "It’s recommended that your income is spent according to the 50/30/20 rule",
             "50% Expenses: necessary payments and purchases that you can’t avoid such as your mortgage, phone payment, rent, car payments, food, tuition, insurance, utilities",
             "30% Savings: money that isn’t spent but rather put aside for an emergency fund, investments (stocks, real estate, 401k, IRA), paying off debt ",
             "20% Fun: the remainder of your income that goes towards non-essential things that you want such as monthly subscriptions (Netflix, Spotify, etc), travel, dining out, shopping\n"
     };
 
-    public String[] rules = {"General Budgeting Rule", "50% Rule", "30% Rule", "20% Rule"};
+    public String[] rules = {"50/30/20 Rule", "50% Rule", "30% Rule", "20% Rule"};
 
     public int [] imageList = {R.drawable.budget, R.drawable.expenses, R.drawable.pig, R.drawable.fun};
 
