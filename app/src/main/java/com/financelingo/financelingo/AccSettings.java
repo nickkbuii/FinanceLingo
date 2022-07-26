@@ -17,54 +17,24 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 
 import Global.Global;
+import database.Database;
 
 public class AccSettings extends AppCompatActivity {
-    FirebaseUser user;
-    FirebaseFirestore fStore;
+    Database db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.account_settings);
 
-        user = FirebaseAuth.getInstance().getCurrentUser();
-        fStore = FirebaseFirestore.getInstance();
+        db = new Database();
     }
 
     public void changeEmail(View v){
 
         //GET EMAIL FROM USER
-        //PASS INTO UPDATE EMAIL`
-        user.updateEmail("BigGiantFart@gmail.com").addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if(task.isSuccessful()){
-                    fStore.collection("User").document(user.getUid() + " + " + Global.user.getEmail()).delete()
-                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if(task.isSuccessful()){
-                                Global.user.setEmail("BigGiantFart@gmail.com");//SET TO NEW EMAIL
-                                Log.d("INFO", user.getUid() + " + " + Global.user.getEmail());
-                                HashMap<String, String> newMap = new HashMap<>();
-
-                                newMap.put("email", Global.user.getEmail()); // CHANGE TO USER INPUT EMAIL (NEW EMAIL)
-                                newMap.put("id", Global.user.getId());
-                                newMap.put("username", Global.user.getUsername());
-
-                                fStore.collection("User")
-                                        .document(user.getUid() + " + " + Global.user.getEmail())
-                                        .set(newMap);
-                                Toast.makeText(AccSettings.this, "DELETED", Toast.LENGTH_SHORT).show();
-                            }
-                            else{
-                                Toast.makeText(AccSettings.this, "FAILED", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-                }
-            }
-        });
+        //PASS INTO UPDATE EMAIL
+        db.updateEmail(AccSettings.this, "TestingForNow@gmail.com");
     }
 
     
