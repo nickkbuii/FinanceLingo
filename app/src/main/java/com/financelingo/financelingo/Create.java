@@ -36,12 +36,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import Global.Global;
+import database.Database;
 import database.User;
 
 public class Create extends AppCompatActivity {
-    FirebaseAuth fAuth;
-    DatabaseReference db;
-    FirebaseFirestore fStore;
+    Database db;
 
     Global global = new Global();
 
@@ -50,8 +49,7 @@ public class Create extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create);
 
-        fAuth = FirebaseAuth.getInstance();
-        fStore = FirebaseFirestore.getInstance();
+        db = new Database();
     }
 
     public void makeAcc(View v){
@@ -69,77 +67,20 @@ public class Create extends AppCompatActivity {
             return;
         }
 
-        if(!checkUser(username).equals("")){
-            pwText.setError("Username is taken!");
+        if(!db.checkUser(username).equals("")){
+            userText.setError("Username is taken!");
             return;
         }
 
         User user = new User(username, password, email);
 
-        if(fAuth.getCurrentUser() != null){
-            fAuth.signOut();
+        if(db.createAcc(Create.this, username, email, password)){
+            Toast.makeText(Create.this, "HERE", Toast.LENGTH_SHORT).show();
+            switchActivities(Create.this, MainActivity.class);
         }
-
-        //Creates new User onto firebase authentication
-        fAuth.createUserWithEmailAndPassword(user.getEmail(), user.pw())
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
-                    Toast.makeText(Create.this, "ACCOUNT CREATED", Toast.LENGTH_SHORT).show();
-
-                    //Set new UID
-                    user.setId(fAuth.getCurrentUser().getUid());
-
-                    //Adds to profile firebase firestore
-                    fStore.collection("User")
-                            .document(fAuth.getCurrentUser().getUid() + " + " + user.getEmail())
-                            .set(user);
-
-                    //Adds to email-username connection
-                    HashMap<String, String> emailMap = new HashMap<>();
-                    emailMap.put("Email", user.getEmail());
-
-                    //Adds to allow login with username
-                    fStore.collection("Emails")
-                            .document(user.getUsername())
-                            .set(emailMap);
-
-                    //Adds to email-username connection
-                    HashMap<String, Integer> qNumScore = new HashMap<>();
-
-                    //Question and score
-                    qNumScore.put("Question", Integer.valueOf(0));
-                    qNumScore.put("Score", Integer.valueOf(0));
-
-                    //Adds to allow login with username
-                    fStore.collection("Budgeting")
-                            .document(user.getUsername())
-                            .set(qNumScore);
-
-                    switchActivities(Create.this, MainActivity.class);
-                    //Make Update user profile
-                }
-                else{
-                    Toast.makeText(Create.this, "FAIL", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
     }
 
-    public String checkUser(String user){
-        final String[] val = {""};
-        fStore.collection("Emails").document(user).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                if(documentSnapshot.exists()){
-                    val[0] = "Username is taken!";
-                }
-            }
-        });
 
-        return val[0];
-    }
 
     //Checks if password passes test values
     public String checkPass(String pass){

@@ -8,7 +8,7 @@
 
 
     <ImageView
-        android:id="@+id/pig_pasture_background"
+        android:id="@+id/imageView3"
         android:layout_width="414dp"
         android:layout_height="203dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -17,40 +17,39 @@
 
 
     <ImageView
-        android:id="@+id/white_card"
+        android:id="@+id/imageView4"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.8"
         app:srcCompat="@drawable/white_square" />
 
     <ImageView
-        android:id="@+id/orange_square"
-        android:layout_width="329dp"
+        android:id="@+id/imageView8"
+        android:layout_width="325dp"
         android:layout_height="0dp"
-        app:layout_constraintEnd_toEndOf="@+id/white_card"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/imageView4"
         app:layout_constraintHeight_percent="0.22"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/white_card"
-        app:layout_constraintTop_toTopOf="@+id/white_card"
         app:layout_constraintWidth_percent="0.8"
         app:srcCompat="@drawable/orange_square" />
 
     <ImageView
-        android:id="@+id/straight_white_line"
-        android:layout_width="329dp"
+        android:id="@+id/imageView10"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="-15dp"
-        app:layout_constraintEnd_toEndOf="@+id/white_card"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
         app:layout_constraintHeight_percent="0.02"
-        app:layout_constraintStart_toStartOf="@+id/white_card"
-        app:layout_constraintTop_toBottomOf="@+id/orange_square"
-        app:layout_constraintWidth_percent="0.8"
-        app:srcCompat="@drawable/white_square_sharp_corners" />
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintWidth_percent="0.79"
+        app:srcCompat="@drawable/white_square_sharp_corners"
+        tools:layout_editor_absoluteY="238dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

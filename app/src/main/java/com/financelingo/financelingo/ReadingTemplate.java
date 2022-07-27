@@ -7,6 +7,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
+import Lessons.*;
+
 
 public class ReadingTemplate extends AppCompatActivity {
 
@@ -28,6 +30,11 @@ public class ReadingTemplate extends AppCompatActivity {
         TextView pageNum = (TextView)findViewById(R.id.pageNum);
         TextView rule = (TextView)findViewById(R.id.ruleTitle);
         ImageView pic = (ImageView)findViewById(R.id.readingPic);
+
+        readingView.setText(budgetingReadings.readings[pageNumber]);
+        pageNum.setText(String.valueOf(pageNumber+1));
+        rule.setText(budgetingReadings.rules[pageNumber]);
+        pic.setImageDrawable(getDrawable(budgetingReadings.imageList[pageNumber]));
 
         //set and define button listener for flipping next
         next = (Button)findViewById(R.id.nextPage);
