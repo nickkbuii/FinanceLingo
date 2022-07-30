@@ -55,6 +55,10 @@ public class Tutorial extends AppCompatActivity {
         });
     }
 
+    public void tutorialToLessons(View v){
+        switchActivities(Tutorial.this, Lessons.class);
+    }
+
     //array of tutorial texts
     public String[] tutorialTexts = {
             "Click here to view or update your account settings, profile, or join a class.",
@@ -63,4 +67,9 @@ public class Tutorial extends AppCompatActivity {
             "Click any of these information icons to access readings that will introduce different financial topics that will help you complete your lesson.",
             "Congrats on taking your first steps to financial literacy. Have fun and get started!"
     };
+
+    public void switchActivities(Context context, Class c){
+        Intent switchActivityIntent = new Intent (context, c);
+        startActivity(switchActivityIntent);
+    }
 }
