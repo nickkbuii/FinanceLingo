@@ -93,9 +93,10 @@
 
     <Button
         android:id="@+id/changeEmail"
-        android:layout_width="288dp"
-        android:layout_height="48dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="64dp"
+        app:layout_constraintDimensionRatio="6:1"
         android:fontFamily="@font/roboto_bold"
         android:onClick="changeEmail"
         android:text="Change Email"
@@ -143,6 +144,32 @@
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/changePassword"
         app:layout_constraintTop_toBottomOf="@+id/changePassword" />
+
+    <EditText
+        android:id="@+id/changeEmailType"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/rounded_button"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/changeEmail"
+        app:layout_constraintDimensionRatio="8:1"
+        app:layout_constraintEnd_toEndOf="@+id/greenCard"
+        app:layout_constraintStart_toStartOf="@+id/greenCard"
+        app:layout_constraintTop_toTopOf="@+id/changeEmail"
+        app:layout_constraintWidth_percent="0.7" />
+
+    <EditText
+        android:id="@+id/changePasswordType"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/rounded_button"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/changePassword"
+        app:layout_constraintDimensionRatio="8:1"
+        app:layout_constraintEnd_toEndOf="@+id/changePassword"
+        app:layout_constraintStart_toStartOf="@+id/changePassword"
+        app:layout_constraintTop_toTopOf="@+id/changePassword"
+        app:layout_constraintWidth_percent="0.7" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
