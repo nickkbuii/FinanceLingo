@@ -173,10 +173,10 @@
         app:layout_constraintWidth_percent="0.1" />
 
     <ImageButton
-        android:id="@+id/prog_6"
+        android:id="@+id/prog_1"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/green_circle_button"
+        android:background="@drawable/white_circle_button"
         app:layout_constraintBottom_toTopOf="@+id/MC_secondary_background"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintStart_toStartOf="@+id/MC_secondary_background"
@@ -187,7 +187,7 @@
         android:id="@+id/prog_4"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/green_circle_button"
+        android:background="@drawable/white_circle_button"
         app:layout_constraintBottom_toTopOf="@+id/MC_secondary_background"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toStartOf="@+id/prog_5"
@@ -200,7 +200,7 @@
         android:id="@+id/prog_3"
         android:layout_width="41dp"
         android:layout_height="41dp"
-        android:background="@drawable/green_circle_button"
+        android:background="@drawable/white_circle_button"
         app:layout_constraintBottom_toTopOf="@+id/MC_secondary_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -211,10 +211,10 @@
         android:id="@+id/prog_2"
         android:layout_width="0dp"
         android:layout_height="41dp"
-        android:background="@drawable/green_circle_button"
+        android:background="@drawable/white_circle_button"
         app:layout_constraintBottom_toTopOf="@+id/MC_secondary_background"
         app:layout_constraintEnd_toStartOf="@+id/prog_3"
-        app:layout_constraintStart_toEndOf="@+id/prog_6"
+        app:layout_constraintStart_toEndOf="@+id/prog_1"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.1" />
 
