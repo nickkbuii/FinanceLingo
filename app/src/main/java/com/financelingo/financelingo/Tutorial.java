@@ -122,7 +122,7 @@ public class Tutorial extends AppCompatActivity {
     public String[] tutorialTexts = {
             "Welcome to FinanceLingo! We will be going over a quick app tutorial",
             "Click image icons like this to update your account settings, profile, or join a class.",
-            "Click on image icons like this to start a lesson. The more you complete, the more you unlock!",
+            "Click on image icons like this to start a lesson.",
             "Click on image icons like this to access readings that will introduce different financial topics which will help you complete your lesson.",
             "Congrats on taking your first steps to financial literacy. Have fun and get started!"
     };
