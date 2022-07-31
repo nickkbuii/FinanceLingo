@@ -112,33 +112,6 @@ public class Tutorial extends AppCompatActivity {
                 }
             }
         });
-
-//        public void determineVisibility(){
-//            if(textNum==0){
-//                t_budgeting_image.setVisibility(View.INVISIBLE);
-//                t_budgetingLabel.setVisibility(View.INVISIBLE);
-//                t_budgeting_info.setVisibility(View.INVISIBLE);
-//                t_acc_pic.setVisibility(View.INVISIBLE);
-//                t_budgeting_button.setVisibility(View.INVISIBLE);
-//            }else if(textNum==1){
-//                t_acc_pic.setVisibility(View.VISIBLE);
-//            }else if(textNum==2){
-//                t_acc_pic.setVisibility(View.INVISIBLE);
-//                t_budgeting_button.setVisibility(View.VISIBLE);
-//                t_budgeting_image.setVisibility(View.VISIBLE);
-//            }else if(textNum==3){
-//                t_budgeting_button.setVisibility(View.INVISIBLE);
-//                t_budgeting_image.setVisibility(View.INVISIBLE);
-//                t_budgeting_info.setVisibility(View.VISIBLE);
-//            }else if(textNum==4){
-//                t_budgeting_image.setVisibility(View.INVISIBLE);
-//                t_budgetingLabel.setVisibility(View.INVISIBLE);
-//                t_budgeting_info.setVisibility(View.INVISIBLE);
-//                t_acc_pic.setVisibility(View.INVISIBLE);
-//                t_budgeting_button.setVisibility(View.INVISIBLE);
-//            }
-//        };
-
     }
 
     public void tutorialToLessons(View v){
