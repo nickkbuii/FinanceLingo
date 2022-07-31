@@ -53,9 +53,6 @@ public class MainActivity extends AppCompatActivity {
         gsc = GoogleSignIn.getClient(this, gso);
     }
 
-
-
-
     public void switchActivities(Context context, Class c){
         Intent switchActivityIntent = new Intent (context, c);
         startActivity(switchActivityIntent);
