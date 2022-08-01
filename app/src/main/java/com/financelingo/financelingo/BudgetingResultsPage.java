@@ -29,13 +29,21 @@ public class BudgetingResultsPage extends AppCompatActivity {
 
     //method that switches from budgeting results screen to lessons screen
     public void switchToHome(View view){
+        resetIfNotPerfect();
         switchActivities(BudgetingResultsPage.this, Lessons.class);
     }
 
     //method that switches from budgeting results screen to lesson
     //so user can restart
     public void restartLesson(View view){
+        resetIfNotPerfect();
         switchActivities(BudgetingResultsPage.this, LessonTemplate.class);
+    }
+
+    public void resetIfNotPerfect(){
+        if (Global.user.qScore()!=5){
+            Global.user.setQScore(0);
+        }
     }
 
     //method to switch classes
