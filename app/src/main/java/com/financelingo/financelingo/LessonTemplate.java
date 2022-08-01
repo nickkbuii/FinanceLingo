@@ -44,8 +44,9 @@ public class LessonTemplate extends AppCompatActivity {
     private FirebaseUser fUser;
     private FirebaseFirestore fStore;
 
-    //retrieve user's score and questionNumber
+    //retrieve user's score
     public int score = Global.user.qScore();
+
     public int questionNumber = 0;
 
     //define image buttons for MC
@@ -77,11 +78,6 @@ public class LessonTemplate extends AppCompatActivity {
         prog_5 = findViewById(R.id.prog_5);
         //set question and answer option to respective fields and buttons
         updateQuestion();
-
-        if(Global.user.qScore()!=5){
-            Global.user.setQScore(0);
-        }
-
         //when a answer option button is clicked, check if correct
         //if correct, increment score, question number and change color of progress image button
         //set new question/answer options onto screen
@@ -156,7 +152,6 @@ public class LessonTemplate extends AppCompatActivity {
                 }
             }
         });
-
     }
 
     //method that determines which progress image button to change depending on qNum

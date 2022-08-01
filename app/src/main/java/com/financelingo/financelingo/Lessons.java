@@ -49,6 +49,9 @@ public class Lessons extends AppCompatActivity{
     //method that changes from lessons (home) class to the lesson class
     public void toLesson(View v){
         switchActivities(Lessons.this, LessonTemplate.class);
+        if(score!=5){
+            Global.user.setQScore(0);
+        }
     }
 
     //method that changes from lessons (home) class to the reading class
@@ -73,7 +76,7 @@ public class Lessons extends AppCompatActivity{
 
     //method to increment progress bar
     public void animateBar(ProgressBar bar, int amount){
-        ValueAnimator animator = ValueAnimator.ofInt(barAmount, barAmount+amount);
+        ValueAnimator animator = ValueAnimator.ofInt(barAmount, (barAmount+amount)*20);
         barAmount = (barAmount+amount)*20;
         animator.setDuration(100);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
