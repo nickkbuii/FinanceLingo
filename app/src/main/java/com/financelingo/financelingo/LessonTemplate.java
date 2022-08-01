@@ -41,8 +41,8 @@ public class LessonTemplate extends AppCompatActivity {
     private FirebaseUser fUser;
     private FirebaseFirestore fStore;
     //retrieve user's score and questionNumber
-    private int score = 0;
-    private int questionNumber = 0;
+    public int score = 0;
+    public int questionNumber = 0;
 
     private ImageButton prog_1;
     private ImageButton prog_2;
@@ -130,7 +130,10 @@ public class LessonTemplate extends AppCompatActivity {
             questionNumber=0;
             //take user back to lessons (home) screen
             //temporary, need to add a lesson results page for user
-            switchActivities(LessonTemplate.this, Lessons.class);
+        }
+
+        if(questionNumber==4){
+            switchActivities(LessonTemplate.this, BudgetingResultsPage.class);
         }
     }
 
@@ -199,6 +202,10 @@ public class LessonTemplate extends AppCompatActivity {
     public void switchActivities(Context context, Class c){
         Intent switchActivityIntent = new Intent (context, c);
         startActivity(switchActivityIntent);
+    }
+
+    public Integer getScore(){
+        return score;
     }
 
 }
