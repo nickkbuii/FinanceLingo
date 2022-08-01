@@ -27,6 +27,8 @@ public class AccSettings extends AppCompatActivity {
     private Button changePasswordButton;
     private EditText changeEmailType;
     private EditText changePasswordType;
+    private Button emailConfirm;
+    private Button passwordConfirm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,8 @@ public class AccSettings extends AppCompatActivity {
         changePasswordButton = findViewById(R.id.changePassword);
         changeEmailType = findViewById(R.id.changeEmailType);
         changePasswordType = findViewById(R.id.changePasswordType);
+        emailConfirm = findViewById(R.id.emailConfirm);
+        passwordConfirm = findViewById(R.id.passwordConfirm);
         db = new Database();
 
 
@@ -44,6 +48,7 @@ public class AccSettings extends AppCompatActivity {
             public void onClick(View view){
                 changeEmailButton.setVisibility(View.GONE);
                 changeEmailType.setVisibility(View.VISIBLE);
+                emailConfirm.setVisibility(View.VISIBLE);
             }
         });
 
@@ -52,6 +57,7 @@ public class AccSettings extends AppCompatActivity {
             public void onClick(View view){
                 changePasswordButton.setVisibility(View.GONE);
                 changePasswordType.setVisibility(View.VISIBLE);
+                passwordConfirm.setVisibility(View.VISIBLE);
             }
         });
     }
