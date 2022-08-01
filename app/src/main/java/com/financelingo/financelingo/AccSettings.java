@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -57,10 +58,8 @@ public class AccSettings extends AppCompatActivity {
     }
 
     public void changeEmail(View v){
-
-        //GET EMAIL FROM USER
-        //PASS INTO UPDATE EMAIL
-        db.updateEmail(AccSettings.this, "TestingForNow@gmail.com");
+        String newEmail = ((TextView)findViewById(R.id.changeEmailType)).getText().toString();
+        db.updateEmail(AccSettings.this, newEmail);
     }
 
     
