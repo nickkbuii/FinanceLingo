@@ -14,18 +14,23 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import java.text.BreakIterator;
-
 import Global.Global;
 import database.User;
 
 public class Lessons extends AppCompatActivity{
 
+    //retrieve score from user class
     private User user = new User();
     private int score = user.qScore();
+
+    //initialize account name text view
     private static TextView accName = null;
+
+    //initialize bar amount
     int barAmount = 0;
+
+    //initialize progress bar
     ProgressBar budgetingProgressBar;
 
     @SuppressLint("WrongViewCast")
@@ -34,11 +39,11 @@ public class Lessons extends AppCompatActivity{
         //set screen to lessons.xml
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lessons);
-
-        //define account name
+        //define account name text view
         accName = findViewById(R.id.accName);
-
+        //define progress bar view
         budgetingProgressBar = findViewById(R.id.budgetingProgressBar);
+        //animate progress bar based on score
         animateBar(budgetingProgressBar, score);
     }
 

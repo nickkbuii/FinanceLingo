@@ -35,6 +35,7 @@ public class Global extends AppCompatActivity {
         return null;
     }
 
+    //method that switches screens
     public void switchActivities(Context context, Class c){
         Intent switchActivityIntent = new Intent (context, c);
         startActivity(switchActivityIntent);

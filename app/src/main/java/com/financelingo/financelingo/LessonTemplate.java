@@ -22,34 +22,39 @@ import java.util.Map;
 
 import Global.Global;
 import Lessons.*;
+import database.User;
 
 
 public class LessonTemplate extends AppCompatActivity {
 
-    //DatabaseHelper db;
-    //retrieve methods and curriculum from Budgeting.java
+    //retrieve methods and curriculum from Budgeting.java and User.java
     private Budgeting budgeting = new Budgeting();
+    private User user = new User();
+
     //initialize question text view and the 4 answer option buttons
     private TextView questionView;
     private Button button1;
     private Button button2;
     private Button button3;
     private Button button4;
+
     //initialize answer string
     private String answer;
+
     //firebase database dependencies
     private FirebaseUser fUser;
     private FirebaseFirestore fStore;
-    //retrieve user's score and questionNumber
-    private int score = 0;
-    private int questionNumber = 0;
 
+    //retrieve user's score and questionNumber
+    public int score = user.qScore();
+    public int questionNumber = user.qNum();
+
+    //define image buttons for MC
     private ImageButton prog_1;
     private ImageButton prog_2;
     private ImageButton prog_3;
     private ImageButton prog_4;
     private ImageButton prog_5;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,59 +84,75 @@ public class LessonTemplate extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                System.out.println(questionNumber);
                 if (button1.getText() == answer){
                     score++;
+                    user.setQScore(score);
                     determineButtonsWhenRight();
                 }
-                questionNumber++;
-                updateQuestion();
+                if (questionNumber<4){
+                    questionNumber++;
+                    updateQuestion();
+                }else if(questionNumber==4){
+                    switchActivities(LessonTemplate.this, BudgetingResultsPage.class);
+                }
             }
         });
 
         button2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                System.out.println(questionNumber);
                 if (button2.getText() == answer){
                     score++;
+                    user.setQScore(score);
                     determineButtonsWhenRight();
                 }
-                questionNumber++;
-                updateQuestion();
+                if (questionNumber<4){
+                    questionNumber++;
+                    updateQuestion();
+                }else if(questionNumber==4){
+                    switchActivities(LessonTemplate.this, BudgetingResultsPage.class);
+                }
             }
         });
 
         button3.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                System.out.println(questionNumber);
                 if (button3.getText() == answer){
                     score++;
+                    user.setQScore(score);
                     determineButtonsWhenRight();
                 }
-                questionNumber++;
-                updateQuestion();
+                if (questionNumber<4){
+                    questionNumber++;
+                    updateQuestion();
+                }else if(questionNumber==4){
+                    switchActivities(LessonTemplate.this, BudgetingResultsPage.class);
+                }
             }
         });
 
         button4.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                System.out.println(questionNumber);
                 if (button4.getText() == answer){
                     score++;
+                    user.setQScore(score);
                     determineButtonsWhenRight();
                 }
-                questionNumber++;
-                updateQuestion();
+                if (questionNumber<4){
+                    questionNumber++;
+                    updateQuestion();
+                }else if(questionNumber==4){
+                    switchActivities(LessonTemplate.this, BudgetingResultsPage.class);
+                }
             }
         });
 
-        //if user did not answer all 5 questions correctly, reset score/question number
-        if (questionNumber==4 && score!=4){
-            score=0;
-            questionNumber=0;
-            //take user back to lessons (home) screen
-            //temporary, need to add a lesson results page for user
-            switchActivities(LessonTemplate.this, Lessons.class);
-        }
     }
 
     //method that determines which progress image button to change depending on qNum
@@ -159,40 +180,6 @@ public class LessonTemplate extends AppCompatActivity {
         button3.setText(budgeting.question.getChoice(questionNumber,2));
         button4.setText(budgeting.question.getChoice(questionNumber,3));
         answer = budgeting.question.getCorrectAnswer(questionNumber);
-    }
-
-    //method that determines if user is finished with lesson
-    public boolean checkFinished(){
-        final boolean[] passed = {true};
-        fStore.collection("Lessons").document(Global.user.getUsername()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                DocumentSnapshot doc = task.getResult();
-                if(doc.exists()){
-                    Map<String, Object> map = doc.getData();
-                    for(Map.Entry<String, Object> entry : map.entrySet()){
-                        if(entry.getKey().equals("Budgeting")){
-                            Map<String, Object> questionScore = (Map<String, Object>)entry.getValue();
-                            for(Map.Entry<String, Object> e : questionScore.entrySet()){
-                                if(e.getKey().equals("Question")){
-                                    int qNum = Integer.valueOf((int)e.getValue());
-                                    if(qNum != 5){
-                                        passed[0] = false;
-                                    }
-                                }
-                                if(e.getKey().equals("Score")){
-                                    int scoreNum = Integer.valueOf((int)e.getValue());
-                                    if(scoreNum != 5){
-                                        passed[0] = false;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        });
-        return passed[0];
     }
 
     //method to switch classes

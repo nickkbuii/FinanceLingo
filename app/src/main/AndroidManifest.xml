@@ -37,6 +37,9 @@
             android:name=".Tutorial"
             android:exported="false"/>
         <activity
+            android:name=".BudgetingResultsPage"
+            android:exported="false"/>
+        <activity
             android:name=".MainActivity"
             android:exported="true"/>
         <activity
