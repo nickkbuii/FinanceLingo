@@ -22,6 +22,7 @@ import java.util.Map;
 
 import Global.Global;
 import Lessons.*;
+import database.User;
 
 
 public class LessonTemplate extends AppCompatActivity {
@@ -29,6 +30,7 @@ public class LessonTemplate extends AppCompatActivity {
     //DatabaseHelper db;
     //retrieve methods and curriculum from Budgeting.java
     private Budgeting budgeting = new Budgeting();
+    private User user = new User();
     //initialize question text view and the 4 answer option buttons
     private TextView questionView;
     private Button button1;
@@ -41,9 +43,9 @@ public class LessonTemplate extends AppCompatActivity {
     private FirebaseUser fUser;
     private FirebaseFirestore fStore;
     //retrieve user's score and questionNumber
-    public int score = 0;
-    public int questionNumber = 0;
-
+    public int score = user.qScore();
+    public int questionNumber = user.qNum();
+    //define image buttons for MC
     private ImageButton prog_1;
     private ImageButton prog_2;
     private ImageButton prog_3;
@@ -123,14 +125,6 @@ public class LessonTemplate extends AppCompatActivity {
                 updateQuestion();
             }
         });
-
-        //if user did not answer all 5 questions correctly, reset score/question number
-        if (questionNumber==4 && score!=4){
-            score=0;
-            questionNumber=0;
-            //take user back to lessons (home) screen
-            //temporary, need to add a lesson results page for user
-        }
 
         if(questionNumber==4){
             switchActivities(LessonTemplate.this, BudgetingResultsPage.class);

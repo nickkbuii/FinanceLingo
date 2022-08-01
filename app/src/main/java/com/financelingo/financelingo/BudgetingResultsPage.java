@@ -18,7 +18,7 @@ public class BudgetingResultsPage extends AppCompatActivity {
         //set screen to lessons.xml
         super.onCreate(savedInstanceState);
         setContentView(R.layout.budgeting_results);
-        budgeting_results.setText(String.valueOf(score)+"/5");
+        budgeting_results.setText(String.valueOf(score/5));
     }
 
     public void switchToHome(View view){
