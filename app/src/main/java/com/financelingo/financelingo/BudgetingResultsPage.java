@@ -7,10 +7,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.widget.TextView;
 import android.view.View;
 
+import database.User;
+
 public class BudgetingResultsPage extends AppCompatActivity {
 
-    private LessonTemplate lessonTemplate = new LessonTemplate();
-    private int score = lessonTemplate.getScore();
+    //retrieve score from user database class
+    private User user = new User();
+    private int score = user.qScore();
+
+    //define budgeting results text view
     private TextView budgeting_results = findViewById(R.id.budg_results_text);
 
     @Override
@@ -18,13 +23,17 @@ public class BudgetingResultsPage extends AppCompatActivity {
         //set screen to lessons.xml
         super.onCreate(savedInstanceState);
         setContentView(R.layout.budgeting_results);
+        //display score out of total questions
         budgeting_results.setText(String.valueOf(score/5));
     }
 
+    //method that switches from budgeting results screen to lessons screen
     public void switchToHome(View view){
         switchActivities(BudgetingResultsPage.this, Lessons.class);
     }
 
+    //method that switches from budgeting results screen to lesson
+    //so user can restart
     public void restartLesson(View view){
         switchActivities(BudgetingResultsPage.this, LessonTemplate.class);
     }

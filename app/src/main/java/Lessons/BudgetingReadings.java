@@ -16,8 +16,10 @@ public class BudgetingReadings {
             "20% Fun: the remainder of your income that goes towards non-essential things that you want such as monthly subscriptions (Netflix, Spotify, etc), travel, dining out, shopping\n"
     };
 
+    //Rule name array for 50/30/20
     public String[] rules = {"50/30/20 Rule", "50% Rule", "30% Rule", "20% Rule"};
 
+    //array of drawables to flip through
     public int [] imageList = {R.drawable.budget, R.drawable.expenses, R.drawable.pig, R.drawable.fun};
 
     //Definitions of budgeting terms to be outputted upon hover of a key string
@@ -34,11 +36,13 @@ public class BudgetingReadings {
         defDictionary.put("Debt", "money owed to a lender for the repayment of loans (more on debt and loans can be found in our debts module)");
     }
 
+    //return reading based on index
     public String getReading(int num){
         String reading = readings[num];
         return reading;
     }
 
+    //return rule based on index
     public String getRule(int num){
         String rule = rules[num];
         return rule;

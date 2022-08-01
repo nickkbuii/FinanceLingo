@@ -23,10 +23,11 @@ import java.util.HashMap;
 import Global.Global;
 
 public class Database {
+
+    //initializing firebase variables
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     FirebaseUser user;
-
 
     public Database(){
         fAuth = FirebaseAuth.getInstance();

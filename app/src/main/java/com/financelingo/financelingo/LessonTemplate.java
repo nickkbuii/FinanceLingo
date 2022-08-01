@@ -27,31 +27,34 @@ import database.User;
 
 public class LessonTemplate extends AppCompatActivity {
 
-    //DatabaseHelper db;
-    //retrieve methods and curriculum from Budgeting.java
+    //retrieve methods and curriculum from Budgeting.java and User.java
     private Budgeting budgeting = new Budgeting();
     private User user = new User();
+
     //initialize question text view and the 4 answer option buttons
     private TextView questionView;
     private Button button1;
     private Button button2;
     private Button button3;
     private Button button4;
+
     //initialize answer string
     private String answer;
+
     //firebase database dependencies
     private FirebaseUser fUser;
     private FirebaseFirestore fStore;
+
     //retrieve user's score and questionNumber
     public int score = user.qScore();
     public int questionNumber = user.qNum();
+
     //define image buttons for MC
     private ImageButton prog_1;
     private ImageButton prog_2;
     private ImageButton prog_3;
     private ImageButton prog_4;
     private ImageButton prog_5;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,8 +88,12 @@ public class LessonTemplate extends AppCompatActivity {
                     score++;
                     determineButtonsWhenRight();
                 }
-                questionNumber++;
-                updateQuestion();
+                if (questionNumber<4){
+                    questionNumber++;
+                    updateQuestion();
+                }else if(questionNumber==4){
+                    switchActivities(LessonTemplate.this, BudgetingResultsPage.class);
+                }
             }
         });
 
@@ -97,8 +104,12 @@ public class LessonTemplate extends AppCompatActivity {
                     score++;
                     determineButtonsWhenRight();
                 }
-                questionNumber++;
-                updateQuestion();
+                if (questionNumber<4){
+                    questionNumber++;
+                    updateQuestion();
+                }else if(questionNumber==4){
+                    switchActivities(LessonTemplate.this, BudgetingResultsPage.class);
+                }
             }
         });
 
@@ -109,8 +120,12 @@ public class LessonTemplate extends AppCompatActivity {
                     score++;
                     determineButtonsWhenRight();
                 }
-                questionNumber++;
-                updateQuestion();
+                if (questionNumber<4){
+                    questionNumber++;
+                    updateQuestion();
+                }else if(questionNumber==4){
+                    switchActivities(LessonTemplate.this, BudgetingResultsPage.class);
+                }
             }
         });
 
@@ -121,14 +136,15 @@ public class LessonTemplate extends AppCompatActivity {
                     score++;
                     determineButtonsWhenRight();
                 }
-                questionNumber++;
-                updateQuestion();
+                if (questionNumber<4){
+                    questionNumber++;
+                    updateQuestion();
+                }else if(questionNumber==4){
+                    switchActivities(LessonTemplate.this, BudgetingResultsPage.class);
+                }
             }
         });
 
-        if(questionNumber==4){
-            switchActivities(LessonTemplate.this, BudgetingResultsPage.class);
-        }
     }
 
     //method that determines which progress image button to change depending on qNum
@@ -158,48 +174,10 @@ public class LessonTemplate extends AppCompatActivity {
         answer = budgeting.question.getCorrectAnswer(questionNumber);
     }
 
-    //method that determines if user is finished with lesson
-    public boolean checkFinished(){
-        final boolean[] passed = {true};
-        fStore.collection("Lessons").document(Global.user.getUsername()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                DocumentSnapshot doc = task.getResult();
-                if(doc.exists()){
-                    Map<String, Object> map = doc.getData();
-                    for(Map.Entry<String, Object> entry : map.entrySet()){
-                        if(entry.getKey().equals("Budgeting")){
-                            Map<String, Object> questionScore = (Map<String, Object>)entry.getValue();
-                            for(Map.Entry<String, Object> e : questionScore.entrySet()){
-                                if(e.getKey().equals("Question")){
-                                    int qNum = Integer.valueOf((int)e.getValue());
-                                    if(qNum != 5){
-                                        passed[0] = false;
-                                    }
-                                }
-                                if(e.getKey().equals("Score")){
-                                    int scoreNum = Integer.valueOf((int)e.getValue());
-                                    if(scoreNum != 5){
-                                        passed[0] = false;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        });
-        return passed[0];
-    }
-
     //method to switch classes
     public void switchActivities(Context context, Class c){
         Intent switchActivityIntent = new Intent (context, c);
         startActivity(switchActivityIntent);
-    }
-
-    public Integer getScore(){
-        return score;
     }
 
 }
