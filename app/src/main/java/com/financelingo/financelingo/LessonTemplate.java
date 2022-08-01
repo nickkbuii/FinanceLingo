@@ -29,7 +29,6 @@ public class LessonTemplate extends AppCompatActivity {
 
     //retrieve methods and curriculum from Budgeting.java and User.java
     private Budgeting budgeting = new Budgeting();
-    private User user = new User();
 
     //initialize question text view and the 4 answer option buttons
     private TextView questionView;
@@ -46,8 +45,8 @@ public class LessonTemplate extends AppCompatActivity {
     private FirebaseFirestore fStore;
 
     //retrieve user's score and questionNumber
-    public int score = user.qScore();
-    public int questionNumber = user.qNum();
+    public int score = Global.user.qScore();
+    public int questionNumber = Global.user.qNum();
 
     //define image buttons for MC
     private ImageButton prog_1;
@@ -84,10 +83,8 @@ public class LessonTemplate extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                System.out.println(questionNumber);
                 if (button1.getText() == answer){
-                    score++;
-                    user.setQScore(score);
+                    Global.user.setQScore(++score);
                     determineButtonsWhenRight();
                 }
                 if (questionNumber<4){
@@ -102,10 +99,8 @@ public class LessonTemplate extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                System.out.println(questionNumber);
                 if (button2.getText() == answer){
-                    score++;
-                    user.setQScore(score);
+                    Global.user.setQScore(++score);
                     determineButtonsWhenRight();
                 }
                 if (questionNumber<4){
@@ -120,10 +115,8 @@ public class LessonTemplate extends AppCompatActivity {
         button3.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                System.out.println(questionNumber);
                 if (button3.getText() == answer){
-                    score++;
-                    user.setQScore(score);
+                    Global.user.setQScore(++score);
                     determineButtonsWhenRight();
                 }
                 if (questionNumber<4){
@@ -138,10 +131,8 @@ public class LessonTemplate extends AppCompatActivity {
         button4.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                System.out.println(questionNumber);
                 if (button4.getText() == answer){
-                    score++;
-                    user.setQScore(score);
+                    Global.user.setQScore(++score);
                     determineButtonsWhenRight();
                 }
                 if (questionNumber<4){

@@ -21,8 +21,7 @@ import database.User;
 public class Lessons extends AppCompatActivity{
 
     //retrieve score from user class
-    private User user = new User();
-    private int score = user.qScore();
+    private int score = Global.user.qScore();
 
     //initialize account name text view
     private static TextView accName = null;
@@ -49,6 +48,7 @@ public class Lessons extends AppCompatActivity{
 
     //method that changes from lessons (home) class to the lesson class
     public void toLesson(View v){
+        Global.user.setQScore(0);
         switchActivities(Lessons.this, LessonTemplate.class);
     }
 
