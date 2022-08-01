@@ -8,9 +8,9 @@
     tools:context=".Login">
 
     <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:id="@+id/greenBackground"
+        android:layout_width="352dp"
+        android:layout_height="361dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.8"
@@ -24,16 +24,16 @@
         android:id="@+id/loginTitle"
         android:layout_width="105dp"
         android:layout_height="60dp"
-        android:fontFamily="@font/roboto_bold"
+        android:fontFamily="@font/sf_arch_rival_bold"
         android:text="Login"
         android:textColor="@color/white"
         android:textSize="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/loginPasswordInput"
-        app:layout_constraintEnd_toEndOf="@+id/imageView6"
+        app:layout_constraintBottom_toTopOf="@+id/loginUsernameInput"
+        app:layout_constraintEnd_toEndOf="@+id/greenBackground"
         app:layout_constraintHeight_percent="0.06"
         app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="@+id/imageView6"
-        app:layout_constraintTop_toTopOf="@+id/imageView6"
+        app:layout_constraintStart_toStartOf="@+id/greenBackground"
+        app:layout_constraintTop_toTopOf="@+id/greenBackground"
         app:layout_constraintVertical_bias="0.546"
         app:layout_constraintWidth_percent="0.25" />
 
@@ -45,11 +45,13 @@
         android:ems="10"
         android:hint="👤"
         android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="@+id/loginPasswordInput"
+        app:layout_constraintBottom_toTopOf="@+id/loginPasswordInput"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.04"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginTitle"
+        app:layout_constraintVertical_bias="0.262"
         app:layout_constraintWidth_percent="0.7" />
 
     <EditText
@@ -63,9 +65,10 @@
         app:layout_constraintBottom_toTopOf="@+id/loginButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.04"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/space"
-        app:layout_constraintVertical_bias="0.648"
+        app:layout_constraintTop_toBottomOf="@+id/loginUsernameInput"
+        app:layout_constraintVertical_bias="0.625"
         app:layout_constraintWidth_percent="0.7" />
 
     <Button
@@ -82,11 +85,11 @@
         android:text="Login"
         android:textSize="14sp"
         app:backgroundTint="#7E7DBF"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+        app:layout_constraintBottom_toBottomOf="@+id/greenBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.04"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/space"
+        app:layout_constraintTop_toBottomOf="@+id/loginPasswordInput"
         app:layout_constraintWidth_percent="0.7" />
 
     <Space
@@ -94,7 +97,7 @@
         android:layout_width="327dp"
         android:layout_height="262dp"
         android:layout_marginBottom="323dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+        app:layout_constraintBottom_toBottomOf="@+id/greenBackground"
         app:layout_constraintHeight_percent="0.70"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"

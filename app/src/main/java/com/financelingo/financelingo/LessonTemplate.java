@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -43,33 +44,44 @@ public class LessonTemplate extends AppCompatActivity {
     private int score = 0;
     private int questionNumber = 0;
 
+    private ImageButton prog_1;
+    private ImageButton prog_2;
+    private ImageButton prog_3;
+    private ImageButton prog_4;
+    private ImageButton prog_5;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //set screen to budgeting lesson
         super.onCreate(savedInstanceState);
         setContentView(R.layout.budgeting_lesson);
-
+        //firebase initialization
         fUser = FirebaseAuth.getInstance().getCurrentUser();
         fStore = FirebaseFirestore.getInstance();
-
         //define text view and the 4 answer option buttons
         questionView = findViewById(R.id.question);
         button1 = findViewById(R.id.opt1);
         button2 = findViewById(R.id.opt2);
         button3 = findViewById(R.id.opt3);
         button4 = findViewById(R.id.opt4);
+        //define progress circles for each question
+        prog_1 = findViewById(R.id.prog_1);
+        prog_2 = findViewById(R.id.prog_2);
+        prog_3 = findViewById(R.id.prog_3);
+        prog_4 = findViewById(R.id.prog_4);
+        prog_5 = findViewById(R.id.prog_5);
         //set question and answer option to respective fields and buttons
         updateQuestion();
-
         //when a answer option button is clicked, check if correct
-        //if correct, increment score, question number
+        //if correct, increment score, question number and change color of progress image button
         //set new question/answer options onto screen
         button1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 if (button1.getText() == answer){
                     score++;
+                    determineButtonsWhenRight();
                 }
                 questionNumber++;
                 updateQuestion();
@@ -81,6 +93,7 @@ public class LessonTemplate extends AppCompatActivity {
             public void onClick(View view){
                 if (button2.getText() == answer){
                     score++;
+                    determineButtonsWhenRight();
                 }
                 questionNumber++;
                 updateQuestion();
@@ -92,6 +105,7 @@ public class LessonTemplate extends AppCompatActivity {
             public void onClick(View view){
                 if (button3.getText() == answer){
                     score++;
+                    determineButtonsWhenRight();
                 }
                 questionNumber++;
                 updateQuestion();
@@ -103,6 +117,7 @@ public class LessonTemplate extends AppCompatActivity {
             public void onClick(View view){
                 if (button4.getText() == answer){
                     score++;
+                    determineButtonsWhenRight();
                 }
                 questionNumber++;
                 updateQuestion();
@@ -117,8 +132,22 @@ public class LessonTemplate extends AppCompatActivity {
             //temporary, need to add a lesson results page for user
             switchActivities(LessonTemplate.this, Lessons.class);
         }
-
     }
+
+    //method that determines which progress image button to change depending on qNum
+    public void determineButtonsWhenRight(){
+        if (questionNumber==0){
+            prog_1.setImageDrawable(getDrawable(R.drawable.green_circle_button));
+        }else if (questionNumber==1){
+            prog_2.setImageDrawable(getDrawable(R.drawable.green_circle_button));
+        }else if (questionNumber==2){
+            prog_3.setImageDrawable(getDrawable(R.drawable.green_circle_button));
+        }else if (questionNumber==3){
+            prog_4.setImageDrawable(getDrawable(R.drawable.green_circle_button));
+        }else if (questionNumber==4){
+            prog_5.setImageDrawable(getDrawable(R.drawable.green_circle_button));
+        }
+    };
 
     //set question and answer options to respective fields and buttons according to question number
     private void updateQuestion(){
@@ -132,6 +161,7 @@ public class LessonTemplate extends AppCompatActivity {
         answer = budgeting.question.getCorrectAnswer(questionNumber);
     }
 
+    //method that determines if user is finished with lesson
     public boolean checkFinished(){
         final boolean[] passed = {true};
         fStore.collection("Lessons").document(Global.user.getUsername()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
