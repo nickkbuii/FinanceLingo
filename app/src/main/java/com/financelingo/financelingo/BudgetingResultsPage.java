@@ -14,9 +14,7 @@ public class BudgetingResultsPage extends AppCompatActivity {
     //retrieve score from user database class
     private User user = new User();
     private int score = user.qScore();
-
-    //define budgeting results text view
-    private TextView budgeting_results = findViewById(R.id.budg_results_text);
+    private TextView budgeting_results;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +22,8 @@ public class BudgetingResultsPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.budgeting_results);
         //display score out of total questions
+        //define budgeting results text view
+        budgeting_results = findViewById(R.id.budg_results_text);
         budgeting_results.setText(String.valueOf(score/5));
     }
 

@@ -84,6 +84,7 @@ public class LessonTemplate extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                System.out.println(questionNumber);
                 if (button1.getText() == answer){
                     score++;
                     determineButtonsWhenRight();
@@ -100,6 +101,7 @@ public class LessonTemplate extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                System.out.println(questionNumber);
                 if (button2.getText() == answer){
                     score++;
                     determineButtonsWhenRight();
@@ -116,6 +118,7 @@ public class LessonTemplate extends AppCompatActivity {
         button3.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                System.out.println(questionNumber);
                 if (button3.getText() == answer){
                     score++;
                     determineButtonsWhenRight();
@@ -132,6 +135,7 @@ public class LessonTemplate extends AppCompatActivity {
         button4.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                System.out.println(questionNumber);
                 if (button4.getText() == answer){
                     score++;
                     determineButtonsWhenRight();
