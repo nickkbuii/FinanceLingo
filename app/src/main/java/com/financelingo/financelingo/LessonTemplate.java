@@ -87,6 +87,7 @@ public class LessonTemplate extends AppCompatActivity {
                 System.out.println(questionNumber);
                 if (button1.getText() == answer){
                     score++;
+                    user.setQScore(score);
                     determineButtonsWhenRight();
                 }
                 if (questionNumber<4){
@@ -104,6 +105,7 @@ public class LessonTemplate extends AppCompatActivity {
                 System.out.println(questionNumber);
                 if (button2.getText() == answer){
                     score++;
+                    user.setQScore(score);
                     determineButtonsWhenRight();
                 }
                 if (questionNumber<4){
@@ -121,6 +123,7 @@ public class LessonTemplate extends AppCompatActivity {
                 System.out.println(questionNumber);
                 if (button3.getText() == answer){
                     score++;
+                    user.setQScore(score);
                     determineButtonsWhenRight();
                 }
                 if (questionNumber<4){
@@ -138,6 +141,7 @@ public class LessonTemplate extends AppCompatActivity {
                 System.out.println(questionNumber);
                 if (button4.getText() == answer){
                     score++;
+                    user.setQScore(score);
                     determineButtonsWhenRight();
                 }
                 if (questionNumber<4){
