@@ -42,7 +42,6 @@ public class AccSettings extends AppCompatActivity {
         passwordConfirm = findViewById(R.id.passwordConfirm);
         db = new Database();
 
-
         changeEmailButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -60,14 +59,43 @@ public class AccSettings extends AppCompatActivity {
                 passwordConfirm.setVisibility(View.VISIBLE);
             }
         });
+
+        emailConfirm.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                changeEmail(view);
+                changeEmailButton.setVisibility(View.VISIBLE);
+                changeEmailType.setVisibility(View.GONE);
+                emailConfirm.setVisibility(View.GONE);
+            }
+        });
+
+        passwordConfirm.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+//                changePassword(view);
+                changePasswordButton.setVisibility(View.VISIBLE);
+                changePasswordType.setVisibility(View.GONE);
+                passwordConfirm.setVisibility(View.GONE);
+            }
+        });
     }
 
     public void changeEmail(View v){
 
         //GET EMAIL FROM USER
         //PASS INTO UPDATE EMAIL
-        db.updateEmail(AccSettings.this, "TestingForNow@gmail.com");
+        if(changeEmailType.getText().toString().length() > 0)
+            db.updateEmail(AccSettings.this, changeEmailType.getText().toString());
     }
+
+//    public void changePassword(View v){
+//
+//        //GET EMAIL FROM USER
+//        //PASS INTO UPDATE EMAIL
+//        if(changePasswordType.getText().toString().length() > 0)
+//            db.updateEmail(AccSettings.this, changePasswordType.getText().toString());
+//    }
 
     
 }

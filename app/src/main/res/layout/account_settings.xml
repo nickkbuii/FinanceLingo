@@ -95,11 +95,32 @@
         app:layout_constraintTop_toBottomOf="@+id/profilePictureText" />
 
     <Button
+        android:id="@+id/classCodeConfButton"
+        android:layout_width="81dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="@font/roboto_bold"
+        android:paddingLeft="0dp"
+        android:paddingTop="0dp"
+        android:paddingRight="0dp"
+        android:paddingBottom="0dp"
+        android:text="CONFIRM"
+        android:textSize="14sp"
+        app:backgroundTint="#5C5C5C"
+        app:layout_constraintBottom_toBottomOf="@+id/classCodeType"
+        app:layout_constraintEnd_toEndOf="@+id/greenCard"
+        app:layout_constraintTop_toTopOf="@+id/classCodeType" />
+
+    <Button
         android:id="@+id/emailConfirm"
         android:layout_width="81dp"
         android:layout_height="40dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/roboto_bold"
+        android:paddingLeft="0dp"
+        android:paddingTop="0dp"
+        android:paddingRight="0dp"
+        android:paddingBottom="0dp"
         android:text="Confirm"
         android:textSize="16sp"
         android:visibility="invisible"
@@ -113,6 +134,10 @@
         android:layout_height="40dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/roboto_bold"
+        android:paddingLeft="0dp"
+        android:paddingTop="0dp"
+        android:paddingRight="0dp"
+        android:paddingBottom="0dp"
         android:text="Confirm"
         android:textSize="16sp"
         android:visibility="invisible"
@@ -163,37 +188,51 @@
         app:layout_constraintWidth_percent="0.1" />
 
     <TextView
-        android:id="@+id/classroomCode"
+        android:id="@+id/classroomCodeTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginBottom="60dp"
         android:fontFamily="@font/roboto_bold"
         android:text="Classroom Code"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/greenCard"
-        app:layout_constraintStart_toStartOf="@+id/greenCard" />
+        app:layout_constraintStart_toStartOf="@+id/greenCard"
+        app:layout_constraintTop_toBottomOf="@+id/changePasswordText" />
 
     <EditText
         android:id="@+id/changeEmailType"
-        android:layout_width="193dp"
-        android:layout_height="44dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/rounded_button"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="@+id/changeEmailText"
         app:layout_constraintTop_toBottomOf="@+id/changeEmailText"
-        app:layout_constraintWidth_percent="0.7" />
+        app:layout_constraintWidth_percent="0.45"
+        app:layout_constraintDimensionRatio="5:1"
+        />
 
     <EditText
         android:id="@+id/changePasswordType"
-        android:layout_width="194dp"
-        android:layout_height="49dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/rounded_button"
         android:visibility="invisible"
+        app:layout_constraintDimensionRatio="5:1"
         app:layout_constraintStart_toStartOf="@+id/changePasswordText"
         app:layout_constraintTop_toBottomOf="@+id/changePasswordText"
-        app:layout_constraintWidth_percent="0.7" />
+        app:layout_constraintWidth_percent="0.45" />
+
+    <EditText
+        android:id="@+id/classCodeType"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_button"
+        app:layout_constraintDimensionRatio="5:1"
+        app:layout_constraintStart_toStartOf="@+id/classroomCodeTitle"
+        app:layout_constraintTop_toBottomOf="@+id/classroomCodeTitle"
+        app:layout_constraintWidth_percent="0.45" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
