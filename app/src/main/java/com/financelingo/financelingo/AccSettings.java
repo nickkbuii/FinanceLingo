@@ -2,6 +2,7 @@ package com.financelingo.financelingo;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -43,7 +44,6 @@ public class AccSettings extends AppCompatActivity {
         passwordConfirm = findViewById(R.id.passwordConfirm);
         db = new Database();
 
-
         changeEmailButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -61,11 +61,48 @@ public class AccSettings extends AppCompatActivity {
                 passwordConfirm.setVisibility(View.VISIBLE);
             }
         });
+
+        emailConfirm.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                if(changeEmail(view)) {
+                    changeEmailButton.setVisibility(View.VISIBLE);
+                    changeEmailType.setVisibility(View.GONE);
+                    emailConfirm.setVisibility(View.GONE);
+                }
+            }
+        });
+
+        passwordConfirm.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                changePasswordButton.setVisibility(View.VISIBLE);
+                changePasswordType.setVisibility(View.GONE);
+                passwordConfirm.setVisibility(View.GONE);
+            }
+        });
     }
 
+<<<<<<< HEAD
     public void changeEmail(View v){
         String newEmail = ((TextView)findViewById(R.id.changeEmailType)).getText().toString();
         db.updateEmail(AccSettings.this, newEmail);
+=======
+    public boolean changeEmail(View v){
+
+        //GET EMAIL FROM USER
+        //PASS INTO UPDATE EMAIL
+        String email = changeEmailType.getText().toString().trim();
+        if(!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            db.updateEmail(AccSettings.this, email);
+            return true;
+        }
+        else {
+            changeEmailType.setError("Please provide a valid email");
+            changeEmailType.requestFocus();
+            return false;
+        }
+>>>>>>> 32dc4651b0e8bd6627fd9c3ea900cdf8a5606d39
     }
 
     

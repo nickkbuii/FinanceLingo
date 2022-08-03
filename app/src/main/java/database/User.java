@@ -52,6 +52,11 @@ public class User {
     public void setPw(String pw){this.password = pw;}
     public void setEmail(String email){this.email = email;}
 
+    public void incrementQScore(){
+        this.qScore+=1;
+        System.out.println(qScore);
+    }
+
     //methods to return question number, score, pw
     public String pw(){
         return password;
