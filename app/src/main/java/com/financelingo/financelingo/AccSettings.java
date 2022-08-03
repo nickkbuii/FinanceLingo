@@ -2,6 +2,7 @@ package com.financelingo.financelingo;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -63,17 +64,17 @@ public class AccSettings extends AppCompatActivity {
         emailConfirm.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                changeEmail(view);
-                changeEmailButton.setVisibility(View.VISIBLE);
-                changeEmailType.setVisibility(View.GONE);
-                emailConfirm.setVisibility(View.GONE);
+                if(changeEmail(view)) {
+                    changeEmailButton.setVisibility(View.VISIBLE);
+                    changeEmailType.setVisibility(View.GONE);
+                    emailConfirm.setVisibility(View.GONE);
+                }
             }
         });
 
         passwordConfirm.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-//                changePassword(view);
                 changePasswordButton.setVisibility(View.VISIBLE);
                 changePasswordType.setVisibility(View.GONE);
                 passwordConfirm.setVisibility(View.GONE);
@@ -81,21 +82,21 @@ public class AccSettings extends AppCompatActivity {
         });
     }
 
-    public void changeEmail(View v){
+    public boolean changeEmail(View v){
 
         //GET EMAIL FROM USER
         //PASS INTO UPDATE EMAIL
-        if(changeEmailType.getText().toString().length() > 0)
-            db.updateEmail(AccSettings.this, changeEmailType.getText().toString());
+        String email = changeEmailType.getText().toString().trim();
+        if(!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            db.updateEmail(AccSettings.this, email);
+            return true;
+        }
+        else {
+            changeEmailType.setError("Please provide a valid email");
+            changeEmailType.requestFocus();
+            return false;
+        }
     }
-
-//    public void changePassword(View v){
-//
-//        //GET EMAIL FROM USER
-//        //PASS INTO UPDATE EMAIL
-//        if(changePasswordType.getText().toString().length() > 0)
-//            db.updateEmail(AccSettings.this, changePasswordType.getText().toString());
-//    }
 
     
 }
