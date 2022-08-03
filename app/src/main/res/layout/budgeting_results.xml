@@ -26,6 +26,7 @@
         android:layout_marginBottom="28dp"
         android:fontFamily="@font/sf_arch_rival_bold"
         android:text="Results of budgeting lesson"
+        android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="25dp"
         app:layout_constraintBottom_toTopOf="@+id/button"

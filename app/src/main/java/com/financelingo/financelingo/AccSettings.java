@@ -1,5 +1,7 @@
 package com.financelingo.financelingo;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
@@ -98,5 +100,12 @@ public class AccSettings extends AppCompatActivity {
         }
     }
 
-    
+    public void switchToHome(View view){
+        switchActivities(AccSettings.this, Lessons.class);
+    }
+
+    public void switchActivities(Context context, Class c){
+        Intent switchActivityIntent = new Intent (context, c);
+        startActivity(switchActivityIntent);
+    }
 }
