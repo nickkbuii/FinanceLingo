@@ -14,6 +14,9 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
+
 import java.text.BreakIterator;
 import Global.Global;
 import database.User;
@@ -25,7 +28,7 @@ public class Lessons extends AppCompatActivity{
     private int score = user.qScore();
 
     //initialize account name text view
-    private static TextView accName = null;
+    private static TextView accName;
 
     //initialize bar amount
     int barAmount = 0;
@@ -33,16 +36,19 @@ public class Lessons extends AppCompatActivity{
     //initialize progress bar
     ProgressBar budgetingProgressBar;
 
-    @SuppressLint("WrongViewCast")
+    //@SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //set screen to lessons.xml
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lessons);
+
         //define account name text view
         accName = findViewById(R.id.accName);
+
         //define progress bar view
         budgetingProgressBar = findViewById(R.id.budgetingProgressBar);
+
         //animate progress bar based on score
         animateBar(budgetingProgressBar, score);
     }

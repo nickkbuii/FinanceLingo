@@ -56,6 +56,10 @@ public class Login extends AppCompatActivity {
         //LOGINS IN TO THE FIREBASE AUTHENTICATION
         if(db.login(Login.this, username, password)){
             switchActivities(Login.this, Lessons.class);
+            //Lessons.setUser(Global.user.getUsername().toUpperCase());
+        }
+        else{
+            Toast.makeText(Login.this, "LOGIN FAILED", Toast.LENGTH_SHORT).show();
         }
     }
 

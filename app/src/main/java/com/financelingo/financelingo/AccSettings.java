@@ -23,7 +23,7 @@ import Global.Global;
 import database.Database;
 
 public class AccSettings extends AppCompatActivity {
-    Database db;
+    private Database db;
     private Button changeEmailButton;
     private Button changePasswordButton;
     private EditText changeEmailType;
