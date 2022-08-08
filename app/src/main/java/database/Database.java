@@ -230,5 +230,31 @@ public class Database {
         return true;
     }
 
+    public void updateScore(Context context){
+        fStore.collection("Budgeting").document(Global.user.getUsername()).delete();
+        HashMap<String, Integer> newMap = new HashMap<>();
+        newMap.put("Score", Global.user.qScore());
+
+        fStore.collection("Budgeting")
+                .document(Global.user.getUsername())
+                .set(newMap);
+
+        fStore.collection("Budgeting").document(Global.user.getUsername()).update("Score", Global.user.qScore());
+    }
+
+    public void getScore(Context context) {
+        fStore.collection("Budgeting").document(Global.user.getUsername()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                DocumentSnapshot doc = task.getResult();
+                if (doc.exists()) {
+                    System.out.println(doc.getData().get("Score"));
+                } else {
+                    Toast.makeText(context, "DID NOT WORK", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
 
 }

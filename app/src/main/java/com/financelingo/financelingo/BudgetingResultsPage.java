@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.widget.TextView;
 import android.view.View;
 
+import database.Database;
 import database.User;
 import Global.Global;
 
@@ -15,6 +16,7 @@ public class BudgetingResultsPage extends AppCompatActivity {
     //retrieve score from user database class
     private int score = Global.user.qScore();
     private TextView budgeting_results;
+    Database db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,9 @@ public class BudgetingResultsPage extends AppCompatActivity {
         //define budgeting results text view
         budgeting_results = findViewById(R.id.budg_results_text);
         budgeting_results.setText(score+"/5");
+        db = new Database();
+        db.updateScore(BudgetingResultsPage.this);
+        db.getScore(BudgetingResultsPage.this);
     }
 
     //method that switches from budgeting results screen to lessons screen
