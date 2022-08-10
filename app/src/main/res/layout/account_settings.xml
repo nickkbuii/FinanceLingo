@@ -184,6 +184,7 @@
         android:layout_marginEnd="12dp"
         android:background="@drawable/lessons_button"
         app:layout_constraintDimensionRatio="1:1"
+        android:onClick="switchToHome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.1" />
