@@ -114,7 +114,6 @@ public class AccSettings extends AppCompatActivity {
         }
     }
 
-<<<<<<< HEAD
     public boolean changePw(View v){
         return false;
     }
@@ -123,7 +122,6 @@ public class AccSettings extends AppCompatActivity {
         db.addStudent();
     }
     
-=======
     public void switchToHome(View view){
         switchActivities(AccSettings.this, Lessons.class);
     }
@@ -132,5 +130,4 @@ public class AccSettings extends AppCompatActivity {
         Intent switchActivityIntent = new Intent (context, c);
         startActivity(switchActivityIntent);
     }
->>>>>>> 5b1f520e6535450e0e1b3bf9fa3d22d680aa70ef
 }
