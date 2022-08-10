@@ -31,6 +31,7 @@ public class AccSettings extends AppCompatActivity {
     private EditText changePasswordType;
     private Button emailConfirm;
     private Button passwordConfirm;
+    private Button classCodeConfButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,8 @@ public class AccSettings extends AppCompatActivity {
         changePasswordType = findViewById(R.id.changePasswordType);
         emailConfirm = findViewById(R.id.emailConfirm);
         passwordConfirm = findViewById(R.id.passwordConfirm);
+        classCodeConfButton = findViewById(R.id.classCodeConfButton);
+
         db = new Database();
 
         changeEmailButton.setOnClickListener(new View.OnClickListener(){
@@ -81,13 +84,16 @@ public class AccSettings extends AppCompatActivity {
                 passwordConfirm.setVisibility(View.GONE);
             }
         });
+
+        classCodeConfButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addClass(view);
+            }
+        });
     }
 
-<<<<<<< HEAD
-    public void changeEmail(View v){
-        String newEmail = ((TextView)findViewById(R.id.changeEmailType)).getText().toString();
-        db.updateEmail(AccSettings.this, newEmail);
-=======
+
     public boolean changeEmail(View v){
 
         //GET EMAIL FROM USER
@@ -95,15 +101,23 @@ public class AccSettings extends AppCompatActivity {
         String email = changeEmailType.getText().toString().trim();
         if(!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             db.updateEmail(AccSettings.this, email);
+            changeEmailType.setText("");
             return true;
         }
         else {
             changeEmailType.setError("Please provide a valid email");
             changeEmailType.requestFocus();
+            changeEmailType.setText("");
             return false;
         }
->>>>>>> 32dc4651b0e8bd6627fd9c3ea900cdf8a5606d39
     }
 
+    public boolean changePw(View v){
+        return false;
+    }
+
+    public void addClass(View v){
+        db.addStudent();
+    }
     
 }

@@ -1,11 +1,13 @@
 package database;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.financelingo.financelingo.AccSettings;
 import com.financelingo.financelingo.Lessons;
@@ -19,17 +21,18 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
 
 import java.util.HashMap;
 
 import Global.Global;
 
-public class Database {
+public class Database{
 
     //initializing firebase variables
-    FirebaseAuth fAuth;
-    FirebaseFirestore fStore;
-    FirebaseUser user;
+    private FirebaseAuth fAuth;
+    private FirebaseFirestore fStore;
+    private FirebaseUser user;
 
     public Database(){
         fAuth = FirebaseAuth.getInstance();
@@ -37,8 +40,21 @@ public class Database {
         user = fAuth.getCurrentUser();
     }
 
+    public FirebaseAuth getAuth(){
+        return fAuth;
+    }
+
+    public FirebaseFirestore getFirestore(){
+        return fStore;
+    }
+
+    public FirebaseUser getUser(){
+        return user;
+    }
+
     public boolean createAcc(Context context, String username, String email, String password){
         final boolean[] val = {true};
+        //SIGNS CURRENT USER OUT
         if(fAuth.getCurrentUser() != null){
             fAuth.signOut();
         }
@@ -49,22 +65,22 @@ public class Database {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            User user = new User(username, password, email, fAuth.getCurrentUser().getUid());
+                            //CREATES GLOBAL.USER OBJECT
+                            Global.user = new User(username, password, email, fAuth.getCurrentUser().getUid());
 
-                            Toast.makeText(context, "ACCOUNT CREATED", Toast.LENGTH_SHORT).show();
 
                             //Adds to profile firebase firestore
                             fStore.collection("User")
-                                    .document(fAuth.getCurrentUser().getUid() + " + " + user.getEmail())
-                                    .set(user);
+                                    .document(fAuth.getCurrentUser().getUid() + " + " + Global.user.getEmail())
+                                    .set(Global.user);
 
                             //Adds to email-username connection
                             HashMap<String, String> emailMap = new HashMap<>();
-                            emailMap.put("Email", user.getEmail());
+                            emailMap.put("Email", Global.user.getEmail());
 
                             //Adds to allow login with username
                             fStore.collection("Emails")
-                                    .document(user.getUsername())
+                                    .document(Global.user.getUsername())
                                     .set(emailMap);
 
                             //Adds to email-username connection
@@ -76,9 +92,24 @@ public class Database {
 
                             //Adds to allow login with username
                             fStore.collection("Budgeting")
-                                    .document(user.getUsername())
+                                    .document(Global.user.getUsername())
                                     .set(qNumScore);
 
+                            //SETS USERNAME TO AUTHENTICATION USERNAME
+                            UserProfileChangeRequest profReq = new UserProfileChangeRequest.Builder()
+                                    .setDisplayName(username)
+                                    .build();
+
+
+                            fAuth.getCurrentUser().updateProfile(profReq).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if(task.isSuccessful()){
+                                        Log.d("INFO", "UPDATED");
+                                    }
+                                }
+                            });
+                            Toast.makeText(context, "ACCOUNT CREATED", Toast.LENGTH_SHORT).show();
                             val[0] = true;
                         }
                         else{
@@ -91,100 +122,100 @@ public class Database {
         return val[0];
     }
 
-    public String checkUser(String user){
-        final String[] val = {""};
-        fStore.collection("Emails").document(user).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                if(documentSnapshot.exists()){
-                    val[0] = "Username is taken!";
-                }
-            }
-        });
-
-        return val[0];
-    }
-
-    public boolean login(Context context, String username, String password){
-        final boolean[] val = {true};
-        //Checks if User is logged in
+    public void login(Context context, String username, String password){
         //TEMPORARY : AUTO LOGOUT -> ASK USER IF THEY WISH TO LOG OUT
 
         if(fAuth.getCurrentUser() != null){
             fAuth.signOut();
         }
 
+        //PROBLEM
+        // RUNNING OUTSIDE LINES BEFORE INSIDE
+        // CALLING SIGN IN WITH PW AFTER RETURNING
         if(username.contains("@")){
+            //LOGS IN  USING EMAIL
             fAuth.signInWithEmailAndPassword(username, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
+                        //LOADS DATA FOR GLOBAL.USER
                         if(loadData(context)){
+                            //SETS PASSWORD
                             Global.user.setPw(password);
                         }
                     }
                     else{
-                        val[0] = false;
                         Toast.makeText(context, "ERROR", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
         }
         else{
+            //CHECKS EMAILS FIRESTORE FOR EMAIL LINKED TO USERNAME
             fStore.collection("Emails").document(username).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                 @Override
                 public void onSuccess(DocumentSnapshot doc) {
                     if(doc.exists()){
                         String email = doc.getString("Email");
+
+                        //LOGINS INTO AUTHENTICATION USING EMAIL FROM FIRESTORE
                         fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if(task.isSuccessful()){
+                                    Log.d("USER INFO", fAuth.getCurrentUser().getUid() + " + " + fAuth.getCurrentUser().getEmail());
+                                    //LOADS DATA NEEDED FOR GLOBAL.USER
                                     if(loadData(context)){
+                                        //SETS PASSWORD FROM FIREBASE
                                         Global.user.setPw(password);
                                     }
                                 }
                                 else{
                                     Toast.makeText(context, "LOGIN FAIL", Toast.LENGTH_SHORT).show();
-                                    val[0] = false;
                                 }
                             }
                         });
                     }
                     else{
-                        val[0] = false;
-                        Toast.makeText(context, "NO USERNAME IN DATABASE", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "DID NOT WORK", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
         }
-        return val[0];
     }
 
     public void updateEmail(Context context, String newEmail){
+        //CHANGES EMAIL FOR FIREBASE AUTHENTICATION
         user.updateEmail(newEmail).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
+                    //DELETES CURRENT USER OBJECT IN FIRESTORE DATABASE
                     fStore.collection("User").document(user.getUid() + " + " + Global.user.getEmail()).delete()
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if(task.isSuccessful()){
+                                        //CHANGES EMAIL ON USER OBJECT
                                         Global.user.setEmail(newEmail);//SET TO NEW EMAIL
+
                                         Log.d("INFO", user.getUid() + " + " + Global.user.getEmail());
+
+                                        //CREATES NEW DOCUMENT USING ATTRIBUTES FROM OLD ONE
                                         HashMap<String, String> newMap = new HashMap<>();
 
+                                        //INPUTS UPDATED ATTRIBUTES
                                         newMap.put("email", Global.user.getEmail()); // CHANGE TO USER INPUT EMAIL (NEW EMAIL)
                                         newMap.put("id", Global.user.getId());
                                         newMap.put("username", Global.user.getUsername());
 
+                                        //CREATES DOCUMENT
                                         fStore.collection("User")
                                                 .document(user.getUid() + " + " + Global.user.getEmail())
                                                 .set(newMap);
 
                                         fStore.collection("Emails").document(Global.user.getUsername()).update("Email", Global.user.getEmail());
-                                        Toast.makeText(context, "DELETED", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(context, "UPDATED", Toast.LENGTH_SHORT).show();
                                     }
                                     else{
                                         Toast.makeText(context, "FAILED", Toast.LENGTH_SHORT).show();
@@ -196,6 +227,10 @@ public class Database {
         });
     }
 
+//    public void updatePw(Context context, String newPw){
+//        fAuth.
+//    }
+
     public boolean loadData(Context context){
         //GRABS DATA FROM FIRESTORE DATABASE
         String getData = fAuth.getCurrentUser().getUid().toString() + " + " + fAuth.getCurrentUser().getEmail();
@@ -205,21 +240,25 @@ public class Database {
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 DocumentSnapshot doc = task.getResult();
                 if(doc.exists()){
+                    //SETS NECESSARY DATA INTO VARIABLES FOR USER OBJECT
                     String user = doc.getString("username");//Change to "Username"
                     String email = doc.getString("email");
                     String id = doc.getString("id");
 
+                    //CREATES USER OBJECT
                     Global.user = new User(user, email, id);
 
-                    Lessons.setUser(Global.user.getUsername().toUpperCase());
+                    Log.d("VALUE", "LOAD DATA :: WORKED");
+                    //Lessons.setUser(Global.user.getUsername().toUpperCase());
                 }
                 else{
-                    Toast.makeText(context, "DID NOT WORK", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "DID NOT WORK :: LOAD DATA", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
-        fStore.collection("Budgeting").document("kru").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        //SETS NEEDED SCORE VARIABLES FOR USER
+        fStore.collection("Budgeting").document(Global.user.getUsername()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 DocumentSnapshot doc = task.getResult();
@@ -230,6 +269,43 @@ public class Database {
             }
         });
         return true;
+    }
+
+    public String checkUser(String user){
+        final String[] val = {""};
+        //FINDS IF USERNAME EXISTS INSIDE FIRESTORE DATABASE
+        fStore.collection("Emails").document(user).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                if(documentSnapshot.exists()){
+                    //RETURNS USERTAKEN
+                    val[0] = "Username is taken!";
+                }
+            }
+        });
+        //NEEDS FIXING
+
+        return val[0];
+    }
+
+    public String checkPass(String pass){
+        String send = "";
+        boolean hasUpper = false;
+        for(char c : pass.toCharArray()){
+            if(Character.isUpperCase(c)){
+                hasUpper = true;
+            }
+        }
+
+        if(!hasUpper){
+            send += "Password must have an uppercase letter\n";
+        }
+        if(pass.length() < 8){
+            send +=  "Password must be atleast 8 letters long!\n";
+        }
+
+
+        return send;
     }
 
     public void setProfPicture(Uri uri){
@@ -247,8 +323,20 @@ public class Database {
         });
     }
 
-    public void write(){
+    public void write(HashMap<String, ?> map, String collection, String document){
 
     }
+
+    public void addStudent(){
+        // SUGGESTION: TEST OUT USING COLLECTIONS INSIDE FIELDS
+        // FIGURE OUT HOW TO USE TEACHER / STUDENT SIDE UI
+        // APPEND TO CLASSES
+        HashMap<String, Object> test = new HashMap<>();
+        test.put("Student1", 13);
+        fStore.collection("Classes").document("test");
+    }
+
+
+
 
 }

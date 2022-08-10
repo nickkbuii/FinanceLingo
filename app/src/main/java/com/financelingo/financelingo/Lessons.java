@@ -19,6 +19,7 @@ import org.w3c.dom.Text;
 
 import java.text.BreakIterator;
 import Global.Global;
+import database.Database;
 import database.User;
 
 public class Lessons extends AppCompatActivity{
@@ -27,13 +28,14 @@ public class Lessons extends AppCompatActivity{
     private int score = Global.user.qScore();
 
     //initialize account name text view
-    private static TextView accName;
+    private TextView accName;
 
     //initialize bar amount
     int barAmount = 0;
 
     //initialize progress bar
     ProgressBar budgetingProgressBar;
+    Database db;
 
     //@SuppressLint("WrongViewCast")
     @Override
@@ -42,8 +44,17 @@ public class Lessons extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lessons);
 
+        db = new Database();
+
         //define account name text view
         accName = findViewById(R.id.accName);
+        if(db.getAuth().getCurrentUser().getDisplayName() != null){
+            accName.setText(db.getAuth().getCurrentUser().getDisplayName().toString().toUpperCase());
+        }
+        else{
+            accName.setText(Global.user.getUsername());
+        }
+
 
         //define progress bar view
         budgetingProgressBar = findViewById(R.id.budgetingProgressBar);
@@ -76,9 +87,9 @@ public class Lessons extends AppCompatActivity{
     }
 
     //method that declares username
-    public static void setUser(String username){
-        accName.setText(username);
-    }
+    //public static void setUser(String username){ accName.setText(username); }
+
+
 
     //method to increment progress bar
     public void animateBar(ProgressBar bar, int amount){

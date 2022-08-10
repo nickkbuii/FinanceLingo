@@ -62,8 +62,9 @@ public class Create extends AppCompatActivity {
         TextView emailText = findViewById(R.id.email);
         String email = emailText.getText().toString();
 
-        if(!checkPass(password).equals("")){
-            pwText.setError(checkPass(password));
+        String error = db.checkPass(password);
+        if(!error.equals("")){
+            pwText.setError(error);
             return;
         }
 
@@ -78,30 +79,12 @@ public class Create extends AppCompatActivity {
             Toast.makeText(Create.this, "HERE", Toast.LENGTH_SHORT).show();
             switchActivities(Create.this, MainActivity.class);
         }
+        db.getAuth().signOut();
     }
 
 
 
-    //Checks if password passes test values
-    public String checkPass(String pass){
-        String send = "";
-        boolean hasUpper = false;
-        for(char c : pass.toCharArray()){
-            if(Character.isUpperCase(c)){
-                hasUpper = true;
-            }
-        }
 
-        if(!hasUpper){
-            send += "Password must have an uppercase letter\n";
-        }
-        if(pass.length() < 8){
-            send +=  "Password must be atleast 8 letters long!\n";
-        }
-
-
-        return send;
-    }
 
     public void showPw(View v){
         Button b = findViewById(R.id.showPw);

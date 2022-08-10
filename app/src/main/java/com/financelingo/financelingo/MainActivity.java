@@ -15,6 +15,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +33,11 @@ public class MainActivity extends AppCompatActivity {
         //set view to activity_main
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        FirebaseAuth fAuth = FirebaseAuth.getInstance();
+        if(fAuth.getCurrentUser() != null){
+            fAuth.signOut();
+        }
 
         //button listener to switch to create account screen
         switchToCreate = findViewById(R.id.createButton);

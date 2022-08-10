@@ -29,7 +29,7 @@ import Global.Global;
 import database.Database;
 import database.User;
 
-public class Login extends AppCompatActivity {
+public class Login extends AppCompatActivity implements FirebaseAuth.AuthStateListener{
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     User tempUser;
@@ -40,11 +40,12 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login); //Create Login Page
-        fAuth = FirebaseAuth.getInstance();
-        fStore = FirebaseFirestore.getInstance();
-        global = new Global();
 
         db = new Database();
+
+        fAuth = db.getAuth();
+        fStore = db.getFirestore();
+        global = new Global();
     }
 
     public void login(View v){
@@ -54,13 +55,7 @@ public class Login extends AppCompatActivity {
         String password = text.getText().toString();//Password text field input
 
         //LOGINS IN TO THE FIREBASE AUTHENTICATION
-        if(db.login(Login.this, username, password)){
-            switchActivities(Login.this, Lessons.class);
-            //Lessons.setUser(Global.user.getUsername().toUpperCase());
-        }
-        else{
-            Toast.makeText(Login.this, "LOGIN FAILED", Toast.LENGTH_SHORT).show();
-        }
+        db.login(Login.this, username, password);
     }
 
 
@@ -68,5 +63,39 @@ public class Login extends AppCompatActivity {
     public void switchActivities(Context context, Class c){
         Intent switchActivityIntent = new Intent (context, c);
         startActivity(switchActivityIntent);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        fAuth.addAuthStateListener(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        fAuth.removeAuthStateListener(this);
+    }
+
+    @Override
+    public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+        //  NOT INSTANTIATING GLOBAL.USER FAST ENOUGH
+        // FIND WAY TO DO SMT (LOADING SCREEN) WHILE THE FIRESTORE IS GETTING USER DATA
+        // SUGGESTION : WHILE LOOP LOADING SCREEN ACTIVITY UNTIL USER IS NOT NULL
+        // SUGGESTION : FIND WHY IT IS INFINITELY LOOPING
+        if(fAuth.getCurrentUser() != null){
+            View lessonsView = getLayoutInflater().inflate(R.layout.lessons, null);
+            TextView name = (TextView) lessonsView.findViewById(R.id.accName);
+            name.setVisibility(View.VISIBLE);
+            Log.d("VISIBILITY", String.valueOf(name.getVisibility()));
+            Log.d("NAME: ", name.getText().toString());
+            name.setText(fAuth.getCurrentUser().getDisplayName());
+            lessonsView.refreshDrawableState();
+
+
+
+            switchActivities(Login.this, Lessons.class);
+        }
+
     }
 }
