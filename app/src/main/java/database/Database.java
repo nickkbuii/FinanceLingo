@@ -271,7 +271,6 @@ public class Database{
         return true;
     }
 
-<<<<<<< HEAD
     public String checkUser(String user){
         final String[] val = {""};
         //FINDS IF USERNAME EXISTS INSIDE FIRESTORE DATABASE
@@ -317,9 +316,13 @@ public class Database{
         user.updateProfile(req).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                if(task.isSuccessful()){
+                if (task.isSuccessful()) {
                     Log.d("INFO", "CHANGED"); //CHANGE THIS TO SOMETHING ELSE
-=======
+                }
+
+            }
+        });
+    }
     public void updateScore(Context context){
         fStore.collection("Budgeting").document(Global.user.getUsername()).delete();
         HashMap<String, Integer> newMap = new HashMap<>();
@@ -341,13 +344,12 @@ public class Database{
                     System.out.println(doc.getData().get("Score"));
                 } else {
                     Toast.makeText(context, "DID NOT WORK", Toast.LENGTH_SHORT).show();
->>>>>>> 5b1f520e6535450e0e1b3bf9fa3d22d680aa70ef
                 }
             }
         });
     }
 
-<<<<<<< HEAD
+
     public void write(HashMap<String, ?> map, String collection, String document){
 
     }
@@ -362,8 +364,5 @@ public class Database{
     }
 
 
-
-=======
->>>>>>> 5b1f520e6535450e0e1b3bf9fa3d22d680aa70ef
 
 }
