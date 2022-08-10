@@ -8,10 +8,9 @@ import android.widget.TextView;
 import android.view.View;
 
 import database.Database;
-import database.User;
 import Global.Global;
 
-public class BudgetingResultsPage extends AppCompatActivity {
+public class BudgetingResults extends AppCompatActivity {
 
     //retrieve score from user database class
     private int score = Global.user.qScore();
@@ -28,13 +27,13 @@ public class BudgetingResultsPage extends AppCompatActivity {
         budgeting_results = findViewById(R.id.budg_results_text);
         budgeting_results.setText(score+"/5");
         db = new Database();
-        db.updateScore(BudgetingResultsPage.this);
-        db.getScore(BudgetingResultsPage.this);
+        db.updateScore(BudgetingResults.this);
+        db.getScore(BudgetingResults.this);
     }
 
     //method that switches from budgeting results screen to lessons screen
     public void switchToHome(View view){
-        switchActivities(BudgetingResultsPage.this, Lessons.class);
+        switchActivities(BudgetingResults.this, Lessons.class);
     }
 
     //method that switches from budgeting results screen to lesson
@@ -43,7 +42,7 @@ public class BudgetingResultsPage extends AppCompatActivity {
         if(score!=5){
             Global.user.setQScore(0);
         }
-        switchActivities(BudgetingResultsPage.this, LessonTemplate.class);
+        switchActivities(BudgetingResults.this, BudgetingLesson.class);
     }
 
     //method to switch classes

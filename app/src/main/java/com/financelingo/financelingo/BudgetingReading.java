@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import Lessons.*;
 
 
-public class ReadingTemplate extends AppCompatActivity {
+public class BudgetingReading extends AppCompatActivity {
 
     //access readings and definitions from BudgetingReadings.java and initialize reading text view, next/back buttons
     //set default page number to 0

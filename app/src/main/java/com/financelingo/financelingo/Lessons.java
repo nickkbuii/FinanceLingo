@@ -5,22 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
-import java.text.BreakIterator;
 import Global.Global;
 import database.Database;
-import database.User;
 
 public class Lessons extends AppCompatActivity{
 
@@ -65,7 +58,7 @@ public class Lessons extends AppCompatActivity{
 
     //method that changes from lessons (home) class to the lesson class
     public void toLesson(View v){
-        switchActivities(Lessons.this, LessonTemplate.class);
+        switchActivities(Lessons.this, BudgetingLesson.class);
         if(score!=5){
             Global.user.setQScore(0);
         }
@@ -73,7 +66,7 @@ public class Lessons extends AppCompatActivity{
 
     //method that changes from lessons (home) class to the reading class
     public void toReading(View v){
-        switchActivities(Lessons.this, ReadingTemplate.class);
+        switchActivities(Lessons.this, BudgetingReading.class);
     }
 
     //method that changes from lessons (home) class to the account settings class

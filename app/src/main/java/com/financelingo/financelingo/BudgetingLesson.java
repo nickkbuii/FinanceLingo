@@ -8,24 +8,17 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.Map;
 
 import Global.Global;
 import Lessons.*;
-import database.User;
 
 
-public class LessonTemplate extends AppCompatActivity {
+public class BudgetingLesson extends AppCompatActivity {
 
     //retrieve methods and curriculum from Budgeting.java and User.java
     private Budgeting budgeting = new Budgeting();
@@ -94,7 +87,7 @@ public class LessonTemplate extends AppCompatActivity {
                     questionNumber++;
                     updateQuestion();
                 }else if(questionNumber==4){
-                    switchActivities(LessonTemplate.this, BudgetingResultsPage.class);
+                    switchActivities(BudgetingLesson.this, BudgetingResults.class);
                 }
             }
         });
@@ -112,7 +105,7 @@ public class LessonTemplate extends AppCompatActivity {
                     questionNumber++;
                     updateQuestion();
                 }else if(questionNumber==4){
-                    switchActivities(LessonTemplate.this, BudgetingResultsPage.class);
+                    switchActivities(BudgetingLesson.this, BudgetingResults.class);
                 }
             }
         });
@@ -130,7 +123,7 @@ public class LessonTemplate extends AppCompatActivity {
                     questionNumber++;
                     updateQuestion();
                 }else if(questionNumber==4){
-                    switchActivities(LessonTemplate.this, BudgetingResultsPage.class);
+                    switchActivities(BudgetingLesson.this, BudgetingResults.class);
                 }
             }
         });
@@ -148,7 +141,7 @@ public class LessonTemplate extends AppCompatActivity {
                     questionNumber++;
                     updateQuestion();
                 }else if(questionNumber==4){
-                    switchActivities(LessonTemplate.this, BudgetingResultsPage.class);
+                    switchActivities(BudgetingLesson.this, BudgetingResults.class);
                 }
             }
         });
