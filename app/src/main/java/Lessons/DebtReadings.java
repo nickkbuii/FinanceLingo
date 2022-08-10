@@ -11,4 +11,13 @@ public class DebtReadings {
             "Credit cards are a common type of debt where you borrow money from a credit card company and must pay them back monthly. Paying them back on time is the easiest way to increase your credit score."
     };
 
+    public String[] rules = {
+            "What is debt?",
+            "What is credit score?",
+            "Why and where do people borrow money?",
+            "Interest?",
+            "Pay on time!",
+            "What are credit cards?"
+    };
+
 }

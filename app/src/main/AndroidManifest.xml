@@ -40,6 +40,15 @@
             android:name=".BudgetingResults"
             android:exported="false"/>
         <activity
+            android:name=".DebtLesson"
+            android:exported="false"/>
+        <activity
+            android:name=".DebtReading"
+            android:exported="false"/>
+        <activity
+            android:name=".DebtResults"
+            android:exported="false"/>
+        <activity
             android:name=".MainActivity"
             android:exported="true"/>
         <activity
