@@ -32,7 +32,7 @@ public class DebtReading extends AppCompatActivity {
         readingPic = (ImageView) findViewById(R.id.readingPic);
     }
 
-    private void setDebtElements(){
+    public void setDebtElements(){
         readingText.setText(debtReadings.readings[pageNum]);
         pageNumber.setText(pageNum+1);
         readingTitle.setText(debtReadings.rules[pageNum]);
@@ -40,12 +40,20 @@ public class DebtReading extends AppCompatActivity {
     }
 
     public void debtNext(){
-        pageNum++;
+        if(pageNum==5){
+            pageNum=0;
+        }else {
+            pageNum++;
+        }
         setDebtElements();
     }
 
     public void debtBack(){
-        pageNum--;
+        if(pageNum==0){
+            pageNum=5;
+        }else{
+            pageNum--;
+        }
         setDebtElements();
     }
 }

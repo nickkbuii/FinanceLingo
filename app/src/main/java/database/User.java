@@ -57,7 +57,7 @@ public class User {
         System.out.println(qScore);
     }
 
-    //methods to return question number, score, pw
+    //methods to return debt_question number, score, pw
     public String pw(){
         return password;
     }

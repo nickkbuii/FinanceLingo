@@ -43,13 +43,13 @@ public class Question {
         return choices[question][choiceNum];
     }
 
-    //retrieve current question of user from Budgeting.java
+    //retrieve current debt_question of user from Budgeting.java
     public String getQuestion(int a) {
         String question = prompts[a];
         return question;
     }
 
-    //retrieve correct answer to current question of user from Budgeting.java
+    //retrieve correct answer to current debt_question of user from Budgeting.java
     public String getCorrectAnswer(int a){
         String answer = correctAnswers[a];
         return answer;

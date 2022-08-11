@@ -17,8 +17,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import Global.Global;
 import Lessons.*;
 import database.Database;
-import database.User;
-
 
 
 public class BudgetingLesson extends AppCompatActivity {
@@ -28,7 +26,7 @@ public class BudgetingLesson extends AppCompatActivity {
 
     private Database db;
 
-    //initialize question text view and the 4 answer option buttons
+    //initialize debt_question text view and the 4 answer option buttons
     private TextView questionView;
     private Button button1;
     private Button button2;
@@ -66,22 +64,22 @@ public class BudgetingLesson extends AppCompatActivity {
         fUser = FirebaseAuth.getInstance().getCurrentUser();
         fStore = FirebaseFirestore.getInstance();
         //define text view and the 4 answer option buttons
-        questionView = findViewById(R.id.question);
+        questionView = findViewById(R.id.debt_question);
         button1 = findViewById(R.id.opt1);
         button2 = findViewById(R.id.opt2);
         button3 = findViewById(R.id.opt3);
         button4 = findViewById(R.id.opt4);
-        //define progress circles for each question
-        prog_1 = findViewById(R.id.prog_1);
-        prog_2 = findViewById(R.id.prog_2);
-        prog_3 = findViewById(R.id.prog_3);
-        prog_4 = findViewById(R.id.prog_4);
-        prog_5 = findViewById(R.id.prog_5);
-        //set question and answer option to respective fields and buttons
+        //define progress circles for each debt_question
+        prog_1 = findViewById(R.id.debt_prog_1);
+        prog_2 = findViewById(R.id.debt_prog_2);
+        prog_3 = findViewById(R.id.debt_prog_3);
+        prog_4 = findViewById(R.id.debt_prog_4);
+        prog_5 = findViewById(R.id.debt_prog_5);
+        //set debt_question and answer option to respective fields and buttons
         updateQuestion();
         //when a answer option button is clicked, check if correct
-        //if correct, increment score, question number and change color of progress image button
-        //set new question/answer options onto screen
+        //if correct, increment score, debt_question number and change color of progress image button
+        //set new debt_question/answer options onto screen
         button1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -174,7 +172,7 @@ public class BudgetingLesson extends AppCompatActivity {
         }
     };
 
-    //set question and answer options to respective fields and buttons according to question number
+    //set debt_question and answer options to respective fields and buttons according to debt_question number
     private void updateQuestion(){
         //Assign QuestionText to first prompt
         //Assign each ButtonOption to multiple choice answer

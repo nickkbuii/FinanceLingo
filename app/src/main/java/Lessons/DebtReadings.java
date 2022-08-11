@@ -20,4 +20,8 @@ public class DebtReadings {
             "What are credit cards?"
     };
 
+    public int [] pictures = {
+            //insert drawables of pictures relating to the readings current index
+    };
+
 }

@@ -18,4 +18,8 @@ public class Debt {
             {"Credit cards", "monthly"}
     };
 
+    public int[] questionImages = {
+
+    };
+
 }

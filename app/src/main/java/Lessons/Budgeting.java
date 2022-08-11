@@ -6,7 +6,7 @@ import database.Question;
 
 public class Budgeting {
 
-    //Budgeting question prompts
+    //Budgeting debt_question prompts
     private String[] prompts = {
             "Which of the following categories does your post-tax income fall into?",
             "What is the percentage of your post-tax income that goes into savings?",
