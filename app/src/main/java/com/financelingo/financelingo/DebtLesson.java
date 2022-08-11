@@ -10,10 +10,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import Lessons.Debt;
 import Global.Global;
+import database.Database;
 
 public class DebtLesson extends AppCompatActivity {
 
     Debt debt = new Debt();
+    Database db = new Database();
     TextView debtInput1;
     TextView debtInput2;
     TextView debtPrompt;
@@ -47,6 +49,7 @@ public class DebtLesson extends AppCompatActivity {
     public void checkAns(){
         if (debtInput1.getText()==debt.answers[debt_qNum][0] && debtInput2.getText()==debt.answers[debt_qNum][1]){
             debt_score++;
+            db.updateScore();
             if(debt_qNum==0) {
                 p1.setImageDrawable(getDrawable(R.drawable.green_circle_button));
             }else if(debt_qNum==1){

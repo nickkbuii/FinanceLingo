@@ -323,6 +323,7 @@ public class Database{
             }
         });
     }
+
     public void updateScore(){
         fStore.collection("Budgeting").document(fAuth.getCurrentUser().getDisplayName())
                 .update(

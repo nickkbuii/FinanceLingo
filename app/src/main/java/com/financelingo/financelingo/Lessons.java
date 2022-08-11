@@ -61,6 +61,7 @@ public class Lessons extends AppCompatActivity{
         switchActivities(Lessons.this, BudgetingLesson.class);
         if(score!=5){
             Global.user.setQScore(0);
+            db.updateScore();
         }
     }
 

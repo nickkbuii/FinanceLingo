@@ -27,8 +27,6 @@ public class BudgetingResults extends AppCompatActivity {
         budgeting_results = findViewById(R.id.budg_results_text);
         budgeting_results.setText(score+"/5");
         db = new Database();
-//        db.updateScore(BudgetingResultsPage.this);
-//        db.getScore(BudgetingResultsPage.this);
     }
 
     //method that switches from budgeting results screen to lessons screen
@@ -41,6 +39,7 @@ public class BudgetingResults extends AppCompatActivity {
     public void restartLesson(View view){
         if(score!=5){
             Global.user.setQScore(0);
+            db.updateScore();
         }
         switchActivities(BudgetingResults.this, BudgetingLesson.class);
     }
