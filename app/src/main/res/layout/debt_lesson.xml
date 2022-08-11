@@ -32,4 +32,182 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/createLogo" />
 
+    <ImageButton
+        android:id="@+id/prog_1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/white_circle_button"
+        app:layout_constraintBottom_toTopOf="@+id/MC_secondary_background"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toStartOf="@+id/MC_secondary_background"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.1" />
+
+    <ImageButton
+        android:id="@+id/prog_2"
+        android:layout_width="0dp"
+        android:layout_height="41dp"
+        android:background="@drawable/white_circle_button"
+        app:layout_constraintBottom_toTopOf="@+id/MC_secondary_background"
+        app:layout_constraintEnd_toStartOf="@+id/prog_3"
+        app:layout_constraintStart_toEndOf="@+id/prog_1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.1" />
+
+    <ImageButton
+        android:id="@+id/prog_3"
+        android:layout_width="41dp"
+        android:layout_height="41dp"
+        android:background="@drawable/white_circle_button"
+        app:layout_constraintBottom_toTopOf="@+id/MC_secondary_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.1" />
+
+    <ImageButton
+        android:id="@+id/prog_4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/white_circle_button"
+        app:layout_constraintBottom_toTopOf="@+id/MC_secondary_background"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@+id/prog_5"
+        app:layout_constraintStart_toEndOf="@+id/prog_3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.1" />
+
+    <ImageButton
+        android:id="@+id/prog_5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/white_circle_button"
+        app:layout_constraintBottom_toTopOf="@+id/MC_secondary_background"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@+id/MC_secondary_background"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.1" />
+
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="292dp"
+        android:layout_height="146dp"
+        android:layout_marginTop="48dp"
+        android:fontFamily="@font/sf_arch_rival_bold"
+        android:text="This is where the question goes"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="@+id/MC_secondary_background"
+        app:layout_constraintHeight_percent="0.08"
+        app:layout_constraintStart_toStartOf="@+id/MC_secondary_background"
+        app:layout_constraintTop_toTopOf="@+id/MC_secondary_background"
+        app:layout_constraintWidth_percent="0.72"
+        tools:visibility="visible" />
+
+    <Button
+        android:id="@+id/opt1"
+        android:layout_width="245dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="460dp"
+        android:background="@drawable/rounded_button"
+        android:checkable="false"
+        android:fontFamily="@font/sf_arch_rival_bold"
+        android:tag="incorrect"
+        android:text="Option 1"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:backgroundTint="#FFFFFF"
+        app:iconTint="#00BCD4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/MC_secondary_background"
+        app:layout_constraintHeight_percent="0.08"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="@+id/MC_secondary_background"
+        app:layout_constraintWidth_percent="0.72" />
+
+    <Button
+        android:id="@+id/opt2"
+        android:layout_width="245dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="384dp"
+        android:background="@drawable/rounded_button"
+        android:checkable="false"
+        android:fontFamily="@font/sf_arch_rival_bold"
+        android:paddingTop="1dp"
+        android:tag="incorrect"
+        android:text="Option 2"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:backgroundTint="#FFFFFF"
+        app:iconTint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/MC_secondary_background"
+        app:layout_constraintHeight_percent="0.08"
+        app:layout_constraintHorizontal_bias="0.419"
+        app:layout_constraintStart_toStartOf="@+id/MC_secondary_background"
+        app:layout_constraintWidth_percent="0.72" />
+
+    <Button
+        android:id="@+id/opt3"
+        android:layout_width="245dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="304dp"
+        android:background="@drawable/rounded_button"
+        android:checkable="false"
+        android:fontFamily="@font/sf_arch_rival_bold"
+        android:paddingTop="-1dp"
+        android:paddingBottom="2dp"
+        android:tag="incorrect"
+        android:text="Option 3"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:backgroundTint="#FFFFFF"
+        app:iconTint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/MC_secondary_background"
+        app:layout_constraintHeight_percent="0.08"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="@+id/MC_secondary_background"
+        app:layout_constraintWidth_percent="0.72" />
+
+    <Button
+        android:id="@+id/opt4"
+        android:layout_width="245dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="224dp"
+        android:background="@drawable/rounded_button"
+        android:checkable="false"
+        android:fontFamily="@font/sf_arch_rival_bold"
+        android:tag="correct"
+        android:text="Option 4"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:backgroundTint="#FFFFFF"
+        app:iconTint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/MC_secondary_background"
+        app:layout_constraintHeight_percent="0.08"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="@+id/MC_secondary_background"
+        app:layout_constraintWidth_percent="0.72" />
+
+    <ImageView
+        android:id="@+id/prog_4"
+        android:layout_width="250dp"
+        android:layout_height="329dp"
+        android:layout_marginStart="-60dp"
+        android:layout_marginBottom="-100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/pig_book" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
