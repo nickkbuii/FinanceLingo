@@ -80,6 +80,13 @@ public class Lessons extends AppCompatActivity{
         switchActivities(Lessons.this, Tutorial.class);
     }
 
+    public void toDebtLesson(View view){
+        switchActivities(Lessons.this, DebtLesson.class);
+        if(score!=5){
+            //if not perfect, reset
+        }
+    }
+
     //method that declares username
     //public static void setUser(String username){ accName.setText(username); }
 

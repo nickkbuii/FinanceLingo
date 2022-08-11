@@ -11,11 +11,11 @@ public class Debt {
     };
 
     public String[][] answers = {
-            {"Borrowed money", "pay it back"},
+            {"borrowed money", "pay it back"},
             {"banks", "expenses"},
             {"interest, initial debt balance"},
             {"penalty fee", "credit score"},
-            {"Credit cards", "monthly"}
+            {"credit cards", "monthly"}
     };
 
     public int[] questionImages = {

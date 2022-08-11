@@ -3,6 +3,8 @@ package com.financelingo.financelingo;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -24,8 +26,9 @@ public class DebtLesson extends AppCompatActivity {
     ImageButton p3;
     ImageButton p4;
     ImageButton p5;
+    Button checkButton;
     int debt_qNum;
-    public int debt_score = Global.user.qScore();
+    public int debt_score = 0; //incorporate db later
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,14 +45,21 @@ public class DebtLesson extends AppCompatActivity {
         p3 = findViewById(R.id.debt_prog_3);
         p4 = findViewById(R.id.debt_prog_4);
         p5 = findViewById(R.id.debt_prog_5);
+        checkButton = findViewById(R.id.checkButton);
 
         updateQuestion();
+
+        checkButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                checkAns();
+            }
+        });
     }
 
     public void checkAns(){
         if (debtInput1.getText()==debt.answers[debt_qNum][0] && debtInput2.getText()==debt.answers[debt_qNum][1]){
             debt_score++;
-            db.updateScore();
             if(debt_qNum==0) {
                 p1.setImageDrawable(getDrawable(R.drawable.green_circle_button));
             }else if(debt_qNum==1){
