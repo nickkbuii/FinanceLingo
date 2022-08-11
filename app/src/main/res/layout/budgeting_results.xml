@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/green"
-    tools:context=".BudgetingResultsPage">
+    tools:context=".BudgetingResults">
 
     <ImageView
         android:id="@+id/budg_results_image"

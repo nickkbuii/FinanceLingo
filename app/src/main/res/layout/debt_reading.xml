@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/green"
-    tools:context=".BudgetingReading">
+    android:background="@drawable/purple"
+    tools:context=".DebtReading">
 
     <ImageView
-        android:id="@+id/purpleSecondaryBack"
+        android:id="@+id/greenSecondaryBack"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/purple_square"
+        android:background="@drawable/green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.9"
@@ -37,18 +37,18 @@
         android:fontFamily="@font/sf_arch_rival_bold"
         android:paddingLeft="15dp"
         android:paddingTop="10dp"
-        android:text="PAGE 1/4"
+        android:text="PAGE #"
         android:textColor="#000000"
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="@+id/purpleSecondaryBack"
-        app:layout_constraintTop_toTopOf="@+id/purpleSecondaryBack" />
+        app:layout_constraintStart_toStartOf="@+id/greenSecondaryBack"
+        app:layout_constraintTop_toTopOf="@+id/greenSecondaryBack" />
 
     <TextView
         android:id="@+id/readingBody"
         android:layout_width="302dp"
         android:layout_height="204dp"
         android:fontFamily="@font/sf_arch_rival_bold"
-        android:text="50% of your income should go to necessities. That includes bills, food, utilities, etc.."
+        android:text="Body text goes here"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="20dp"
@@ -67,7 +67,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="24dp"
         android:fontFamily="@font/sf_arch_rival_bold"
-        android:text="50% RULE"
+        android:text="Title goes here"
         android:textColor="#000000"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/readingBody"
@@ -82,6 +82,7 @@
         android:layout_height="match_parent"
         android:background="#00FFFFFF"
         android:visibility="visible"
+        android:onClick="debtNext"
         app:backgroundTint="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -95,6 +96,7 @@
         android:layout_height="match_parent"
         android:background="#00FFFFFF"
         android:visibility="visible"
+        android:onClick="debtBack"
         app:backgroundTint="#00FFFFFF"
         app:iconTint="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"

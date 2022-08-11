@@ -22,10 +22,10 @@
             android:name=".Create"
             android:exported="false" />
         <activity
-            android:name=".LessonTemplate"
+            android:name=".BudgetingLesson"
             android:exported="false" />
         <activity
-            android:name=".ReadingTemplate"
+            android:name=".BudgetingReading"
             android:exported="false" />
         <activity
             android:name=".Lessons"
@@ -37,7 +37,16 @@
             android:name=".Tutorial"
             android:exported="false"/>
         <activity
-            android:name=".BudgetingResultsPage"
+            android:name=".BudgetingResults"
+            android:exported="false"/>
+        <activity
+            android:name=".DebtLesson"
+            android:exported="false"/>
+        <activity
+            android:name=".DebtReading"
+            android:exported="false"/>
+        <activity
+            android:name=".DebtResults"
             android:exported="false"/>
         <activity
             android:name=".MainActivity"
