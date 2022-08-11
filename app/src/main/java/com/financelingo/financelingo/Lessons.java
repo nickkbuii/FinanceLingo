@@ -48,11 +48,11 @@ public class Lessons extends AppCompatActivity{
 
         //define account name text view
         accName = findViewById(R.id.accName);
-        if(db.getAuth().getCurrentUser().getDisplayName() != null){
-            accName.setText(db.getAuth().getCurrentUser().getDisplayName().toString().toUpperCase());
+        if(db.getAuth().getCurrentUser().getDisplayName() == null){
+            accName.setText(Global.user.getUsername());
         }
         else{
-            accName.setText(Global.user.getUsername());
+            accName.setText(db.getAuth().getCurrentUser().getDisplayName().toString().toUpperCase());
         }
 
 

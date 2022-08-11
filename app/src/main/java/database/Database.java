@@ -105,7 +105,7 @@ public class Database{
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if(task.isSuccessful()){
-                                        Log.d("INFO", "UPDATED");
+                                        Log.d("INFO", fAuth.getCurrentUser().getDisplayName().toString());
                                     }
                                 }
                             });
@@ -139,10 +139,10 @@ public class Database{
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
                         //LOADS DATA FOR GLOBAL.USER
-                        if(loadData(context)){
-                            //SETS PASSWORD
-                            Global.user.setPw(password);
-                        }
+
+                        //SETS PASSWORD
+                        Global.user.setPw(password);
+
                     }
                     else{
                         Toast.makeText(context, "ERROR", Toast.LENGTH_SHORT).show();
@@ -165,10 +165,10 @@ public class Database{
                                 if(task.isSuccessful()){
                                     Log.d("USER INFO", fAuth.getCurrentUser().getUid() + " + " + fAuth.getCurrentUser().getEmail());
                                     //LOADS DATA NEEDED FOR GLOBAL.USER
-                                    if(loadData(context)){
-                                        //SETS PASSWORD FROM FIREBASE
-                                        Global.user.setPw(password);
-                                    }
+
+                                    //SETS PASSWORD FROM FIREBASE
+                                    Global.user.setPw(password);
+
                                 }
                                 else{
                                     Toast.makeText(context, "LOGIN FAIL", Toast.LENGTH_SHORT).show();
@@ -258,13 +258,13 @@ public class Database{
         });
 
         //SETS NEEDED SCORE VARIABLES FOR USER
-        fStore.collection("Budgeting").document(Global.user.getUsername()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        fStore.collection("Budgeting").document(fAuth.getCurrentUser().getDisplayName().toString()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 DocumentSnapshot doc = task.getResult();
                 if (doc.exists()) {
-                    Global.user.setQScore(Integer.valueOf(doc.getLong("Score").toString()));
-                    Global.user.setQNum(Integer.valueOf(doc.getLong("Question").toString()));
+                    Global.user.setQScore(Integer.parseInt(doc.getLong("Score").toString()));
+                    Global.user.setQNum(Integer.parseInt(doc.getLong("Question").toString()));
                 }
             }
         });
@@ -323,16 +323,12 @@ public class Database{
             }
         });
     }
-    public void updateScore(Context context){
-        fStore.collection("Budgeting").document(Global.user.getUsername()).delete();
-        HashMap<String, Integer> newMap = new HashMap<>();
-        newMap.put("Score", Global.user.qScore());
-
-        fStore.collection("Budgeting")
-                .document(Global.user.getUsername())
-                .set(newMap);
-
-        fStore.collection("Budgeting").document(Global.user.getUsername()).update("Score", Global.user.qScore());
+    public void updateScore(){
+        fStore.collection("Budgeting").document(fAuth.getCurrentUser().getDisplayName())
+                .update(
+                        "Score", Global.user.qScore(),
+                        "Question", Global.user.qNum()
+                );
     }
 
     public void getScore(Context context) {

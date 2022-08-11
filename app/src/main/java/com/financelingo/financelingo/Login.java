@@ -58,8 +58,6 @@ public class Login extends AppCompatActivity implements FirebaseAuth.AuthStateLi
         db.login(Login.this, username, password);
     }
 
-
-
     public void switchActivities(Context context, Class c){
         Intent switchActivityIntent = new Intent (context, c);
         startActivity(switchActivityIntent);
@@ -84,15 +82,15 @@ public class Login extends AppCompatActivity implements FirebaseAuth.AuthStateLi
         // SUGGESTION : WHILE LOOP LOADING SCREEN ACTIVITY UNTIL USER IS NOT NULL
         // SUGGESTION : FIND WHY IT IS INFINITELY LOOPING
         if(fAuth.getCurrentUser() != null){
+            db.loadData(Login.this);
             View lessonsView = getLayoutInflater().inflate(R.layout.lessons, null);
             TextView name = (TextView) lessonsView.findViewById(R.id.accName);
             name.setVisibility(View.VISIBLE);
+            name.setText(fAuth.getCurrentUser().getDisplayName());
             Log.d("VISIBILITY", String.valueOf(name.getVisibility()));
             Log.d("NAME: ", name.getText().toString());
-            name.setText(fAuth.getCurrentUser().getDisplayName());
+
             lessonsView.refreshDrawableState();
-
-
 
             switchActivities(Login.this, Lessons.class);
         }

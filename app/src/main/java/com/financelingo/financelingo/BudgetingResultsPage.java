@@ -28,8 +28,8 @@ public class BudgetingResultsPage extends AppCompatActivity {
         budgeting_results = findViewById(R.id.budg_results_text);
         budgeting_results.setText(score+"/5");
         db = new Database();
-        db.updateScore(BudgetingResultsPage.this);
-        db.getScore(BudgetingResultsPage.this);
+//        db.updateScore(BudgetingResultsPage.this);
+//        db.getScore(BudgetingResultsPage.this);
     }
 
     //method that switches from budgeting results screen to lessons screen

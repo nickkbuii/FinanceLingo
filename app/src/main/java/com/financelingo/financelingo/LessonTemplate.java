@@ -22,6 +22,7 @@ import java.util.Map;
 
 import Global.Global;
 import Lessons.*;
+import database.Database;
 import database.User;
 
 
@@ -29,6 +30,8 @@ public class LessonTemplate extends AppCompatActivity {
 
     //retrieve methods and curriculum from Budgeting.java and User.java
     private Budgeting budgeting = new Budgeting();
+
+    private Database db;
 
     //initialize question text view and the 4 answer option buttons
     private TextView questionView;
@@ -61,6 +64,9 @@ public class LessonTemplate extends AppCompatActivity {
         //set screen to budgeting lesson
         super.onCreate(savedInstanceState);
         setContentView(R.layout.budgeting_lesson);
+
+        db = new Database();
+
         //firebase initialization
         fUser = FirebaseAuth.getInstance().getCurrentUser();
         fStore = FirebaseFirestore.getInstance();
@@ -94,6 +100,7 @@ public class LessonTemplate extends AppCompatActivity {
                     questionNumber++;
                     updateQuestion();
                 }else if(questionNumber==4){
+                    db.updateScore();
                     switchActivities(LessonTemplate.this, BudgetingResultsPage.class);
                 }
             }
@@ -112,6 +119,7 @@ public class LessonTemplate extends AppCompatActivity {
                     questionNumber++;
                     updateQuestion();
                 }else if(questionNumber==4){
+                    db.updateScore();
                     switchActivities(LessonTemplate.this, BudgetingResultsPage.class);
                 }
             }
@@ -130,6 +138,7 @@ public class LessonTemplate extends AppCompatActivity {
                     questionNumber++;
                     updateQuestion();
                 }else if(questionNumber==4){
+                    db.updateScore();
                     switchActivities(LessonTemplate.this, BudgetingResultsPage.class);
                 }
             }
@@ -148,6 +157,7 @@ public class LessonTemplate extends AppCompatActivity {
                     questionNumber++;
                     updateQuestion();
                 }else if(questionNumber==4){
+                    db.updateScore();
                     switchActivities(LessonTemplate.this, BudgetingResultsPage.class);
                 }
             }
