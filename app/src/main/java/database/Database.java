@@ -258,13 +258,13 @@ public class Database{
         });
 
         //SETS NEEDED SCORE VARIABLES FOR USER
-        fStore.collection("Budgeting").document(fAuth.getCurrentUser().getDisplayName().toString()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        fStore.collection(Global.BUDGETING).document(fAuth.getCurrentUser().getDisplayName().toString()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 DocumentSnapshot doc = task.getResult();
                 if (doc.exists()) {
-                    Global.user.setQScore(Integer.parseInt(doc.getLong("Score").toString()));
-                    Global.user.setQNum(Integer.parseInt(doc.getLong("Question").toString()));
+                    Global.user.setQScore(Global.BUDGETING, Integer.parseInt(doc.getLong("Score").toString()));
+                    Global.user.setQNum(Global.BUDGETING, Integer.parseInt(doc.getLong("Question").toString()));
                 }
             }
         });
@@ -325,6 +325,7 @@ public class Database{
     }
 
     public void updateScore(String lesson){
+        Log.d("VALUE", String.valueOf(Global.user.getQScore(lesson)));
         fStore.collection(lesson).document(fAuth.getCurrentUser().getDisplayName())
                 .update(
                         "Score", Global.user.getQScore(lesson),

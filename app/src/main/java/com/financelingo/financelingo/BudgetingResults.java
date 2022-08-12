@@ -13,7 +13,7 @@ import Global.Global;
 public class BudgetingResults extends AppCompatActivity {
 
     //retrieve score from user database class
-    private int score = Global.user.qScore();
+    private int score = Global.user.getQScore(Global.BUDGETING);
     private TextView budgeting_results;
     Database db;
 
@@ -40,7 +40,7 @@ public class BudgetingResults extends AppCompatActivity {
     //so user can restart
     public void restartLesson(View view){
         if(score!=5){
-            Global.user.setQScore(0);
+            Global.user.setQScore(Global.BUDGETING, 0);
             db.updateScore(Global.BUDGETING);
         }
         switchActivities(BudgetingResults.this, BudgetingLesson.class);

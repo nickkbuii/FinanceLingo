@@ -41,7 +41,7 @@ public class BudgetingLesson extends AppCompatActivity {
     private FirebaseFirestore fStore;
 
     //retrieve user's score
-    public int score = Global.user.qScore();
+    public int score = Global.user.getQScore(Global.BUDGETING);
 
     public int questionNumber = 0;
 
@@ -84,8 +84,8 @@ public class BudgetingLesson extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 if (button1.getText() == answer){
-                    if(Global.user.qScore()!=5){
-                        Global.user.setQScore(++score);
+                    if(Global.user.getQScore(Global.BUDGETING)!=5){
+                        Global.user.setQScore(Global.BUDGETING, ++score);
                     }
                     determineButtonsWhenRight();
                 }
@@ -103,8 +103,8 @@ public class BudgetingLesson extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 if (button2.getText() == answer){
-                    if(Global.user.qScore()!=5){
-                        Global.user.setQScore(++score);
+                    if(Global.user.getQScore(Global.BUDGETING)!=5){
+                        Global.user.setQScore(Global.BUDGETING, ++score);
                     }
                     determineButtonsWhenRight();
                 }
@@ -122,8 +122,8 @@ public class BudgetingLesson extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 if (button3.getText() == answer){
-                    if(Global.user.qScore()!=5){
-                        Global.user.setQScore(++score);
+                    if(Global.user.getQScore(Global.BUDGETING)!=5){
+                        Global.user.setQScore(Global.BUDGETING, ++score);
                     }
                     determineButtonsWhenRight();
                 }
@@ -141,8 +141,8 @@ public class BudgetingLesson extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 if (button4.getText() == answer){
-                    if(Global.user.qScore()!=5){
-                        Global.user.setQScore(++score);
+                    if(Global.user.getQScore(Global.BUDGETING)!=5){
+                        Global.user.setQScore(Global.BUDGETING, ++score);
                     }
                     determineButtonsWhenRight();
                 }
@@ -156,6 +156,7 @@ public class BudgetingLesson extends AppCompatActivity {
             }
         });
     }
+
 
     //method that determines which progress image button to change depending on qNum
     public void determineButtonsWhenRight(){

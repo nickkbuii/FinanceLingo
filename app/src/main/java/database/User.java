@@ -77,8 +77,6 @@ public class User {
         this.username = name;
     }
     public void setId(String id){this.id = id;}
-    public void setQNum(int num){this.qNum = num;}
-    public void setQScore(int num){this.qScore = num;}
     public void setPw(String pw){this.password = pw;}
     public void setEmail(String email){this.email = email;}
 
@@ -88,8 +86,8 @@ public class User {
     }
 
     public void setQScore(String lesson, int value){
-        this.question.remove(lesson);
-        this.question.put(lesson, value);
+        this.score.remove(lesson);
+        this.score.put(lesson, value);
     }
 
     public void incrementQScore(){
@@ -101,8 +99,6 @@ public class User {
     public String pw(){
         return password;
     }
-    public int qNum(){return this.qNum;}
-    public int qScore(){return this.qScore;}
 
     public int getQNum(String lesson){
         if(question.containsKey(lesson)){

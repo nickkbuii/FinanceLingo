@@ -18,7 +18,7 @@ import database.Database;
 public class Lessons extends AppCompatActivity{
 
     //retrieve score from user class
-    private int score = Global.user.qScore();
+    private int score = Global.user.getQScore(Global.BUDGETING);
 
     //initialize account name text view
     private TextView accName;
@@ -60,7 +60,7 @@ public class Lessons extends AppCompatActivity{
     public void toLesson(View v){
         switchActivities(Lessons.this, BudgetingLesson.class);
         if(score!=5){
-            Global.user.setQScore(0);
+            Global.user.setQScore(Global.BUDGETING, 0);
             db.updateScore(Global.BUDGETING);
         }
     }
