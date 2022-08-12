@@ -87,6 +87,11 @@ public class Lessons extends AppCompatActivity{
         }
     }
 
+    //switch from lessons to budgeting reading
+    public void toDebtReading(View view){
+        switchActivities(Lessons.this, DebtReading.class);
+    }
+
     //method that declares username
     //public static void setUser(String username){ accName.setText(username); }
 
