@@ -1,6 +1,9 @@
 package database;
 
+import android.util.Log;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Stack;
 
 public class User {
@@ -15,22 +18,49 @@ public class User {
     private int qNum;
     private int qScore;
 
+    private HashMap<String, Integer> score;
+    private HashMap<String, Integer> question;
+
     //defines username, email, id, password
     public User(String username, String email, String id) {
         this.username = username;
         this.email = email;
         this.id = id;
+
+        score  = new HashMap<>();
+        score.put("Budgeting", 0);
+        score.put("Debt", 0);
+
+        question = new HashMap<>();
+        question.put("Budgeting", 0);
+        question.put("Debt", 0);
     }
     public User(String username, String password, String email, String id) {
         this.username = username;
         this.password = password;
         this.email = email;
         this.id = id;
+
+        score  = new HashMap<>();
+        score.put("Budgeting", 0);
+        score.put("Debt", 0);
+
+        question = new HashMap<>();
+        question.put("Budgeting", 0);
+        question.put("Debt", 0);
     }
     public User() {
         this.username = "";
         this.password = "";
         this.email = "";
+
+        score  = new HashMap<>();
+        score.put("Budgeting", 0);
+        score.put("Debt", 0);
+
+        question = new HashMap<>();
+        question.put("Budgeting", 0);
+        question.put("Debt", 0);
     }
 
     //Getter
@@ -52,6 +82,16 @@ public class User {
     public void setPw(String pw){this.password = pw;}
     public void setEmail(String email){this.email = email;}
 
+    public void setQNum(String lesson, int value){
+        this.question.remove(lesson);
+        this.question.put(lesson, value);
+    }
+
+    public void setQScore(String lesson, int value){
+        this.question.remove(lesson);
+        this.question.put(lesson, value);
+    }
+
     public void incrementQScore(){
         this.qScore+=1;
         System.out.println(qScore);
@@ -63,6 +103,28 @@ public class User {
     }
     public int qNum(){return this.qNum;}
     public int qScore(){return this.qScore;}
+
+    public int getQNum(String lesson){
+        if(question.containsKey(lesson)){
+            return (int)question.get(lesson);
+        }
+        else{
+            Log.d("INFO", "NOT KEY");
+            return 0;
+        }
+
+    }
+
+    public int getQScore(String lesson){
+        if(score.containsKey(lesson)){
+            return (int)score.get(lesson);
+        }
+        else{
+            Log.d("INFO", "NOT KEY");
+            return 0;
+        }
+
+    }
 
     //changes username, pw to proper format
     @Override

@@ -324,11 +324,11 @@ public class Database{
         });
     }
 
-    public void updateScore(){
-        fStore.collection("Budgeting").document(fAuth.getCurrentUser().getDisplayName())
+    public void updateScore(String lesson){
+        fStore.collection(lesson).document(fAuth.getCurrentUser().getDisplayName())
                 .update(
-                        "Score", Global.user.qScore(),
-                        "Question", Global.user.qNum()
+                        "Score", Global.user.getQScore(lesson),
+                        "Question", Global.user.getQNum(lesson)
                 );
     }
 

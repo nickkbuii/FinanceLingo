@@ -93,7 +93,7 @@ public class BudgetingLesson extends AppCompatActivity {
                     questionNumber++;
                     updateQuestion();
                 }else if(questionNumber==4){
-                    db.updateScore();
+                    db.updateScore(Global.BUDGETING);
                     switchActivities(BudgetingLesson.this, BudgetingResults.class);
                 }
             }
@@ -112,7 +112,7 @@ public class BudgetingLesson extends AppCompatActivity {
                     questionNumber++;
                     updateQuestion();
                 }else if(questionNumber==4){
-                    db.updateScore();
+                    db.updateScore(Global.BUDGETING);
                     switchActivities(BudgetingLesson.this, BudgetingResults.class);
                 }
             }
@@ -131,7 +131,7 @@ public class BudgetingLesson extends AppCompatActivity {
                     questionNumber++;
                     updateQuestion();
                 }else if(questionNumber==4){
-                    db.updateScore();
+                    db.updateScore(Global.BUDGETING);
                     switchActivities(BudgetingLesson.this, BudgetingResults.class);
                 }
             }
@@ -150,7 +150,7 @@ public class BudgetingLesson extends AppCompatActivity {
                     questionNumber++;
                     updateQuestion();
                 }else if(questionNumber==4){
-                    db.updateScore();
+                    db.updateScore(Global.BUDGETING);
                     switchActivities(BudgetingLesson.this, BudgetingResults.class);
                 }
             }

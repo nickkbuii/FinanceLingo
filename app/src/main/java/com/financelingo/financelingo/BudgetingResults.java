@@ -17,6 +17,8 @@ public class BudgetingResults extends AppCompatActivity {
     private TextView budgeting_results;
     Database db;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //set screen to lessons.xml
@@ -39,7 +41,7 @@ public class BudgetingResults extends AppCompatActivity {
     public void restartLesson(View view){
         if(score!=5){
             Global.user.setQScore(0);
-            db.updateScore();
+            db.updateScore(Global.BUDGETING);
         }
         switchActivities(BudgetingResults.this, BudgetingLesson.class);
     }
