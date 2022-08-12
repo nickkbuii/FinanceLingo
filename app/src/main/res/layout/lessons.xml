@@ -215,6 +215,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/information_button"
+        android:onClick="toDebtReading"
         app:layout_constraintBottom_toBottomOf="@+id/debtProgressBar"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="@+id/debtProgressBar"

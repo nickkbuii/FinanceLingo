@@ -74,6 +74,8 @@ public class DebtLesson extends AppCompatActivity {
             }
         }
         debt_qNum++;
+        debtInput1.setText("");
+        debtInput2.setText("");
         updateQuestion();
     }
 
