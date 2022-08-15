@@ -1,5 +1,7 @@
 package Lessons;
 
+import com.financelingo.financelingo.R;
+
 public class DebtReadings {
 
     public String[] readings = {
@@ -12,16 +14,16 @@ public class DebtReadings {
     };
 
     public String[] rules = {
-            "What is debt?",
-            "What is credit score?",
-            "Why and where do people borrow money?",
+            "Debt?",
+            "Credit score?",
+            "Borrow money?",
             "Interest?",
             "Pay on time!",
-            "What are credit cards?"
+            "Credit cards?"
     };
 
     public int [] pictures = {
-            //insert drawables of pictures relating to the readings current index
+            R.drawable.debt, R.drawable.creditscore,R.drawable.borrow, R.drawable.interest, R.drawable.time, R.drawable.creditcard
     };
 
 }

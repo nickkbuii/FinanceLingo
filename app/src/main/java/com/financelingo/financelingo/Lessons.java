@@ -41,7 +41,6 @@ public class Lessons extends AppCompatActivity{
         db = new Database();
 
         budg_score = Global.user.getQScore(Global.BUDGETING);
-        System.out.println(budg_score);
 
         //define account name text view
         accName = findViewById(R.id.accName);
@@ -127,4 +126,5 @@ public class Lessons extends AppCompatActivity{
         Intent switchActivityIntent = new Intent (context, c);
         startActivity(switchActivityIntent);
     }
+
 }

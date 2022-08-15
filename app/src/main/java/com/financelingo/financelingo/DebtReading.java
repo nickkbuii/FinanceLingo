@@ -36,6 +36,9 @@ public class DebtReading extends AppCompatActivity {
         next = (Button)findViewById(R.id.debt_nextPage);
         back = (Button)findViewById(R.id.debt_backPage);
 
+        //set initial elements
+        setDebtElements();
+
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,7 +71,7 @@ public class DebtReading extends AppCompatActivity {
         readingText.setText(debtReadings.readings[pageNum]);
         pageNumber.setText(String.valueOf(pageNum+1));
         readingTitle.setText(debtReadings.rules[pageNum]);
-        //need to set drawable based on page num
+        readingPic.setImageDrawable(getDrawable(debtReadings.pictures[pageNum]));
     }
 
 }
