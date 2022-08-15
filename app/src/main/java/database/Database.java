@@ -361,6 +361,4 @@ public class Database{
         fStore.collection("Classes").document("test");
     }
 
-
-
 }

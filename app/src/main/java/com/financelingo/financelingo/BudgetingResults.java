@@ -26,7 +26,7 @@ public class BudgetingResults extends AppCompatActivity {
         setContentView(R.layout.budgeting_results);
         //display score out of total questions
         //define budgeting results text view
-        budgeting_results = findViewById(R.id.budg_results_text);
+        budgeting_results = findViewById(R.id.debt_results_text);
         budgeting_results.setText(score+"/5");
         db = new Database();
     }

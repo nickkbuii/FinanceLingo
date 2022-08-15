@@ -18,7 +18,8 @@ import database.Database;
 public class Lessons extends AppCompatActivity{
 
     //retrieve score from user class
-    private int score = Global.user.getQScore(Global.BUDGETING);
+    private int budg_score;
+    private int debt_score;
 
     //initialize account name text view
     private TextView accName;
@@ -39,6 +40,9 @@ public class Lessons extends AppCompatActivity{
 
         db = new Database();
 
+        budg_score = Global.user.getQScore(Global.BUDGETING);
+        System.out.println(budg_score);
+
         //define account name text view
         accName = findViewById(R.id.accName);
         if(db.getAuth().getCurrentUser().getDisplayName() == null){
@@ -53,13 +57,13 @@ public class Lessons extends AppCompatActivity{
         budgetingProgressBar = findViewById(R.id.budgetingProgressBar);
 
         //animate progress bar based on score
-        animateBar(budgetingProgressBar, score);
+        animateBar(budgetingProgressBar, budg_score);
     }
 
     //method that changes from lessons (home) class to the lesson class
     public void toLesson(View v){
         switchActivities(Lessons.this, BudgetingLesson.class);
-        if(score!=5){
+        if(budg_score!=5){
             Global.user.setQScore(Global.BUDGETING, 0);
             db.updateScore(Global.BUDGETING);
         }
@@ -81,9 +85,9 @@ public class Lessons extends AppCompatActivity{
     }
 
     public void toDebtLesson(View view){
-        switchActivities(Lessons.this, DebtLesson.class);
-        if(score!=5){
-            //if not perfect, reset
+        //if user didn't complete budgeting, don't give them debt lesson
+        if(Global.user.getQScore(Global.BUDGETING)==5){
+            switchActivities(Lessons.this, DebtLesson.class);
         }
     }
 

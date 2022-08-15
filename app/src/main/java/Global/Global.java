@@ -19,6 +19,7 @@ public class Global extends AppCompatActivity {
     private FirebaseFirestore fStore = FirebaseFirestore.getInstance();
 
     public static final String BUDGETING = "Budgeting";
+    public static final String DEBT = "Debt";
 
     public User getUser(){
         String fUser = fAuth.getCurrentUser().getUid().toString();

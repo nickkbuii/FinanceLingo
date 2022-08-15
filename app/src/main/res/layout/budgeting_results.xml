@@ -8,18 +8,18 @@
     tools:context=".BudgetingResults">
 
     <ImageView
-        android:id="@+id/budg_results_image"
+        android:id="@+id/debt_results_image"
         android:layout_width="171dp"
         android:layout_height="186dp"
         android:layout_marginTop="32dp"
-        app:layout_constraintBottom_toTopOf="@id/budg_results_text"
+        app:layout_constraintBottom_toTopOf="@id/debt_results_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/budgeting" />
 
     <TextView
-        android:id="@+id/budg_results_text"
+        android:id="@+id/debt_results_text"
         android:layout_width="370dp"
         android:layout_height="175dp"
         android:layout_marginTop="56dp"
@@ -33,25 +33,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/budg_results_image"
+        app:layout_constraintTop_toBottomOf="@+id/debt_results_image"
         app:layout_constraintVertical_bias="0.186" />
 
     <Button
-        android:id="@+id/budg_results_restart"
+        android:id="@+id/debt_results_restart"
         android:layout_width="264dp"
         android:layout_height="68dp"
         android:layout_marginBottom="8dp"
         android:onClick="restartLesson"
         android:text="Restart Lesson"
         app:backgroundTint="#7E7DBF"
-        app:layout_constraintBottom_toTopOf="@+id/budg_results_backHome"
+        app:layout_constraintBottom_toTopOf="@+id/debt_results_backHome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/budg_results_text" />
+        app:layout_constraintTop_toBottomOf="@id/debt_results_text" />
 
     <Button
-        android:id="@+id/budg_results_backHome"
+        android:id="@+id/debt_results_backHome"
         android:layout_width="264dp"
         android:layout_height="68dp"
         android:layout_marginBottom="32dp"
@@ -62,6 +62,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/budg_results_restart" />
+        app:layout_constraintTop_toBottomOf="@id/debt_results_restart" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
