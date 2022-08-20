@@ -45,16 +45,16 @@
 
     <TextView
         android:id="@+id/debt_readingBody"
-        android:layout_width="302dp"
-        android:layout_height="204dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:fontFamily="@font/sf_arch_rival_bold"
         android:text="50% of your income should go to necessities. That includes bills, food, utilities, etc.."
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/debt_readingPic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/purpleSecondaryBack"
+        app:layout_constraintStart_toStartOf="@+id/purpleSecondaryBack"
         app:layout_constraintTop_toBottomOf="@+id/debt_ruleTitle"
         app:layout_constraintVertical_bias="0.29000002" />
 

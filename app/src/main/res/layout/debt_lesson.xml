@@ -160,6 +160,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginBottom="152dp"
         android:text="Next Question"
+        app:backgroundTint="#6ABF8F"
         app:layout_constraintBottom_toBottomOf="@+id/debt_secondary_background"
         app:layout_constraintEnd_toEndOf="@+id/debt_secondary_background"
         app:layout_constraintHorizontal_bias="0.497"
