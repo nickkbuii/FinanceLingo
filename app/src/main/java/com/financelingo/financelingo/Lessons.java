@@ -84,10 +84,7 @@ public class Lessons extends AppCompatActivity{
     }
 
     public void toDebtLesson(View view){
-        //if user didn't complete budgeting, don't give them debt lesson
-        if(Global.user.getQScore(Global.BUDGETING)==5){
-            switchActivities(Lessons.this, DebtLesson.class);
-        }
+        switchActivities(Lessons.this, DebtLesson.class);
     }
 
     //switch from lessons to budgeting reading
