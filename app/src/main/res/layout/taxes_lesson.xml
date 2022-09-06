@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#685196">
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/purple_square"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.8" />
+
+    <TextView
+        android:id="@+id/taxes_Text"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/sf_arch_rival_bold"
+        android:text="A ____ for the ____ of a ____ required of persons, groups, or businesses within the domain of that government."
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintHeight_percent="0.3"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/imageView4"
+        app:layout_constraintWidth_percent="0.65" />
+
+    <ToggleButton
+        android:id="@+id/taxes_button1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/rounded_button"
+        android:text="Government"
+        android:textOff="Government"
+        android:textOn="Government"
+        android:textColor="@color/black"
+        app:backgroundTint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintHeight_percent="0.05"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintWidth_percent="0.65"
+        tools:layout_editor_absoluteY="347dp" />
+
+    <ToggleButton
+        android:id="@+id/taxes_button2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/rounded_button"
+        android:text="Contribution"
+        android:textOff="Contribution"
+        android:textOn="Contribution"
+        android:textColor="@color/black"
+        app:backgroundTint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintHeight_percent="0.05"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintWidth_percent="0.65"
+        tools:layout_editor_absoluteY="434dp" />
+
+    <ToggleButton
+        android:id="@+id/taxes_button3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/rounded_button"
+        android:text="Support"
+        android:textOff="Support"
+        android:textOn="Support"
+        android:textColor="@color/black"
+        app:backgroundTint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintHeight_percent="0.05"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintWidth_percent="0.65"
+        tools:layout_editor_absoluteY="520dp" />
+
+    <Button
+        android:id="@+id/taxes_checkAnswer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/rounded_button"
+        android:text="Check Answer"
+        app:backgroundTint="#9CC888"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintHeight_percent="0.05"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintWidth_percent="0.65"
+        tools:layout_editor_absoluteY="601dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
