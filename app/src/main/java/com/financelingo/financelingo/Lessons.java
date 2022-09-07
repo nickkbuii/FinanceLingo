@@ -92,6 +92,9 @@ public class Lessons extends AppCompatActivity{
         switchActivities(Lessons.this, DebtReading.class);
     }
 
+    //switch from lessons to taxes lesson
+    public void toTaxesLesson(View view) { switchActivities(Lessons.this, TaxesLesson.class);}
+
     //method that declares username
     //public static void setUser(String username){ accName.setText(username); }
 
