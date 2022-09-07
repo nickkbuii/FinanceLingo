@@ -67,8 +67,12 @@ public class DebtLesson extends AppCompatActivity {
                     debt_score++;
                     showProg();
                 }
-                debt_qNum++;
-                updateQuestion();
+                if(debt_qNum==4){
+                    switchActivities(DebtLesson.this, DebtResults.class);
+                }else{
+                    debt_qNum++;
+                    updateQuestion();
+                }
             }
         });
 
@@ -79,8 +83,12 @@ public class DebtLesson extends AppCompatActivity {
                     debt_score++;
                     showProg();
                 }
-                debt_qNum++;
-                updateQuestion();
+                if(debt_qNum==4){
+                    switchActivities(DebtLesson.this, DebtResults.class);
+                }else{
+                    debt_qNum++;
+                    updateQuestion();
+                }
             }
         });
 
@@ -91,8 +99,12 @@ public class DebtLesson extends AppCompatActivity {
                     debt_score++;
                     showProg();
                 }
-                debt_qNum++;
-                updateQuestion();
+                if(debt_qNum==4){
+                    switchActivities(DebtLesson.this, DebtResults.class);
+                }else{
+                    debt_qNum++;
+                    updateQuestion();
+                }
             }
         });
     }
