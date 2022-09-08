@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import Global.Global;
 import database.Database;
+import Lessons.TaxesReadings;
 
 public class Lessons extends AppCompatActivity{
 
@@ -94,6 +95,11 @@ public class Lessons extends AppCompatActivity{
 
     //switch from lessons to taxes lesson
     public void toTaxesLesson(View view) { switchActivities(Lessons.this, TaxesLesson.class);}
+
+    //switch from  lessons to taxes reading
+    public void toTaxesReading(View view) {
+        switchActivities(Lessons.this, TaxesReading.class);
+    }
 
     //method that declares username
     //public static void setUser(String username){ accName.setText(username); }

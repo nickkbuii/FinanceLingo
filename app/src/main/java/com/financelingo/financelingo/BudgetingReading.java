@@ -26,10 +26,10 @@ public class BudgetingReading extends AppCompatActivity {
         setContentView(R.layout.budgeting_reading);
 
         //define text fields to update
-        TextView readingView = (TextView)findViewById(R.id.debt_readingBody);
-        TextView pageNum = (TextView)findViewById(R.id.debt_pageNum);
-        TextView rule = (TextView)findViewById(R.id.debt_ruleTitle);
-        ImageView pic = (ImageView)findViewById(R.id.debt_readingPic);
+        TextView readingView = (TextView)findViewById(R.id.taxes_readingBody);
+        TextView pageNum = (TextView)findViewById(R.id.taxes_pageNum);
+        TextView rule = (TextView)findViewById(R.id.taxes_ruleTitle);
+        ImageView pic = (ImageView)findViewById(R.id.taxes_readingPic);
 
         readingView.setText(budgetingReadings.readings[pageNumber]);
         pageNum.setText(String.valueOf(pageNumber+1));
@@ -37,7 +37,7 @@ public class BudgetingReading extends AppCompatActivity {
         pic.setImageDrawable(getDrawable(budgetingReadings.imageList[pageNumber]));
 
         //set and define button listener for flipping next
-        next = (Button)findViewById(R.id.debt_nextPage);
+        next = (Button)findViewById(R.id.taxes_nextPage);
         next.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -54,7 +54,7 @@ public class BudgetingReading extends AppCompatActivity {
         });
 
         //set and define button listener for flipping back
-        back = (Button)findViewById(R.id.debt_backPage);
+        back = (Button)findViewById(R.id.taxes_backPage);
         back.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
