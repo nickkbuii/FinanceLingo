@@ -69,7 +69,7 @@ public class TaxesReading extends AppCompatActivity {
         tax_page_number.setText(String.valueOf(tax_pageNum+1));
         tax_readingBod.setText(taxesReadings.readings[tax_pageNum][1]);
         tax_title.setText(taxesReadings.readings[tax_pageNum][0]);
-        //pop up tax pic
+        tax_pic.setImageDrawable(getDrawable(taxesReadings.pics[tax_pageNum]));
     }
 
 }
