@@ -279,9 +279,9 @@ public class Database{
                 DocumentSnapshot doc = task.getResult();
                 if (doc.exists()) {
                     Global.user.setQScore(Global.BUDGETING, Integer.parseInt(doc.getLong("Score").toString()));
-                    Global.user.setQNum(Global.DEBT, Integer.parseInt(doc.getLong("Score").toString()));
-                    Global.user.setQNum(Global.TAXES, Integer.parseInt(doc.getLong("Score").toString()));
-                    Global.user.setQNum(Global.INVESTMENTS, Integer.parseInt(doc.getLong("Score").toString()));
+                    Global.user.setQScore(Global.DEBT, Integer.parseInt(doc.getLong("Score").toString()));
+                    Global.user.setQScore(Global.TAXES, Integer.parseInt(doc.getLong("Score").toString()));
+                    Global.user.setQScore(Global.INVESTMENTS, Integer.parseInt(doc.getLong("Score").toString()));
                 }
             }
         });
@@ -345,8 +345,7 @@ public class Database{
         Log.d("VALUE", String.valueOf(Global.user.getQScore(lesson)));
         fStore.collection(lesson).document(fAuth.getCurrentUser().getDisplayName())
                 .update(
-                        "Score", Global.user.getQScore(lesson),
-                        "Question", Global.user.getQNum(lesson)
+                        "Score", Global.user.getQScore(lesson)
                 );
     }
 

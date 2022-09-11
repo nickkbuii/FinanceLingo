@@ -15,11 +15,9 @@ public class User {
     private String id;
 
     //Budgeting scores
-    private int qNum;
     private int qScore;
 
     private HashMap<String, Integer> score;
-    private HashMap<String, Integer> question;
 
     //defines username, email, id, password
     public User(String username, String email, String id) {
@@ -33,12 +31,6 @@ public class User {
         score.put("Debt", 0);
         score.put("Taxes", 0);
         score.put("Investments", 0);
-
-        question = new HashMap<>();
-        question.put("Budgeting", 0);
-        question.put("Debt", 0);
-        question.put("Taxes",0);
-        question.put("Investments", 0);
     }
     public User(String username, String password, String email, String id) {
         this.username = username;
@@ -51,12 +43,6 @@ public class User {
         score.put("Debt", 0);
         score.put("Taxes", 0);
         score.put("Investments", 0);
-
-        question = new HashMap<>();
-        question.put("Budgeting", 0);
-        question.put("Debt", 0);
-        question.put("Taxes",0);
-        question.put("Investments", 0);
     }
     public User() {
         this.username = "";
@@ -68,12 +54,6 @@ public class User {
         score.put("Debt", 0);
         score.put("Taxes", 0);
         score.put("Investments", 0);
-
-        question = new HashMap<>();
-        question.put("Budgeting", 0);
-        question.put("Debt", 0);
-        question.put("Taxes",0);
-        question.put("Investments", 0);
     }
 
     //Getter
@@ -93,11 +73,6 @@ public class User {
     public void setPw(String pw){this.password = pw;}
     public void setEmail(String email){this.email = email;}
 
-    public void setQNum(String lesson, int value){
-        this.question.remove(lesson);
-        this.question.put(lesson, value);
-    }
-
     public void setQScore(String lesson, int value){
         this.score.remove(lesson);
         this.score.put(lesson, value);
@@ -111,17 +86,6 @@ public class User {
     //methods to return debt_question number, score, pw
     public String pw(){
         return password;
-    }
-
-    public int getQNum(String lesson){
-        if(question.containsKey(lesson)){
-            return (int)question.get(lesson);
-        }
-        else{
-            Log.d("INFO", "NOT KEY");
-            return 0;
-        }
-
     }
 
     public int getQScore(String lesson){

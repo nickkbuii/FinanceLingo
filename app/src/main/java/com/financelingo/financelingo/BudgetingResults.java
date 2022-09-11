@@ -39,10 +39,8 @@ public class BudgetingResults extends AppCompatActivity {
     //method that switches from budgeting results screen to lesson
     //so user can restart
     public void restartLesson(View view){
-        if(score!=5){
-            Global.user.setQScore(Global.BUDGETING, 0);
-            db.updateScore(Global.BUDGETING);
-        }
+        Global.user.setQScore(Global.BUDGETING, 0);
+        db.updateScore(Global.BUDGETING);
         switchActivities(BudgetingResults.this, BudgetingLesson.class);
     }
 

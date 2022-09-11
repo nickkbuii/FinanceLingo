@@ -30,10 +30,8 @@ public class DebtResults extends AppCompatActivity {
     }
 
     public void restartDebt(View view){
-        if(debt_score!=4){
-            Global.user.setQScore(Global.DEBT, 0);
-            db.updateScore(Global.DEBT);
-        }
+        Global.user.setQScore(Global.DEBT, 0);
+        db.updateScore(Global.DEBT);
         switchActivities(DebtResults.this, DebtLesson.class);
     }
 
