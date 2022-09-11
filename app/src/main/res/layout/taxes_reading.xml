@@ -2,16 +2,17 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/greenSecondaryback"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/purple"
+    android:background="@drawable/green"
     tools:context=".TaxesReading">
 
     <ImageView
         android:id="@+id/tax_greenSecondaryBack"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/green"
+        android:background="@drawable/purple"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.9"

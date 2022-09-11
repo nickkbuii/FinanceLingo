@@ -26,10 +26,12 @@ public class Lessons extends AppCompatActivity{
     private TextView accName;
 
     //initialize bar amount
-    int barAmount = 0;
+    int budg_barAmount = 0;
+    int debt_barAmount = 0;
 
     //initialize progress bar
     ProgressBar budgetingProgressBar;
+    ProgressBar debtProgressBar;
     Database db;
 
     //@SuppressLint("WrongViewCast")
@@ -42,6 +44,7 @@ public class Lessons extends AppCompatActivity{
         db = new Database();
 
         budg_score = Global.user.getQScore(Global.BUDGETING);
+        debt_score = Global.user.getQScore(Global.DEBT);
 
         //define account name text view
         accName = findViewById(R.id.accName);
@@ -55,9 +58,11 @@ public class Lessons extends AppCompatActivity{
 
         //define progress bar view
         budgetingProgressBar = findViewById(R.id.budgetingProgressBar);
+        debtProgressBar = findViewById(R.id.debtProgressBar);
 
         //animate progress bar based on score
-        animateBar(budgetingProgressBar, budg_score);
+        animateBar(budgetingProgressBar, budg_score, budg_barAmount);
+        animateBar(debtProgressBar, debt_score, debt_barAmount);
     }
 
     //method that changes from lessons (home) class to the lesson class
@@ -107,9 +112,8 @@ public class Lessons extends AppCompatActivity{
 
 
     //method to increment progress bar
-    public void animateBar(ProgressBar bar, int amount){
+    public void animateBar(ProgressBar bar, int amount, int barAmount){
         ValueAnimator animator = ValueAnimator.ofInt(barAmount, (barAmount+amount)*20);
-        barAmount = (barAmount+amount)*20;
         animator.setDuration(100);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override

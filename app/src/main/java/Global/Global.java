@@ -20,6 +20,8 @@ public class Global extends AppCompatActivity {
 
     public static final String BUDGETING = "Budgeting";
     public static final String DEBT = "Debt";
+    public static final String TAXES = "Taxes";
+    public static final String INVESTMENTS = "Investments";
 
     public User getUser(){
         String fUser = fAuth.getCurrentUser().getUid().toString();

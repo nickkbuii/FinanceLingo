@@ -73,6 +73,7 @@
 
     <Button
         android:id="@+id/loginButton"
+        style="@style/Widget.AppCompat.Button"
         android:layout_width="311dp"
         android:layout_height="34dp"
         android:background="@drawable/green"

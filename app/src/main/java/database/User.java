@@ -23,6 +23,7 @@ public class User {
 
     //defines username, email, id, password
     public User(String username, String email, String id) {
+
         this.username = username;
         this.email = email;
         this.id = id;
@@ -30,10 +31,14 @@ public class User {
         score  = new HashMap<>();
         score.put("Budgeting", 0);
         score.put("Debt", 0);
+        score.put("Taxes", 0);
+        score.put("Investments", 0);
 
         question = new HashMap<>();
         question.put("Budgeting", 0);
         question.put("Debt", 0);
+        question.put("Taxes",0);
+        question.put("Investments", 0);
     }
     public User(String username, String password, String email, String id) {
         this.username = username;
@@ -44,10 +49,14 @@ public class User {
         score  = new HashMap<>();
         score.put("Budgeting", 0);
         score.put("Debt", 0);
+        score.put("Taxes", 0);
+        score.put("Investments", 0);
 
         question = new HashMap<>();
         question.put("Budgeting", 0);
         question.put("Debt", 0);
+        question.put("Taxes",0);
+        question.put("Investments", 0);
     }
     public User() {
         this.username = "";
@@ -57,10 +66,14 @@ public class User {
         score  = new HashMap<>();
         score.put("Budgeting", 0);
         score.put("Debt", 0);
+        score.put("Taxes", 0);
+        score.put("Investments", 0);
 
         question = new HashMap<>();
         question.put("Budgeting", 0);
         question.put("Debt", 0);
+        question.put("Taxes",0);
+        question.put("Investments", 0);
     }
 
     //Getter

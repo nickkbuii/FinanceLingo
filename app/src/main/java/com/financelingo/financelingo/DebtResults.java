@@ -9,12 +9,13 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import database.Database;
+import Global.Global;
 
 public class DebtResults extends AppCompatActivity {
 
     TextView debt_results_out;
     Database db = new Database();
-    public int debt_score; //incorporate db score retrieval
+    public int debt_score = Global.user.getQScore(Global.DEBT);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +30,10 @@ public class DebtResults extends AppCompatActivity {
     }
 
     public void restartDebt(View view){
-        //db update -> if score!=5: score=0
+        if(debt_score!=4){
+            Global.user.setQScore(Global.DEBT, 0);
+            db.updateScore(Global.DEBT);
+        }
         switchActivities(DebtResults.this, DebtLesson.class);
     }
 
