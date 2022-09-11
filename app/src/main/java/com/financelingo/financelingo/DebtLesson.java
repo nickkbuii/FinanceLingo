@@ -35,7 +35,6 @@ public class DebtLesson extends AppCompatActivity {
     Button option1;
     Button option2;
     Button option3;
-    ImageView debt_pic;
 
     private FirebaseUser fUser;
     private FirebaseFirestore fStore;
@@ -62,8 +61,6 @@ public class DebtLesson extends AppCompatActivity {
         option1 = findViewById(R.id.debt_opt1);
         option2 = findViewById(R.id.debt_opt2);
         option3 = findViewById(R.id.debt_opt3);
-        //initialize debt picture
-        debt_pic = findViewById(R.id.debt_mc_image);
         //set initial pic, options and prompt
         updateQuestion();
 
@@ -144,7 +141,6 @@ public class DebtLesson extends AppCompatActivity {
         option1.setText(debt.options[debt_qNum][0]);
         option2.setText(debt.options[debt_qNum][1]);
         option3.setText(debt.options[debt_qNum][2]);
-//        debt_pic.setImageDrawable(getDrawable(debt.questionImages[debt_qNum]));
     }
 
     public void switchActivities(Context context, Class c){

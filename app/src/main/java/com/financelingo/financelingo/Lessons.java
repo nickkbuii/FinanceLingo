@@ -19,8 +19,8 @@ import Lessons.TaxesReadings;
 public class Lessons extends AppCompatActivity{
 
     //retrieve score from user class
-    private int budg_score;
-    private int debt_score;
+    private int budg_score = Global.user.getQScore(Global.BUDGETING);
+    private int debt_score = Global.user.getQScore(Global.DEBT);
 
     //initialize account name text view
     private TextView accName;
@@ -42,9 +42,6 @@ public class Lessons extends AppCompatActivity{
         setContentView(R.layout.lessons);
 
         db = new Database();
-
-        budg_score = Global.user.getQScore(Global.BUDGETING);
-        debt_score = Global.user.getQScore(Global.DEBT);
 
         //define account name text view
         accName = findViewById(R.id.accName);
