@@ -20,8 +20,4 @@ public class Debt {
             {"student loans", "debit cards", "credit cards"}
     };
 
-    public int[] questionImages = {
-
-    };
-
 }

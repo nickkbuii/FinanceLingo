@@ -14,21 +14,24 @@ import android.widget.TextView;
 
 import Global.Global;
 import database.Database;
+import Lessons.TaxesReadings;
 
 public class Lessons extends AppCompatActivity{
 
     //retrieve score from user class
-    private int budg_score;
-    private int debt_score;
+    private int budg_score = Global.user.getQScore(Global.BUDGETING);
+    private int debt_score = Global.user.getQScore(Global.DEBT);
 
     //initialize account name text view
     private TextView accName;
 
     //initialize bar amount
-    int barAmount = 0;
+    int budg_barAmount = 0;
+    int debt_barAmount = 0;
 
     //initialize progress bar
     ProgressBar budgetingProgressBar;
+    ProgressBar debtProgressBar;
     Database db;
 
     //@SuppressLint("WrongViewCast")
@@ -39,8 +42,6 @@ public class Lessons extends AppCompatActivity{
         setContentView(R.layout.lessons);
 
         db = new Database();
-
-        budg_score = Global.user.getQScore(Global.BUDGETING);
 
         //define account name text view
         accName = findViewById(R.id.accName);
@@ -54,9 +55,11 @@ public class Lessons extends AppCompatActivity{
 
         //define progress bar view
         budgetingProgressBar = findViewById(R.id.budgetingProgressBar);
+        debtProgressBar = findViewById(R.id.debtProgressBar);
 
         //animate progress bar based on score
-        animateBar(budgetingProgressBar, budg_score);
+        animateBar(budgetingProgressBar, budg_score, budg_barAmount);
+        animateBar(debtProgressBar, debt_score, debt_barAmount);
     }
 
     //method that changes from lessons (home) class to the lesson class
@@ -95,15 +98,19 @@ public class Lessons extends AppCompatActivity{
     //switch from lessons to taxes lesson
     public void toTaxesLesson(View view){ switchActivities(Lessons.this, TaxLesson.class);}
 
+    //switch from  lessons to taxes reading
+    public void toTaxesReading(View view) {
+        switchActivities(Lessons.this, TaxesReading.class);
+    }
+
     //method that declares username
     //public static void setUser(String username){ accName.setText(username); }
 
 
 
     //method to increment progress bar
-    public void animateBar(ProgressBar bar, int amount){
+    public void animateBar(ProgressBar bar, int amount, int barAmount){
         ValueAnimator animator = ValueAnimator.ofInt(barAmount, (barAmount+amount)*20);
-        barAmount = (barAmount+amount)*20;
         animator.setDuration(100);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override

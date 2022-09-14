@@ -42,7 +42,6 @@ public class BudgetingLesson extends AppCompatActivity {
 
     //retrieve user's score
     public int score = Global.user.getQScore(Global.BUDGETING);
-
     public int questionNumber = 0;
 
     //define image buttons for MC

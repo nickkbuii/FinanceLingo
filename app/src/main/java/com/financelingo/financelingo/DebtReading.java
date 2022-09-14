@@ -28,13 +28,13 @@ public class DebtReading extends AppCompatActivity {
         setContentView(R.layout.debt_reading);
 
         //define text fields to update
-        readingText = (TextView) findViewById(R.id.debt_readingBody);
-        pageNumber = (TextView) findViewById(R.id.debt_pageNum);
-        readingTitle = (TextView) findViewById(R.id.debt_ruleTitle);
-        readingPic = (ImageView) findViewById(R.id.debt_readingPic);
+        readingText = (TextView) findViewById(R.id.taxes_readingBody);
+        pageNumber = (TextView) findViewById(R.id.taxes_pageNum);
+        readingTitle = (TextView) findViewById(R.id.taxes_ruleTitle);
+        readingPic = (ImageView) findViewById(R.id.taxes_readingPic);
 
-        next = (Button)findViewById(R.id.debt_nextPage);
-        back = (Button)findViewById(R.id.debt_backPage);
+        next = (Button)findViewById(R.id.taxes_nextPage);
+        back = (Button)findViewById(R.id.taxes_backPage);
 
         //set initial elements
         setDebtElements();
@@ -48,7 +48,6 @@ public class DebtReading extends AppCompatActivity {
                     pageNum++;
                 }
                 setDebtElements();
-                System.out.println(pageNum);
             }
         });
 
@@ -60,7 +59,6 @@ public class DebtReading extends AppCompatActivity {
                 }else{
                     pageNum--;
                 }
-                System.out.println(pageNum);
                 setDebtElements();
             }
         });

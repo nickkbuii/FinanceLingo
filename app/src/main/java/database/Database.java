@@ -84,16 +84,31 @@ public class Database{
                                     .set(emailMap);
 
                             //Adds to email-username connection
-                            HashMap<String, Integer> qNumScore = new HashMap<>();
-
+                            HashMap<String, Integer> budgScore = new HashMap<>();
                             //Question and score
-                            qNumScore.put("Question", Integer.valueOf(0));
-                            qNumScore.put("Score", Integer.valueOf(0));
-
+                            budgScore.put("Score", Integer.valueOf(0));
                             //Adds to allow login with username
                             fStore.collection("Budgeting")
                                     .document(Global.user.getUsername())
-                                    .set(qNumScore);
+                                    .set(budgScore);
+
+                            HashMap<String, Integer> debtScore = new HashMap<>();
+                            debtScore.put("Score", Integer.valueOf(0));
+                            fStore.collection("Debt")
+                                    .document(Global.user.getUsername())
+                                    .set(budgScore);
+
+                            HashMap<String, Integer> taxScore = new HashMap<>();
+                            taxScore.put("Score", Integer.valueOf(0));
+                            fStore.collection("Taxes")
+                                    .document(Global.user.getUsername())
+                                    .set(taxScore);
+
+                            HashMap<String, Integer> investScore = new HashMap<>();
+                            investScore.put("Score", Integer.valueOf(0));
+                            fStore.collection("Investments")
+                                    .document(Global.user.getUsername())
+                                    .set(investScore);
 
                             //SETS USERNAME TO AUTHENTICATION USERNAME
                             UserProfileChangeRequest profReq = new UserProfileChangeRequest.Builder()
@@ -264,7 +279,9 @@ public class Database{
                 DocumentSnapshot doc = task.getResult();
                 if (doc.exists()) {
                     Global.user.setQScore(Global.BUDGETING, Integer.parseInt(doc.getLong("Score").toString()));
-                    Global.user.setQNum(Global.BUDGETING, Integer.parseInt(doc.getLong("Question").toString()));
+                    Global.user.setQScore(Global.DEBT, Integer.parseInt(doc.getLong("Score").toString()));
+                    Global.user.setQScore(Global.TAXES, Integer.parseInt(doc.getLong("Score").toString()));
+                    Global.user.setQScore(Global.INVESTMENTS, Integer.parseInt(doc.getLong("Score").toString()));
                 }
             }
         });
@@ -328,13 +345,12 @@ public class Database{
         Log.d("VALUE", String.valueOf(Global.user.getQScore(lesson)));
         fStore.collection(lesson).document(fAuth.getCurrentUser().getDisplayName())
                 .update(
-                        "Score", Global.user.getQScore(lesson),
-                        "Question", Global.user.getQNum(lesson)
+                        "Score", Global.user.getQScore(lesson)
                 );
     }
 
-    public void getScore(Context context) {
-        fStore.collection("Budgeting").document(Global.user.getUsername()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+    public void getScore(Context context, String lesson) {
+        fStore.collection(lesson).document(Global.user.getUsername()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 DocumentSnapshot doc = task.getResult();

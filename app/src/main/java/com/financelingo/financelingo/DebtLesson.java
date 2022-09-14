@@ -12,6 +12,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import Lessons.Debt;
 import Global.Global;
 import database.Database;
@@ -32,11 +35,14 @@ public class DebtLesson extends AppCompatActivity {
     Button option1;
     Button option2;
     Button option3;
-    ImageView debt_pic;
+
+    private FirebaseUser fUser;
+    private FirebaseFirestore fStore;
+
 
     //declare and initialize question number and score
-    int debt_qNum=0;
-    int debt_score=0;
+    public int debt_qNum=0;
+    int debt_score = Global.user.getQScore(Global.DEBT);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +61,6 @@ public class DebtLesson extends AppCompatActivity {
         option1 = findViewById(R.id.debt_opt1);
         option2 = findViewById(R.id.debt_opt2);
         option3 = findViewById(R.id.debt_opt3);
-        //initialize debt picture
-        debt_pic = findViewById(R.id.debt_mc_image);
         //set initial pic, options and prompt
         updateQuestion();
 
@@ -64,11 +68,18 @@ public class DebtLesson extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 if(option1.getText()==debt.answers[debt_qNum]){
-                    debt_score++;
+                    if(Global.user.getQScore(Global.DEBT)!=5){
+                        Global.user.setQScore(Global.DEBT, ++debt_score);
+                    }
                     showProg();
                 }
-                debt_qNum++;
-                updateQuestion();
+                if(debt_qNum==4){
+                    db.updateScore(Global.DEBT);
+                    switchActivities(DebtLesson.this, DebtResults.class);
+                }else{
+                    debt_qNum++;
+                    updateQuestion();
+                }
             }
         });
 
@@ -76,11 +87,18 @@ public class DebtLesson extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(option2.getText()==debt.answers[debt_qNum]){
-                    debt_score++;
+                    if(Global.user.getQScore(Global.DEBT)!=5){
+                        Global.user.setQScore(Global.DEBT, ++debt_score);
+                    }
                     showProg();
                 }
-                debt_qNum++;
-                updateQuestion();
+                if(debt_qNum==4){
+                    db.updateScore(Global.DEBT);
+                    switchActivities(DebtLesson.this, DebtResults.class);
+                }else{
+                    debt_qNum++;
+                    updateQuestion();
+                }
             }
         });
 
@@ -88,11 +106,18 @@ public class DebtLesson extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(option3.getText()==debt.answers[debt_qNum]){
-                    debt_score++;
+                    if(Global.user.getQScore(Global.DEBT)!=5){
+                        Global.user.setQScore(Global.DEBT, ++debt_score);
+                    }
                     showProg();
                 }
-                debt_qNum++;
-                updateQuestion();
+                if(debt_qNum==4){
+                    db.updateScore(Global.DEBT);
+                    switchActivities(DebtLesson.this, DebtResults.class);
+                }else{
+                    debt_qNum++;
+                    updateQuestion();
+                }
             }
         });
     }
@@ -116,7 +141,6 @@ public class DebtLesson extends AppCompatActivity {
         option1.setText(debt.options[debt_qNum][0]);
         option2.setText(debt.options[debt_qNum][1]);
         option3.setText(debt.options[debt_qNum][2]);
-//        debt_pic.setImageDrawable(getDrawable(debt.questionImages[debt_qNum]));
     }
 
     public void switchActivities(Context context, Class c){
