@@ -93,7 +93,7 @@ public class Lessons extends AppCompatActivity{
     }
 
     //switch from lessons to taxes lesson
-    public void toTaxesLesson(View view) { switchActivities(Lessons.this, TaxesLesson.class);}
+    public void toTaxesLesson(View view){ switchActivities(Lessons.this, TaxLesson.class);}
 
     //method that declares username
     //public static void setUser(String username){ accName.setText(username); }

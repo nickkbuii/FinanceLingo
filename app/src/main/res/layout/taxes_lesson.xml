@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#685196">
 
     <ImageView
@@ -23,10 +23,12 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="24dp"
+        android:layout_marginBottom="67dp"
         android:fontFamily="@font/sf_arch_rival_bold"
         android:text="A ____ for the ____ of a ____ required of persons, groups, or businesses within the domain of that government."
         android:textColor="#FFFFFF"
         android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/taxes_button1"
         app:layout_constraintEnd_toEndOf="@+id/imageView4"
         app:layout_constraintHeight_percent="0.3"
         app:layout_constraintStart_toStartOf="@+id/imageView4"
@@ -37,61 +39,68 @@
         android:id="@+id/taxes_button1"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/rounded_button"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/toggledbutton"
+        android:checked="false"
+        android:focusable="auto"
         android:text="Government"
-        android:textOff="Government"
-        android:textOn="Government"
         android:textColor="@color/black"
-        app:backgroundTint="#FFFFFF"
+        android:textOff="Government"
+        android:textOn="government"
+        app:layout_constraintBottom_toTopOf="@+id/taxes_button2"
         app:layout_constraintEnd_toEndOf="@+id/imageView4"
         app:layout_constraintHeight_percent="0.05"
         app:layout_constraintStart_toStartOf="@+id/imageView4"
-        app:layout_constraintWidth_percent="0.65"
-        tools:layout_editor_absoluteY="347dp" />
+        app:layout_constraintTop_toBottomOf="@+id/taxes_Text"
+        app:layout_constraintWidth_percent="0.65" />
 
     <ToggleButton
         android:id="@+id/taxes_button2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/rounded_button"
+        android:layout_marginBottom="49dp"
+        android:background="@drawable/toggledbutton"
         android:text="Contribution"
+        android:textColor="@color/black"
         android:textOff="Contribution"
         android:textOn="Contribution"
-        android:textColor="@color/black"
-        app:backgroundTint="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/taxes_button3"
         app:layout_constraintEnd_toEndOf="@+id/imageView4"
         app:layout_constraintHeight_percent="0.05"
         app:layout_constraintStart_toStartOf="@+id/imageView4"
-        app:layout_constraintWidth_percent="0.65"
-        tools:layout_editor_absoluteY="434dp" />
+        app:layout_constraintTop_toBottomOf="@+id/taxes_button1"
+        app:layout_constraintWidth_percent="0.65" />
 
     <ToggleButton
         android:id="@+id/taxes_button3"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/rounded_button"
+        android:layout_marginBottom="44dp"
+        android:background="@drawable/toggledbutton"
         android:text="Support"
+        android:textColor="@color/black"
         android:textOff="Support"
         android:textOn="Support"
-        android:textColor="@color/black"
-        app:backgroundTint="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/taxes_checkAnswer"
         app:layout_constraintEnd_toEndOf="@+id/imageView4"
         app:layout_constraintHeight_percent="0.05"
         app:layout_constraintStart_toStartOf="@+id/imageView4"
-        app:layout_constraintWidth_percent="0.65"
-        tools:layout_editor_absoluteY="520dp" />
+        app:layout_constraintTop_toBottomOf="@+id/taxes_button2"
+        app:layout_constraintWidth_percent="0.65" />
 
     <Button
         android:id="@+id/taxes_checkAnswer"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginBottom="80dp"
         android:background="@drawable/rounded_button"
         android:text="Check Answer"
         app:backgroundTint="#9CC888"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
         app:layout_constraintEnd_toEndOf="@+id/imageView4"
         app:layout_constraintHeight_percent="0.05"
         app:layout_constraintStart_toStartOf="@+id/imageView4"
-        app:layout_constraintWidth_percent="0.65"
-        tools:layout_editor_absoluteY="601dp" />
+        app:layout_constraintTop_toBottomOf="@+id/taxes_button3"
+        app:layout_constraintWidth_percent="0.65" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
