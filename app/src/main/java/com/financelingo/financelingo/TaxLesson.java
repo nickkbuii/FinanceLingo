@@ -1,5 +1,7 @@
 package com.financelingo.financelingo;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +17,8 @@ import java.util.ArrayList;
 public class TaxLesson extends AppCompatActivity {
 
     Taxes tax = new Taxes();
+    ArrayList<String> words = new ArrayList<>();
+    ArrayList<String> answers = new ArrayList<>();
 
     private ToggleButton option1, option2, option3, option4;
     private Button checkAnswer;
@@ -28,15 +32,14 @@ public class TaxLesson extends AppCompatActivity {
         setContentView(R.layout.taxes_lesson);
         qNum = 0;
         tax_prompt = findViewById(R.id.taxes_Text);
-        ArrayList<String> words = new ArrayList<>();
-        ArrayList<String> answers = new ArrayList<>();
         option1 = findViewById(R.id.taxes_button1);
         option2 = findViewById(R.id.taxes_button2);
         option3 = findViewById(R.id.taxes_button3);
         checkAnswer = findViewById(R.id.taxes_checkAnswer);
-        answers.add("contribution");
-        answers.add("support");
-        answers.add("government");
+
+        answers.add(tax.answers[qNum][0]);
+        answers.add(tax.answers[qNum][1]);
+        answers.add(tax.answers[qNum][2]);
 
         option1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,13 +71,12 @@ public class TaxLesson extends AppCompatActivity {
         option2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.println("qnum:" + qNum);
                 option2.toggle();
                 if(!b2){
                     words.add(tax.options[qNum][1]);
                     System.out.println("added1");
                     option2.setChecked(true);
-                    String prompt = tax_prompt.getText().toString().substring(0, tax_prompt.getText().toString().indexOf("____")) + tax.options[qNum][1] +
+                   ; String prompt = tax_prompt.getText().toString().substring(0, tax_prompt.getText().toString().indexOf("____")) + tax.options[qNum][1] +
                             tax_prompt.getText().toString().substring(tax_prompt.getText().toString().indexOf("____") + 4);
                     System.out.println("prompt changed 2");
                     tax_prompt.setText(prompt);
@@ -121,32 +123,55 @@ public class TaxLesson extends AppCompatActivity {
         checkAnswer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!words.equals(answers)) tax_prompt.setTextColor(Color.RED);
+                System.out.println("answers + : " + answers);
+                if(!words.equals(answers)){
+                    tax_prompt.setTextColor(Color.RED);
+                }
                 else {
                     tax_prompt.setTextColor(getResources().getColor(R.color.green));
-                    words.clear();
-                    qNum++;
-                    changeQuestion();
+                    next();
+                    option1.toggle();
+                    option2.toggle();
+                    option3.toggle();
+                    tax_prompt.setTextColor(getResources().getColor(R.color.white));
                 }
             }
         });
     }
 
-    public void changeQuestion(){
-        tax_prompt.setText(tax.prompts[qNum]);
-        option1.setTextOff(tax.options[qNum][0]);
-        option1.setTextOn(tax.options[qNum][0]);
-        option2.setTextOff(tax.options[qNum][1]);
-        option2.setTextOn(tax.options[qNum][1]);
-        option3.setTextOff(tax.options[qNum][2]);
-        option3.setTextOn(tax.options[qNum][2]);
-        b1 = !b1;
-        b2 = !b2;
-        b3 = !b3;
-        tax_prompt.setTextColor(getResources().getColor(R.color.white));
-        option1.toggle();
-        option2.toggle();
-        option3.toggle();
+    public void next(){
+        qNum++;
 
+        if(qNum == 4) switchActivities(TaxLesson.this, Lessons.class);
+        else {
+
+            b1 = !b1;
+            b2 = !b2;
+            b3 = !b3;
+
+            words.clear();
+            answers.clear();
+
+            tax_prompt.setText(tax.prompts[qNum]);
+
+            option1.setTextOff(tax.options[qNum][0]);
+            option1.setTextOn(tax.options[qNum][0]);
+
+            option2.setTextOff(tax.options[qNum][1]);
+            option2.setTextOn(tax.options[qNum][1]);
+
+            option3.setTextOff(tax.options[qNum][2]);
+            option3.setTextOn(tax.options[qNum][2]);
+
+            answers.add(tax.answers[qNum][0]);
+            answers.add(tax.answers[qNum][1]);
+            answers.add(tax.answers[qNum][2]);
+        }
+        System.out.println(qNum);
+    }
+
+    public void switchActivities(Context context, Class c){
+        Intent switchActivityIntent = new Intent (context, c);
+        startActivity(switchActivityIntent);
     }
 }
