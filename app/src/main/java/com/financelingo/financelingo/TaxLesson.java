@@ -9,7 +9,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.ToggleButton;
+
+import Global.Global;
 import Lessons.Taxes;
+import database.Database;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
@@ -17,6 +21,7 @@ import java.util.ArrayList;
 public class TaxLesson extends AppCompatActivity {
 
     Taxes tax = new Taxes();
+    Database db = new Database();
     ArrayList<String> words = new ArrayList<>();
     ArrayList<String> answers = new ArrayList<>();
 
@@ -25,6 +30,7 @@ public class TaxLesson extends AppCompatActivity {
     private boolean b1, b2, b3;
     private TextView tax_prompt;
     private int qNum;
+    int tax_score = Global.user.getQScore(Global.TAXES);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,6 +134,7 @@ public class TaxLesson extends AppCompatActivity {
                     tax_prompt.setTextColor(Color.RED);
                 }
                 else {
+                    Global.user.setQScore(Global.TAXES, ++tax_score);
                     tax_prompt.setTextColor(getResources().getColor(R.color.green));
                     next();
                     option1.toggle();
@@ -142,8 +149,10 @@ public class TaxLesson extends AppCompatActivity {
     public void next(){
         qNum++;
 
-        if(qNum == 4) switchActivities(TaxLesson.this, Lessons.class);
-        else {
+        if(qNum == 4){
+            db.updateScore(Global.TAXES);
+            switchActivities(TaxLesson.this, Lessons.class);
+        } else {
 
             b1 = !b1;
             b2 = !b2;
