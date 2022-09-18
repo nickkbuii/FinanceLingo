@@ -55,6 +55,9 @@
             android:name=".TaxLesson"
             android:exported="false"/>
         <activity
+            android:name=".TaxesReading"
+            android:exported="false"/>
+        <activity
             android:name=".Splash"
             android:exported="true">
             <intent-filter>

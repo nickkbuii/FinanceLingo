@@ -103,11 +103,6 @@ public class Lessons extends AppCompatActivity{
         switchActivities(Lessons.this, TaxesReading.class);
     }
 
-    //method that declares username
-    //public static void setUser(String username){ accName.setText(username); }
-
-
-
     //method to increment progress bar
     public void animateBar(ProgressBar bar, int amount, int barAmount){
         ValueAnimator animator = ValueAnimator.ofInt(barAmount, (barAmount+amount)*20);

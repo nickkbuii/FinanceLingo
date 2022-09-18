@@ -10,6 +10,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 import Lessons.Taxes;
+import database.Database;
+import Global.Global;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
@@ -17,16 +20,18 @@ import java.util.ArrayList;
 public class TaxLesson extends AppCompatActivity {
 
     Taxes tax = new Taxes();
+    Database db = new Database();
     ArrayList<String> words = new ArrayList<>();
     ArrayList<String> answers = new ArrayList<>();
     ArrayList<String> secondaryAnswers1 = new ArrayList<>();
     ArrayList<String> secondaryAnswers2 = new ArrayList<>();
 
-    private ToggleButton option1, option2, option3, option4;
+    private ToggleButton option1, option2, option3;
     private Button checkAnswer;
     private boolean b1, b2, b3;
     private TextView tax_prompt;
     private int qNum;
+    int score = Global.user.getQScore(Global.TAXES);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -136,6 +141,7 @@ public class TaxLesson extends AppCompatActivity {
                 System.out.println("answers + : " + answers);
                 if(words.equals(answers) || words.equals(secondaryAnswers1) || words.equals(secondaryAnswers2)){
                     tax_prompt.setTextColor(getResources().getColor(R.color.green));
+                    Global.user.setQScore(Global.TAXES, ++score);
                     next();
                     option1.toggle();
                     option2.toggle();
@@ -151,9 +157,10 @@ public class TaxLesson extends AppCompatActivity {
 
     public void next(){
         qNum++;
-
-        if(qNum == 5) switchActivities(TaxLesson.this, Lessons.class);
-        else {
+        if(qNum == 5){
+            db.updateScore(Global.TAXES);
+            switchActivities(TaxLesson.this, Lessons.class);
+        }else {
 
             b1 = !b1;
             b2 = !b2;
