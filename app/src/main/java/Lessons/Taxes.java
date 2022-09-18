@@ -18,6 +18,7 @@ public class Taxes {
             {"purchased", "income", "sales"},
             {"infrastructure", "services", "punishable"},
             {"total", "income", "state"},
+            {"purchase", "varies", "7%"},
             {"purchased", "sales", "income"},
             {"services", "infrastructure", "punishable"},
     };
@@ -27,6 +28,8 @@ public class Taxes {
             {"sales", "purchased", "income"},
             {"punishable", "services", "infrastructure"},
             {"state", "total", "income"},
+            {"purchase", "varies", "7%"}
+
     };
 
 

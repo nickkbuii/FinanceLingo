@@ -19,6 +19,8 @@ public class TaxLesson extends AppCompatActivity {
     Taxes tax = new Taxes();
     ArrayList<String> words = new ArrayList<>();
     ArrayList<String> answers = new ArrayList<>();
+    ArrayList<String> secondaryAnswers1 = new ArrayList<>();
+    ArrayList<String> secondaryAnswers2 = new ArrayList<>();
 
     private ToggleButton option1, option2, option3, option4;
     private Button checkAnswer;
@@ -40,6 +42,14 @@ public class TaxLesson extends AppCompatActivity {
         answers.add(tax.answers[qNum][0]);
         answers.add(tax.answers[qNum][1]);
         answers.add(tax.answers[qNum][2]);
+
+        secondaryAnswers1.add(tax.answers[5][0]);
+        secondaryAnswers1.add(tax.answers[5][1]);
+        secondaryAnswers1.add(tax.answers[5][2]);
+
+        secondaryAnswers2.add(tax.answers[6][0]);
+        secondaryAnswers2.add(tax.answers[6][1]);
+        secondaryAnswers2.add(tax.answers[6][2]);
 
         option1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,16 +134,16 @@ public class TaxLesson extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 System.out.println("answers + : " + answers);
-                if(!words.equals(answers)){
-                    tax_prompt.setTextColor(Color.RED);
-                }
-                else {
+                if(words.equals(answers) || words.equals(secondaryAnswers1) || words.equals(secondaryAnswers2)){
                     tax_prompt.setTextColor(getResources().getColor(R.color.green));
                     next();
                     option1.toggle();
                     option2.toggle();
                     option3.toggle();
                     tax_prompt.setTextColor(getResources().getColor(R.color.white));
+                }
+                else {
+                    tax_prompt.setTextColor(Color.RED);
                 }
             }
         });
@@ -142,7 +152,7 @@ public class TaxLesson extends AppCompatActivity {
     public void next(){
         qNum++;
 
-        if(qNum == 4) switchActivities(TaxLesson.this, Lessons.class);
+        if(qNum == 5) switchActivities(TaxLesson.this, Lessons.class);
         else {
 
             b1 = !b1;
