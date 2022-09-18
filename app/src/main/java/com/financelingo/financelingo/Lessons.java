@@ -21,6 +21,7 @@ public class Lessons extends AppCompatActivity{
     //retrieve score from user class
     private int budg_score = Global.user.getQScore(Global.BUDGETING);
     private int debt_score = Global.user.getQScore(Global.DEBT);
+    private int tax_score = Global.user.getQScore(Global.TAXES);
 
     //initialize account name text view
     private TextView accName;
@@ -28,10 +29,8 @@ public class Lessons extends AppCompatActivity{
     //initialize bar amount
     int budg_barAmount = 0;
     int debt_barAmount = 0;
+    int tax_barAmount = 0;
 
-    //initialize progress bar
-    ProgressBar budgetingProgressBar;
-    ProgressBar debtProgressBar;
     Database db;
 
     //@SuppressLint("WrongViewCast")
@@ -52,14 +51,15 @@ public class Lessons extends AppCompatActivity{
             accName.setText(db.getAuth().getCurrentUser().getDisplayName().toString().toUpperCase());
         }
 
-
-        //define progress bar view
-        budgetingProgressBar = findViewById(R.id.budgetingProgressBar);
-        debtProgressBar = findViewById(R.id.debtProgressBar);
+        ProgressBar budgetingProgressBar = findViewById(R.id.budgetingProgressBar);
+        ProgressBar debtProgressBar = findViewById(R.id.debtProgressBar);
+        ProgressBar taxProgressBar = findViewById(R.id.taxesProgressBar);
 
         //animate progress bar based on score
         animateBar(budgetingProgressBar, budg_score, budg_barAmount);
         animateBar(debtProgressBar, debt_score, debt_barAmount);
+        animateBar(taxProgressBar, tax_score, tax_barAmount);
+
     }
 
     //method that changes from lessons (home) class to the lesson class
