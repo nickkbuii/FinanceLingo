@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#685196"
+    tools:context=".BudgetingLesson">
+
+    <ImageView
+        android:id="@+id/MC_secondary_background"
+        android:layout_width="329dp"
+        android:layout_height="571dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.78"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.8"
+        app:srcCompat="@drawable/purple_square" />
+
+    <ImageView
+        android:id="@+id/pig"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="316dp"
+        android:textAlignment="center"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/financelingo_logo" />
+
+    <TextView
+        android:id="@+id/notify"
+        android:layout_width="184dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="512dp"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="35dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/createLogo" />
+
+    <Button
+        android:id="@+id/opt1"
+        android:layout_width="245dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="460dp"
+        android:background="@drawable/rounded_button"
+        android:checkable="false"
+        android:fontFamily="@font/roboto_light"
+        android:tag="incorrect"
+        android:text="Yes"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:backgroundTint="#FFFFFF"
+        app:iconTint="#00BCD4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/MC_secondary_background"
+        app:layout_constraintHeight_percent="0.08"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="@+id/MC_secondary_background"
+        app:layout_constraintWidth_percent="0.72" />
+
+    <Button
+        android:id="@+id/opt4"
+        android:layout_width="245dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="224dp"
+        android:background="@drawable/rounded_button"
+        android:checkable="false"
+        android:fontFamily="@font/roboto_light"
+        android:tag="correct"
+        android:text="No"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:backgroundTint="#FFFFFF"
+        app:iconTint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/MC_secondary_background"
+        app:layout_constraintHeight_percent="0.08"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="@+id/MC_secondary_background"
+        app:layout_constraintWidth_percent="0.72" />
+
+    <Button
+        android:id="@+id/opt2"
+        android:layout_width="245dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="384dp"
+        android:background="@drawable/rounded_button"
+        android:checkable="false"
+        android:fontFamily="@font/roboto_light"
+        android:paddingTop="1dp"
+        android:tag="incorrect"
+        android:text="Maybe"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:backgroundTint="#FFFFFF"
+        app:iconTint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/MC_secondary_background"
+        app:layout_constraintHeight_percent="0.08"
+        app:layout_constraintHorizontal_bias="0.419"
+        app:layout_constraintStart_toStartOf="@+id/MC_secondary_background"
+        app:layout_constraintWidth_percent="0.72" />
+
+    <Button
+        android:id="@+id/opt3"
+        android:layout_width="245dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="304dp"
+        android:background="@drawable/rounded_button"
+        android:checkable="false"
+        android:fontFamily="@font/roboto_light"
+        android:paddingTop="-1dp"
+        android:paddingBottom="2dp"
+        android:tag="incorrect"
+        android:text="Definitely"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:backgroundTint="#FFFFFF"
+        app:iconTint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/MC_secondary_background"
+        app:layout_constraintHeight_percent="0.08"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="@+id/MC_secondary_background"
+        app:layout_constraintWidth_percent="0.72" />
+
+    <TextView
+        android:id="@+id/debt_question"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="32dp"
+        android:fontFamily="@font/roboto_light"
+        android:text="Which of the following categories does your post-tax income fall into? "
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/opt1"
+        app:layout_constraintEnd_toEndOf="@+id/MC_secondary_background"
+        app:layout_constraintHeight_percent="0.12"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="@+id/MC_secondary_background"
+        app:layout_constraintTop_toTopOf="@+id/MC_secondary_background"
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintWidth_percent="0.72"
+        tools:visibility="visible" />
+
+    <ImageButton
+        android:id="@+id/debt_prog_5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/white_circle_button"
+        app:layout_constraintBottom_toTopOf="@+id/MC_secondary_background"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@+id/MC_secondary_background"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.1" />
+
+    <ImageButton
+        android:id="@+id/debt_prog_1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/white_circle_button"
+        app:layout_constraintBottom_toTopOf="@+id/MC_secondary_background"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toStartOf="@+id/MC_secondary_background"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.1" />
+
+    <ImageButton
+        android:id="@+id/debt_prog_4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/white_circle_button"
+        app:layout_constraintBottom_toTopOf="@+id/MC_secondary_background"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@+id/debt_prog_5"
+        app:layout_constraintStart_toEndOf="@+id/debt_prog_3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.1" />
+
+
+    <ImageButton
+        android:id="@+id/debt_prog_3"
+        android:layout_width="41dp"
+        android:layout_height="41dp"
+        android:background="@drawable/white_circle_button"
+        app:layout_constraintBottom_toTopOf="@+id/MC_secondary_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.1" />
+
+    <ImageButton
+        android:id="@+id/debt_prog_2"
+        android:layout_width="0dp"
+        android:layout_height="41dp"
+        android:background="@drawable/white_circle_button"
+        app:layout_constraintBottom_toTopOf="@+id/MC_secondary_background"
+        app:layout_constraintEnd_toStartOf="@+id/debt_prog_3"
+        app:layout_constraintStart_toEndOf="@+id/debt_prog_1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.1" />
+
+    <ImageView
+        android:id="@+id/debt_prog_4"
+        android:layout_width="250dp"
+        android:layout_height="329dp"
+        android:layout_marginStart="-60dp"
+        android:layout_marginBottom="-100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/pig_book" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
