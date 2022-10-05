@@ -230,6 +230,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/information_button"
+        android:onClick="toInvestReading"
         app:layout_constraintBottom_toBottomOf="@+id/investmentsProgressBar"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="@+id/investmentsProgressBar"

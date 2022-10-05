@@ -103,6 +103,10 @@ public class Lessons extends AppCompatActivity{
         switchActivities(Lessons.this, TaxesReading.class);
     }
 
+    public void toInvestReading(View view){
+        switchActivities(Lessons.this, InvestmentsReading.class);
+    }
+
     //method to increment progress bar
     public void animateBar(ProgressBar bar, int amount, int barAmount){
         ValueAnimator animator = ValueAnimator.ofInt(barAmount, (barAmount+amount)*20);

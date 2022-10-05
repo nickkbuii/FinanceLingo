@@ -58,6 +58,9 @@
             android:name=".TaxesReading"
             android:exported="false"/>
         <activity
+            android:name=".InvestmentsReading"
+            android:exported="false"/>
+        <activity
             android:name=".Splash"
             android:exported="true">
             <intent-filter>
