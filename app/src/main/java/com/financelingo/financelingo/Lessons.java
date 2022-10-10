@@ -22,6 +22,7 @@ public class Lessons extends AppCompatActivity{
     private int budg_score = Global.user.getQScore(Global.BUDGETING);
     private int debt_score = Global.user.getQScore(Global.DEBT);
     private int tax_score = Global.user.getQScore(Global.TAXES);
+    private int invest_score = Global.user.getQScore(Global.INVESTMENTS);
 
     //initialize account name text view
     private TextView accName;
@@ -30,6 +31,7 @@ public class Lessons extends AppCompatActivity{
     int budg_barAmount = 0;
     int debt_barAmount = 0;
     int tax_barAmount = 0;
+    int inv_barAmount = 0;
 
     Database db;
 
@@ -54,11 +56,13 @@ public class Lessons extends AppCompatActivity{
         ProgressBar budgetingProgressBar = findViewById(R.id.budgetingProgressBar);
         ProgressBar debtProgressBar = findViewById(R.id.debtProgressBar);
         ProgressBar taxProgressBar = findViewById(R.id.taxesProgressBar);
+        ProgressBar invProgressBar = findViewById(R.id.investmentsProgressBar);
 
         //animate progress bar based on score
         animateBar(budgetingProgressBar, budg_score, budg_barAmount);
         animateBar(debtProgressBar, debt_score, debt_barAmount);
         animateBar(taxProgressBar, tax_score, tax_barAmount);
+        animateBar(invProgressBar, invest_score, inv_barAmount);
 
     }
 
