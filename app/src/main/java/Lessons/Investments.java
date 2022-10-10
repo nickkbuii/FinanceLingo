@@ -2,11 +2,11 @@ package Lessons;
 
 public class Investments {
     public String[] prompts = {
-            "Investing is to purchase things that would hopefully yield profit",
-            "Investing is an effective way to build wealth despite inflation",
-            "3 investment methods include stocks, index funds, and real estate",
-            "When the value of your shares increase, so does your ownership in the company",
-            "Index funds are collections of shares from multiple different companies"
+            "Investing is to ____ ____ that would hopefully yield ____",
+            "Investing is an ____ way to build ____ despite ____",
+            "3 investment methods include ____, ____, and ____",
+            "When the ____ of your ____ increase, so does your ____ in the company",
+            "Index funds are ____ of shares from ____ different ____"
     };
 
     public String[][] answers = {
@@ -17,7 +17,7 @@ public class Investments {
             {"collections", "multiple", "companies"}
     };
 
-    public String[][] opts = {
+    public String[][] options = {
             {"things", "profit", "purchase"},
             {"inflation", "wealth", "effective"},
             {"stocks", "real estate", "index funds"},

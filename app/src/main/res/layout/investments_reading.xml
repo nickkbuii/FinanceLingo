@@ -7,6 +7,19 @@
     android:background="@drawable/purple"
     tools:context=".InvestmentsReading">
 
+    <Button
+        android:id="@+id/inv_nextPage"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:background="#00FFFFFF"
+        android:visibility="visible"
+        app:backgroundTint="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintWidth_percent="0.5" />
+
     <ImageView
         android:id="@+id/inv_greenSecondaryBack"
         android:layout_width="0dp"
@@ -61,7 +74,7 @@
     <TextView
         android:id="@+id/inv_ruleTitle"
         android:layout_width="242dp"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="120dp"
         android:layout_marginEnd="16dp"
@@ -76,19 +89,6 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/inv_nextPage"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:background="#00FFFFFF"
-        android:visibility="visible"
-        app:backgroundTint="#00FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:layout_constraintWidth_percent="0.5" />
 
     <Button
         android:id="@+id/inv_backPage"

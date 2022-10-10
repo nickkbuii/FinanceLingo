@@ -62,11 +62,9 @@ public class TaxLesson extends AppCompatActivity {
                 option1.toggle();
                 if(!b1){
                     words.add(tax.options[qNum][0]);
-                    System.out.println("added");
                     option1.setChecked(true);
                     String prompt = tax_prompt.getText().toString().substring(0, tax_prompt.getText().toString().indexOf("____")) + tax.options[qNum][0] +
                             tax_prompt.getText().toString().substring(tax_prompt.getText().toString().indexOf("____") + 4);
-                    System.out.println("prompt changed");
                     tax_prompt.setText(prompt);
                 }
                 else{
@@ -75,9 +73,7 @@ public class TaxLesson extends AppCompatActivity {
                     String undo = tax_prompt.getText().toString().substring(0, tax_prompt.getText().toString().indexOf(tax.options[qNum][0])) + "____" +
                             tax_prompt.getText().toString().substring(tax_prompt.getText().toString().indexOf(tax.options[qNum][0]) + tax.options[qNum][0].length());
                     tax_prompt.setText(undo);
-                    System.out.println("prompt changed1");
                 }
-                Log.d("poop", String.valueOf(words));
                 b1 = !b1;
             }
 
@@ -89,23 +85,18 @@ public class TaxLesson extends AppCompatActivity {
                 option2.toggle();
                 if(!b2){
                     words.add(tax.options[qNum][1]);
-                    System.out.println("added1");
                     option2.setChecked(true);
-                   ; String prompt = tax_prompt.getText().toString().substring(0, tax_prompt.getText().toString().indexOf("____")) + tax.options[qNum][1] +
+                    String prompt = tax_prompt.getText().toString().substring(0, tax_prompt.getText().toString().indexOf("____")) + tax.options[qNum][1] +
                             tax_prompt.getText().toString().substring(tax_prompt.getText().toString().indexOf("____") + 4);
-                    System.out.println("prompt changed 2");
                     tax_prompt.setText(prompt);
                 }
                 else{
                     words.remove(tax.options[qNum][1]);
-                    System.out.println("removed");
                     option2.setChecked(false);
                     String undo = tax_prompt.getText().toString().substring(0, tax_prompt.getText().toString().indexOf(tax.options[qNum][1])) + "____" +
                             tax_prompt.getText().toString().substring(tax_prompt.getText().toString().indexOf(tax.options[qNum][1]) + tax.options[qNum][1].length());
-                    System.out.println("prompt changed 3");
                     tax_prompt.setText(undo);
                 }
-                Log.d("poop", String.valueOf(words));
                 b2= !b2;
             }
 
@@ -138,7 +129,6 @@ public class TaxLesson extends AppCompatActivity {
         checkAnswer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.println("answers + : " + answers);
                 if(words.equals(answers) || words.equals(secondaryAnswers1) || words.equals(secondaryAnswers2)){
                     tax_prompt.setTextColor(getResources().getColor(R.color.green));
                     Global.user.setQScore(Global.TAXES, ++score);
@@ -184,7 +174,6 @@ public class TaxLesson extends AppCompatActivity {
             answers.add(tax.answers[qNum][1]);
             answers.add(tax.answers[qNum][2]);
         }
-        System.out.println(qNum);
     }
 
     public void switchActivities(Context context, Class c){
