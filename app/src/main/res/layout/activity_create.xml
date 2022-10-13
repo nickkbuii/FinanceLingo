@@ -22,12 +22,13 @@
 
     <TextView
         android:id="@+id/createTitle"
-        android:layout_width="114dp"
-        android:layout_height="47dp"
+        android:layout_width="102dp"
+        android:layout_height="43dp"
         android:layout_marginTop="112dp"
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/roboto_light"
         android:text="Create Account"
+        android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/user"

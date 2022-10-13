@@ -119,7 +119,7 @@
         android:id="@+id/tutorialText"
         android:layout_width="290dp"
         android:layout_height="379dp"
-        android:fontFamily="@font/roboto_light"
+        android:fontFamily="@font/sf_arch_rival_bold"
         android:text="temp"
         android:textColor="@color/black"
         android:textSize="22sp"
