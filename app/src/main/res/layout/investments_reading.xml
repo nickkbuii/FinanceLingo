@@ -104,4 +104,15 @@
         app:layout_constraintVertical_bias="1.0"
         app:layout_constraintWidth_percent="0.5" />
 
+    <Button
+        android:id="@+id/inv_r_home"
+        android:layout_width="56dp"
+        android:layout_height="61dp"
+        android:background="@drawable/home"
+        android:onClick="inv_r_toHome"
+        app:backgroundTint="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/home" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

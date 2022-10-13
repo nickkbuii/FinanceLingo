@@ -176,6 +176,10 @@ public class TaxLesson extends AppCompatActivity {
         }
     }
 
+    public void taxToHome(View v){
+        switchActivities(TaxLesson.this, Lessons.class);
+    }
+
     public void switchActivities(Context context, Class c){
         Intent switchActivityIntent = new Intent (context, c);
         startActivity(switchActivityIntent);

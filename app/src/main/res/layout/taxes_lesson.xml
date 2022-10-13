@@ -126,4 +126,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/pig_book" />
 
+    <ImageView
+        android:id="@+id/tax_home"
+        android:onClick="taxToHome"
+        android:layout_width="71dp"
+        android:layout_height="59dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/home" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

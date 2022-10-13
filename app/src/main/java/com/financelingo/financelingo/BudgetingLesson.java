@@ -184,6 +184,10 @@ public class BudgetingLesson extends AppCompatActivity {
         answer = budgeting.question.getCorrectAnswer(questionNumber);
     }
 
+    public void budgToHome(View v){
+        switchActivities(BudgetingLesson.this, Lessons.class);
+    }
+
     //method to switch classes
     public void switchActivities(Context context, Class c){
         Intent switchActivityIntent = new Intent (context, c);

@@ -229,4 +229,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/pig_book" />
 
+    <ImageView
+        android:id="@+id/budg_home"
+        android:layout_width="69dp"
+        android:layout_height="58dp"
+        android:onClick="budgToHome"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/home" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

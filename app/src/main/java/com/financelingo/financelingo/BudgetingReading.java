@@ -1,5 +1,7 @@
 package com.financelingo.financelingo;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -70,5 +72,14 @@ public class BudgetingReading extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void budg_r_toHome(View v){
+        switchActivities(BudgetingReading.this, Lessons.class);
+    }
+
+    public void switchActivities(Context context, Class c){
+        Intent switchActivityIntent = new Intent (context, c);
+        startActivity(switchActivityIntent);
     }
 }

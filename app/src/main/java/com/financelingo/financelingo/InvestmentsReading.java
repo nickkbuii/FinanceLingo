@@ -1,5 +1,7 @@
 package com.financelingo.financelingo;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -65,6 +67,15 @@ public class InvestmentsReading extends AppCompatActivity {
         bod.setText(curric.readings[pageNum][1]);
         title.setText(curric.readings[pageNum][0]);
         pic.setImageDrawable(getDrawable(curric.inv_pics[pageNum]));
+    }
+
+    public void inv_r_toHome(View v){
+        switchActivities(InvestmentsReading.this, Lessons.class);
+    }
+
+    public void switchActivities(Context context, Class c){
+        Intent switchActivityIntent = new Intent (context, c);
+        startActivity(switchActivityIntent);
     }
 
 }

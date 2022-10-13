@@ -143,6 +143,10 @@ public class DebtLesson extends AppCompatActivity {
         option3.setText(debt.options[debt_qNum][2]);
     }
 
+    public void debtToHome(View v){
+        switchActivities(DebtLesson.this, Lessons.class);
+    }
+
     public void switchActivities(Context context, Class c){
         Intent switchActivityIntent = new Intent (context, c);
         startActivity(switchActivityIntent);

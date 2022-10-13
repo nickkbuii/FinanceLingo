@@ -176,6 +176,10 @@ public class InvestmentsLesson extends AppCompatActivity {
         System.out.println(qNum);
     }
 
+    public void invToHome(View v){
+        switchActivities(InvestmentsLesson.this, Lessons.class);
+    }
+
     public void switchActivities(Context context, Class c){
         Intent switchActivityIntent = new Intent (context, c);
         startActivity(switchActivityIntent);

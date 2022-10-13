@@ -128,4 +128,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/pig_book" />
 
+    <ImageView
+        android:id="@+id/inv_home"
+        android:onClick="invToHome"
+        android:layout_width="71dp"
+        android:layout_height="68dp"
+        android:src="@drawable/home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
