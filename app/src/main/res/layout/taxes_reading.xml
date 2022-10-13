@@ -22,8 +22,9 @@
 
     <ImageView
         android:id="@+id/taxes_readingPic"
-        android:layout_width="233dp"
-        android:layout_height="215dp"
+        android:layout_width="260dp"
+        android:layout_height="276dp"
+        android:layout_marginTop="32dp"
         android:layout_marginBottom="156dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,8 +47,8 @@
 
     <TextView
         android:id="@+id/taxes_readingBody"
-        android:layout_width="302dp"
-        android:layout_height="204dp"
+        android:layout_width="307dp"
+        android:layout_height="149dp"
         android:fontFamily="@font/sf_arch_rival_bold"
         android:text="Body text goes here"
         android:textAlignment="center"
@@ -64,7 +65,7 @@
         android:layout_width="242dp"
         android:layout_height="60dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="240dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="24dp"
         android:fontFamily="@font/sf_arch_rival_bold"

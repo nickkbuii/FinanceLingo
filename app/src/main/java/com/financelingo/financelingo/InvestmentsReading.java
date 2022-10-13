@@ -64,7 +64,7 @@ public class InvestmentsReading extends AppCompatActivity {
         pgNum.setText(String.valueOf(pageNum+1));
         bod.setText(curric.readings[pageNum][1]);
         title.setText(curric.readings[pageNum][0]);
-        //set pic
+        pic.setImageDrawable(getDrawable(curric.inv_pics[pageNum]));
     }
 
 }
