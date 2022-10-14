@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
         final MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.hiphop);
         mediaPlayer.start();
+        mediaPlayer.setLooping(true);
     }
 
     //method to switch screens
