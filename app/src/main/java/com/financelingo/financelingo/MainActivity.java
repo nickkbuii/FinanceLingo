@@ -4,6 +4,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.widget.Button;
 import android.view.View;
@@ -62,6 +63,9 @@ public class MainActivity extends AppCompatActivity {
                 .requestEmail()
                 .build();
         gsc = GoogleSignIn.getClient(this, gso);
+
+        final MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.hiphop);
+        mediaPlayer.start();
     }
 
     //method to switch screens
