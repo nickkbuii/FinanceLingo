@@ -1,6 +1,7 @@
 package com.financelingo.financelingo;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 
@@ -13,6 +14,8 @@ public class Splash extends AppCompatActivity {
         //set view to splash screen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_screen);
+        final MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.chaching);
+        mediaPlayer.start();
         //keep splash for 3 seconds, then switch to main screen
         new Handler().postDelayed(new Runnable() {
             @Override
