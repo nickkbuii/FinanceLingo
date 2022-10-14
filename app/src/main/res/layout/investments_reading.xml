@@ -24,7 +24,7 @@
         android:id="@+id/inv_greenSecondaryBack"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/green"
+        android:background="@drawable/green_square"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.9"
