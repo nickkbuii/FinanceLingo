@@ -1,4 +1,4 @@
-# FinanceLingo: A Beginner-friendly Financial Education App
+# FinanceLingo: A Financial Education Android App
 #### By: Nicholas Bui (@nickkbuii), Kyle Carbonell (@kylecarbonell), Brendan Lieu (@brelieu05), and Khush Ghandi (@khushgandhi8)
 #### 2022 Congressional App Challenge | CA-17 (Ro Khanna) | Earned the Certificate of Special Congressional Recognition
 
