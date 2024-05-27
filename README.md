@@ -7,6 +7,5 @@ FinanceLingo is an Android app created using Java, XML, and Google Firebase. Imm
 
 Pitch: https://vimeo.com/764858119
 
-<p align="center">
-  <img src="https://nickkbuii.github.io/fl_img.png">
-</p>
+![image](https://github.com/nickkbuii/FinanceLingo/assets/99931821/29e04f29-89b1-455f-b23e-f754cabd4f20)
+
